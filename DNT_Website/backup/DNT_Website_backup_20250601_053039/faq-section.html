@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Contact - Digital Nomads Taiwan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .font-barlow { font-family: 'Barlow', sans-serif; }
+        .font-noto { font-family: 'Noto Sans TC', sans-serif; }
+        .brand-red { color: #FF7373; }
+        .brand-blue { color: #739FE8; }
+        .bg-brand-red { background-color: #FF7373; }
+        .bg-brand-blue { background-color: #739FE8; }
+        .border-brand-red { border-color: #FF7373; }
+        .border-brand-blue { border-color: #739FE8; }
+        .wave-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7373' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .faq-item { transition: all 0.3s ease; }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-content.open { max-height: 500px; }
+        .search-highlight { background-color: #FFE066; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-barlow">
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 via-white to-red-50 wave-pattern">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-en="Frequently Asked Questions" data-zh="常見問題">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-en="Find answers to common questions about joining our digital nomad community" data-zh="找到關於加入我們數位遊牧社群的常見問題答案">
+                    Find answers to common questions about joining our digital nomad community
+                </p>
+            </div>
+
+            <!-- Language Toggle -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-white rounded-full p-1 shadow-lg border border-gray-200">
+                    <button id="faq-lang-en" class="px-6 py-2 rounded-full font-medium transition-all duration-300 bg-brand-blue text-white">
+                        English
+                    </button>
+                    <button id="faq-lang-zh" class="px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:text-brand-blue">
+                        中文
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="faq-search" 
+                           class="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-full focus:border-brand-blue focus:outline-none transition-all duration-300"
+                           data-placeholder-en="Search FAQ..." 
+                           data-placeholder-zh="搜尋常見問題..."
+                           placeholder="Search FAQ...">
+                    <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="max-w-4xl mx-auto space-y-4" id="faq-container">
+                <!-- Application Process -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="What is the application process and what are the requirements?" 
+                            data-zh="申請流程是什麼？有哪些要求？">
+                            What is the application process and what are the requirements?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="Our application process is simple: 1) Submit your application through our website, 2) Complete a brief interview, 3) Join our onboarding program. We look for passionate individuals who share our values of meaningful connection, value exchange, sustainable growth, and dual value creation. No specific educational background is required - we value diverse experiences and perspectives." 
+                           data-zh="我們的申請流程很簡單：1) 透過我們的網站提交申請，2) 完成簡短面試，3) 參加我們的入職計畫。我們尋找充滿熱忱、認同我們深度連結、價值交換、可持續發展和雙層價值創造理念的人才。不需要特定教育背景 - 我們重視多元經驗和觀點。">
+                            Our application process is simple: 1) Submit your application through our website, 2) Complete a brief interview, 3) Join our onboarding program. We look for passionate individuals who share our values of meaningful connection, value exchange, sustainable growth, and dual value creation. No specific educational background is required - we value diverse experiences and perspectives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Time Commitment -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="What are the time commitment expectations?" 
+                            data-zh="時間投入的期望是什麼？">
+                            What are the time commitment expectations?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="Time commitment varies by role and growth tier. Helpers typically contribute 5-10 hours per week, Team Members 10-20 hours, Core Team 20-30 hours, and Organizers 30+ hours. We understand that digital nomads value flexibility, so we focus on results rather than rigid schedules. All commitments are discussed and agreed upon during the application process." 
+                           data-zh="時間投入因角色和成長層級而異。助手通常每週貢獻5-10小時，團隊成員10-20小時，核心團隊20-30小時，組織者30小時以上。我們理解數位遊牧者重視彈性，因此我們專注於結果而非僵化的時間表。所有承諾都會在申請過程中討論並達成共識。">
+                            Time commitment varies by role and growth tier. Helpers typically contribute 5-10 hours per week, Team Members 10-20 hours, Core Team 20-30 hours, and Organizers 30+ hours. We understand that digital nomads value flexibility, so we focus on results rather than rigid schedules. All commitments are discussed and agreed upon during the application process.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Compensation -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="How does the compensation structure and profit sharing work?" 
+                            data-zh="薪酬結構和利潤分享是如何運作的？">
+                            How does the compensation structure and profit sharing work?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="We believe in fair value exchange. Helpers start with experience and skill development opportunities. Team Members receive project-based compensation. Core Team members get monthly stipends plus profit sharing. Organizers receive full compensation packages including salary, profit sharing, and equity opportunities. All compensation is transparent and tied to value creation and community impact." 
+                           data-zh="我們相信公平的價值交換。助手從經驗和技能發展機會開始。團隊成員獲得基於專案的報酬。核心團隊成員獲得月度津貼加利潤分享。組織者獲得完整的薪酬套餐，包括薪資、利潤分享和股權機會。所有薪酬都是透明的，與價值創造和社群影響掛鉤。">
+                            We believe in fair value exchange. Helpers start with experience and skill development opportunities. Team Members receive project-based compensation. Core Team members get monthly stipends plus profit sharing. Organizers receive full compensation packages including salary, profit sharing, and equity opportunities. All compensation is transparent and tied to value creation and community impact.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Growth Opportunities -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="What growth opportunities and progression paths are available?" 
+                            data-zh="有哪些成長機會和晉升路徑？">
+                            What growth opportunities and progression paths are available?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="Our 4-tier growth system provides clear progression: Helper → Team Member → Core Team → Organizer. Each tier offers increasing responsibility, compensation, and impact. We provide mentorship, skill development workshops, leadership training, and cross-functional project opportunities. Growth is based on contribution, impact, and alignment with our values rather than just time served." 
+                           data-zh="我們的4層成長系統提供清晰的晉升路徑：助手 → 團隊成員 → 核心團隊 → 組織者。每個層級都提供更多責任、薪酬和影響力。我們提供導師制、技能發展工作坊、領導力培訓和跨職能專案機會。成長基於貢獻、影響力和價值觀契合度，而非僅僅是服務時間。">
+                            Our 4-tier growth system provides clear progression: Helper → Team Member → Core Team → Organizer. Each tier offers increasing responsibility, compensation, and impact. We provide mentorship, skill development workshops, leadership training, and cross-functional project opportunities. Growth is based on contribution, impact, and alignment with our values rather than just time served.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Language Requirements -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="What are the language requirements for English and Mandarin?" 
+                            data-zh="英語和中文的語言要求是什麼？">
+                            What are the language requirements for English and Mandarin?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="English proficiency is required for most roles as we operate internationally. Mandarin is highly valued but not always required - it depends on the specific role and responsibilities. We welcome team members who are learning either language and provide language exchange opportunities within our community. Cultural bridge-building is more important than perfect fluency." 
+                           data-zh="由於我們在國際上運營，大多數角色都需要英語能力。中文非常有價值但不總是必需的 - 這取決於具體角色和職責。我們歡迎正在學習任一語言的團隊成員，並在社群內提供語言交換機會。文化橋樑建設比完美的流利度更重要。">
+                            English proficiency is required for most roles as we operate internationally. Mandarin is highly valued but not always required - it depends on the specific role and responsibilities. We welcome team members who are learning either language and provide language exchange opportunities within our community. Cultural bridge-building is more important than perfect fluency.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Remote vs In-person -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="How do remote vs in-person work arrangements work?" 
+                            data-zh="遠距與實體工作安排是如何運作的？">
+                            How do remote vs in-person work arrangements work?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="We embrace the digital nomad lifestyle with flexible work arrangements. Most work can be done remotely, but we also organize regular in-person events, workshops, and co-working sessions in Taiwan. Team members are encouraged to attend when possible, but remote participation is always supported. We use digital tools to maintain strong connections regardless of location." 
+                           data-zh="我們擁抱數位遊牧生活方式，提供彈性工作安排。大部分工作都可以遠距完成，但我們也在台灣定期組織實體活動、工作坊和共同工作聚會。鼓勵團隊成員盡可能參加，但始終支持遠距參與。我們使用數位工具來維持強大的聯繫，無論身在何處。">
+                            We embrace the digital nomad lifestyle with flexible work arrangements. Most work can be done remotely, but we also organize regular in-person events, workshops, and co-working sessions in Taiwan. Team members are encouraged to attend when possible, but remote participation is always supported. We use digital tools to maintain strong connections regardless of location.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Training and Mentorship -->
+                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-300">
+                        <h3 class="text-xl font-semibold text-gray-900" 
+                            data-en="What training and mentorship programs are available?" 
+                            data-zh="有哪些培訓和導師計畫？">
+                            What training and mentorship programs are available?
+                        </h3>
+                        <svg class="faq-icon w-6 h-6 text-brand-blue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed" 
+                           data-en="Every new team member is paired with an experienced mentor. We offer comprehensive onboarding, regular skill-building workshops, leadership development programs, and access to online learning resources. Our mentorship program focuses on both professional growth and personal development, helping you navigate the digital nomad lifestyle while building valuable skills." 
+                           data-zh="每位新團隊成員都會配對一位經驗豐富的導師。我們提供全面的入職培訓、定期技能建設工作坊、領導力發展計畫，以及線上學習資源的使用權。我們的導師計畫專注於專業成長和個人發展，幫助您在建立寶貴技能的同時駕馭數位遊牧生活方式。">
+                            Every new team member is paired with an experienced mentor. We offer comprehensive onboarding, regular skill-building workshops, leadership development programs, and access to online learning resources. Our mentorship program focuses on both professional growth and personal development, helping you navigate the digital nomad lifestyle while building valuable skills.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gradient-to-br from-red-50 to-blue-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-en="Get in Touch" data-zh="聯繫我們">
+                    Get in Touch
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-en="Ready to join our community? Have questions? We'd love to hear from you!" data-zh="準備加入我們的社群？有問題嗎？我們很樂意聽到您的聲音！">
+                    Ready to join our community? Have questions? We'd love to hear from you!
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6" data-en="Contact Information" data-zh="聯繫資訊">
+                        Contact Information
+                    </h3>
+                    
+                    <!-- Email -->
+                    <div class="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-brand-red bg-opacity-10 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-en="Email" data-zh="電子郵件">Email</h4>
+                            <a href="mailto:contact@digitalnomadstaiwan.com" class="brand-blue hover:underline">
+                                contact@digitalnomadstaiwan.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-brand-blue bg-opacity-10 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 brand-blue" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.864 3.708 13.713 3.708 12.416s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.275c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.608c-.807 0-1.418-.612-1.418-1.418s.612-1.418 1.418-1.418 1.418.612 1.418 1.418-.611 1.418-1.418 1.418zm0 0"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-en="Instagram" data-zh="Instagram">Instagram</h4>
+                            <a href="https://instagram.com/digitalnomadstaiwan" class="brand-blue hover:underline">
+                                @digitalnomadstaiwan
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Founder -->
+                    <div class="flex items-center space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-brand-red bg-opacity-10 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-en="Founder" data-zh="創辦人">Founder</h4>
+                            <a href="https://instagram.com/hahaharrywang" class="brand-blue hover:underline">
+                                Harry Wang (@hahaharrywang)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6" data-en="Send us a Message" data-zh="發送訊息給我們">
+                        Send us a Message
+                    </h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Name" data-zh="姓名">Name</label>
+                            <input type="text" id="name" required 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-blue focus:outline-none transition-all duration-300"
+                                   data-placeholder-en="Your full name" 
+                                   data-placeholder-zh="您的全名"
+                                   placeholder="Your full name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Email" data-zh="電子郵件">Email</label>
+                            <input type="email" id="email" required 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-blue focus:outline-none transition-all duration-300"
+                                   data-placeholder-en="your.email@example.com" 
+                                   data-placeholder-zh="your.email@example.com"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Subject" data-zh="主題">Subject</label>
+                            <select id="subject" required 
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-blue focus:outline-none transition-all duration-300">
+                                <option value="" data-en="Select a topic" data-zh="選擇主題">Select a topic</option>
+                                <option value="application" data-en="Application Inquiry" data-zh="申請諮詢">Application Inquiry</option>
+                                <option value="partnership" data-en="Partnership" data-zh="合作夥伴">Partnership</option>
+                                <option value="general" data-en="General Question" data-zh="一般問題">General Question</option>
+                                <option value="feedback" data-en="Feedback" data-zh="意見回饋">Feedback</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Message" data-zh="訊息">Message</label>
+                            <textarea id="message" rows="5" required 
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-blue focus:outline-none transition-all duration-300 resize-none"
+                                      data-placeholder-en="Tell us about yourself and how you'd like to get involved..." 
+                                      data-placeholder-zh="告訴我們關於您自己以及您希望如何參與..."
+                                      placeholder="Tell us about yourself and how you'd like to get involved..."></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-brand-blue text-white font-semibold py-4 px-6 rounded-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <span data-en="Send Message" data-zh="發送訊息">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Language switching functionality
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update language buttons
+            const enBtn = document.getElementById('faq-lang-en');
+            const zhBtn = document.getElementById('faq-lang-zh');
+            
+            if (lang === 'en') {
+                enBtn.className = 'px-6 py-2 rounded-full font-medium transition-all duration-300 bg-brand-blue text-white';
+                zhBtn.className = 'px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:text-brand-blue';
+            } else {
+                zhBtn.className = 'px-6 py-2 rounded-full font-medium transition-all duration-300 bg-brand-blue text-white';
+                enBtn.className = 'px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:text-brand-blue';
+            }
+            
+            // Update all text content
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const enText = element.getAttribute('data-en');
+                const zhText = element.getAttribute('data-zh');
+                element.textContent = lang === 'en' ? enText : zhText;
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-placeholder-en]').forEach(element => {
+                const enPlaceholder = element.getAttribute('data-placeholder-en');
+                const zhPlaceholder = element.getAttribute('data-placeholder-zh');
+                element.placeholder = lang === 'en' ? enPlaceholder : zhPlaceholder;
+            });
+            
+            // Update font family
+            document.body.className = lang === 'en' ? 'font-barlow' : 'font-noto';
+        }
+        
+        // FAQ functionality
+        function initFAQ() {
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const faqItem = toggle.parentElement;
+                    const content = faqItem.querySelector('.faq-content');
+                    const icon = toggle.querySelector('.faq-icon');
+                    
+                    // Close other open items
+                    faqToggles.forEach(otherToggle => {
+                        if (otherToggle !== toggle) {
+                            const otherItem = otherToggle.parentElement;
+                            const otherContent = otherItem.querySelector('.faq-content');
+                            const otherIcon = otherToggle.querySelector('.faq-icon');
+                            
+                            otherContent.classList.remove('open');
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (content.classList.contains('open')) {
+                        content.classList.remove('open');
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.classList.add('open');
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        }
+        
+        // Search functionality
+        function initSearch() {
+            const searchInput = document.getElementById('faq-search');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('h3').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-content p').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        
+                        // Highlight search terms
+                        if (searchTerm) {
+                            highlightText(item, searchTerm);
+                        } else {
+                            removeHighlight(item);
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        function highlightText(element, searchTerm) {
+            const textElements = element.querySelectorAll('h3, .faq-content p');
+            textElements.forEach(el => {
+                const text = el.textContent;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                el.innerHTML = text.replace(regex, '<span class="search-highlight">$1</span>');
+            });
+        }
+        
+        function removeHighlight(element) {
+            const highlighted = element.querySelectorAll('.search-highlight');
+            highlighted.forEach(span => {
+                span.outerHTML = span.textContent;
+            });
+        }
+        
+        // Contact form functionality
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Simple validation
+                if (!data.name || !data.email || !data.subject || !data.message) {
+                    alert(currentLang === 'en' ? 'Please fill in all fields.' : '請填寫所有欄位。');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.querySelector('span').textContent;
+                
+                submitBtn.querySelector('span').textContent = currentLang === 'en' ? 'Sending...' : '發送中...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert(currentLang === 'en' ? 'Message sent successfully!' : '訊息發送成功！');
+                    form.reset();
+                    submitBtn.querySelector('span').textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language switching
+            document.getElementById('faq-lang-en').addEventListener('click', () => switchLanguage('en'));
+            document.getElementById('faq-lang-zh').addEventListener('click', () => switchLanguage('zh'));
+            
+            // Initialize components
+            initFAQ();
+            initSearch();
+            initContactForm();
+        });
+    </script>
+</body>
+</html> 

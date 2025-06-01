@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Journey - DigitalNomadsTaiwan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#DC2626',
+                        'brand-blue': '#2563EB',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'chinese': ['Noto Sans TC', 'PingFang TC', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'brand': '12px',
+                        'brand-lg': '16px',
+                        'brand-xl': '20px',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                        'brand': '0 10px 25px -3px rgba(220, 38, 38, 0.1)',
+                        'glow': '0 0 20px rgba(220, 38, 38, 0.3)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-gentle': 'bounce 2s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.4s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .english-text { font-family: 'Inter', system-ui, sans-serif; }
+        .chinese-text { font-family: 'Noto Sans TC', sans-serif; }
+        
+        .tier-card {
+            @apply relative bg-white rounded-brand-xl p-6 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-200 cursor-pointer transform hover:scale-105 hover:-translate-y-2;
+        }
+        
+        .tier-card.active {
+            @apply shadow-glow border-brand-red;
+        }
+        
+        .progress-line {
+            @apply absolute top-1/2 left-full w-full h-1 bg-gradient-to-r from-neutral-300 to-neutral-200 transform -translate-y-1/2;
+        }
+        
+        .progress-line.completed {
+            @apply from-brand-red to-red-400;
+        }
+        
+        .tier-icon {
+            @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-300;
+        }
+        
+        .modal-backdrop {
+            @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300;
+        }
+        
+        .modal-backdrop.active {
+            @apply opacity-100 pointer-events-auto;
+        }
+        
+        .modal-content {
+            @apply bg-white rounded-brand-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-90 transition-transform duration-300;
+        }
+        
+        .modal-backdrop.active .modal-content {
+            @apply scale-100;
+        }
+        
+        .benefit-item {
+            @apply flex items-start space-x-3 p-3 rounded-brand bg-neutral-50 hover:bg-neutral-100 transition-colors duration-200;
+        }
+        
+        .requirement-item {
+            @apply flex items-start space-x-3 p-3 rounded-brand bg-blue-50 hover:bg-blue-100 transition-colors duration-200;
+        }
+        
+        @media (max-width: 768px) {
+            .progress-line {
+                @apply top-full left-1/2 w-1 h-full transform -translate-x-1/2 translate-y-0;
+                background: linear-gradient(to bottom, #d1d5db, #e5e7eb);
+            }
+            
+            .progress-line.completed {
+                background: linear-gradient(to bottom, #DC2626, #f87171);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gradient-to-br from-neutral-50 via-white to-blue-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-soft transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="preview.html" class="block">
+                        <img src="asset/Logo.png" alt="DigitalNomadsTaiwan" class="h-8 lg:h-10 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="preview.html#hero" class="nav-link english-text" data-en="Home" data-zh="首頁">Home</a>
+                    <a href="preview.html#about-us" class="nav-link english-text" data-en="About Us" data-zh="關於我們">About Us</a>
+                    <a href="preview.html#event-highlight" class="nav-link english-text" data-en="Event" data-zh="活動">Event</a>
+                    <a href="preview.html#roadmap" class="nav-link english-text" data-en="Road Map" data-zh="發展路線圖">Road Map</a>
+                    <a href="join-us.html" class="nav-link english-text" data-en="Join Us" data-zh="加入我們">Join Us</a>
+                    <a href="preview.html#footer" class="nav-link english-text" data-en="Contact" data-zh="聯絡我們">Contact</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-2 px-3 py-2 rounded-brand bg-neutral-100 hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105">
+                        <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 919-9m-9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 919-9"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-neutral-700" id="lang-toggle">中文</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-brand bg-neutral-100 hover:bg-neutral-200 transition-all duration-300">
+                        <svg id="menu-icon" class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 text-neutral-600 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200 shadow-soft hidden">
+            <div class="max-w-7xl mx-auto px-4 py-6">
+                <nav class="flex flex-col space-y-4">
+                    <a href="preview.html#hero" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Home" data-zh="首頁" onclick="closeMobileMenu()">Home</a>
+                    <a href="preview.html#about-us" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="About Us" data-zh="關於我們" onclick="closeMobileMenu()">About Us</a>
+                    <a href="preview.html#event-highlight" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Event" data-zh="活動" onclick="closeMobileMenu()">Event</a>
+                    <a href="preview.html#roadmap" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Road Map" data-zh="發展路線圖" onclick="closeMobileMenu()">Road Map</a>
+                    <a href="join-us.html" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Join Us" data-zh="加入我們" onclick="closeMobileMenu()">Join Us</a>
+                    <a href="preview.html#footer" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Contact" data-zh="聯絡我們" onclick="closeMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Growth Journey Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text animate-slide-up" 
+                    data-en="Your Growth Journey" 
+                    data-zh="您的成長之路">
+                    Your Growth Journey
+                </h2>
+                <p class="text-lg sm:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed english-text animate-slide-up" 
+                   data-en="Progress through our 4-tier system and unlock new opportunities, responsibilities, and rewards as you grow with our community" 
+                   data-zh="透過我們的四階段系統成長，隨著您在社群中的發展，解鎖新的機會、責任和獎勵">
+                    Progress through our 4-tier system and unlock new opportunities, responsibilities, and rewards as you grow with our community
+                </p>
+            </div>
+
+            <!-- Journey Timeline -->
+            <div class="relative">
+                <!-- Desktop Horizontal Layout -->
+                <div class="hidden md:block">
+                    <div class="grid grid-cols-4 gap-8 relative">
+                        <!-- Connecting Lines -->
+                        <div class="absolute top-1/2 left-0 right-0 h-1 bg-neutral-200 transform -translate-y-1/2 z-0">
+                            <div id="progress-bar" class="h-full bg-gradient-to-r from-brand-red to-red-400 transition-all duration-1000 ease-out" style="width: 0%"></div>
+                        </div>
+                        
+                        <!-- Tier Cards -->
+                        <div class="tier-card group z-10" data-tier="1" onclick="openModal(1)">
+                            <div class="text-center">
+                                <div class="tier-icon bg-green-100 text-green-600 mx-auto mb-4 group-hover:bg-green-200 group-hover:scale-110">
+                                    🌱
+                                </div>
+                                <h3 class="text-lg font-bold text-neutral-900 mb-2 english-text group-hover:text-brand-red transition-colors" 
+                                    data-en="Helper" data-zh="學習者">Helper</h3>
+                                <p class="text-sm text-neutral-600 english-text" 
+                                   data-en="Entry Level" data-zh="入門級">Entry Level</p>
+                                <div class="mt-4 text-xs text-neutral-500 english-text" 
+                                     data-en="Click to learn more" data-zh="點擊了解更多">Click to learn more</div>
+                            </div>
+                        </div>
+
+                        <div class="tier-card group z-10" data-tier="2" onclick="openModal(2)">
+                            <div class="text-center">
+                                <div class="tier-icon bg-blue-100 text-blue-600 mx-auto mb-4 group-hover:bg-blue-200 group-hover:scale-110">
+                                    🎯
+                                </div>
+                                <h3 class="text-lg font-bold text-neutral-900 mb-2 english-text group-hover:text-brand-red transition-colors" 
+                                    data-en="Team Member" data-zh="角色專家">Team Member</h3>
+                                <p class="text-sm text-neutral-600 english-text" 
+                                   data-en="Role Expertise" data-zh="角色專精">Role Expertise</p>
+                                <div class="mt-4 text-xs text-neutral-500 english-text" 
+                                     data-en="Click to learn more" data-zh="點擊了解更多">Click to learn more</div>
+                            </div>
+                        </div>
+
+                        <div class="tier-card group z-10" data-tier="3" onclick="openModal(3)">
+                            <div class="text-center">
+                                <div class="tier-icon bg-purple-100 text-purple-600 mx-auto mb-4 group-hover:bg-purple-200 group-hover:scale-110">
+                                    ⭐
+                                </div>
+                                <h3 class="text-lg font-bold text-neutral-900 mb-2 english-text group-hover:text-brand-red transition-colors" 
+                                    data-en="Core Team" data-zh="多技能貢獻者">Core Team</h3>
+                                <p class="text-sm text-neutral-600 english-text" 
+                                   data-en="Multi-skilled" data-zh="多技能">Multi-skilled</p>
+                                <div class="mt-4 text-xs text-neutral-500 english-text" 
+                                     data-en="Click to learn more" data-zh="點擊了解更多">Click to learn more</div>
+                            </div>
+                        </div>
+
+                        <div class="tier-card group z-10" data-tier="4" onclick="openModal(4)">
+                            <div class="text-center">
+                                <div class="tier-icon bg-red-100 text-red-600 mx-auto mb-4 group-hover:bg-red-200 group-hover:scale-110">
+                                    👑
+                                </div>
+                                <h3 class="text-lg font-bold text-neutral-900 mb-2 english-text group-hover:text-brand-red transition-colors" 
+                                    data-en="Organizer" data-zh="領導團隊">Organizer</h3>
+                                <p class="text-sm text-neutral-600 english-text" 
+                                   data-en="Leadership" data-zh="領導">Leadership</p>
+                                <div class="mt-4 text-xs text-neutral-500 english-text" 
+                                     data-en="Click to learn more" data-zh="點擊了解更多">Click to learn more</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Vertical Layout -->
+                <div class="md:hidden space-y-8">
+                    <div class="relative">
+                        <!-- Vertical Progress Line -->
+                        <div class="absolute left-8 top-0 bottom-0 w-1 bg-neutral-200">
+                            <div id="mobile-progress-bar" class="w-full bg-gradient-to-b from-brand-red to-red-400 transition-all duration-1000 ease-out" style="height: 0%"></div>
+                        </div>
+                        
+                        <!-- Mobile Tier Cards -->
+                        <div class="space-y-8">
+                            <div class="tier-card ml-20 group" data-tier="1" onclick="openModal(1)">
+                                <div class="flex items-center space-x-4">
+                                    <div class="tier-icon bg-green-100 text-green-600 group-hover:bg-green-200 group-hover:scale-110 flex-shrink-0">
+                                        🌱
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-lg font-bold text-neutral-900 mb-1 english-text group-hover:text-brand-red transition-colors" 
+                                            data-en="Helper" data-zh="學習者">Helper</h3>
+                                        <p class="text-sm text-neutral-600 english-text" 
+                                           data-en="Entry Level" data-zh="入門級">Entry Level</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tier-card ml-20 group" data-tier="2" onclick="openModal(2)">
+                                <div class="flex items-center space-x-4">
+                                    <div class="tier-icon bg-blue-100 text-blue-600 group-hover:bg-blue-200 group-hover:scale-110 flex-shrink-0">
+                                        🎯
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-lg font-bold text-neutral-900 mb-1 english-text group-hover:text-brand-red transition-colors" 
+                                            data-en="Team Member" data-zh="角色專家">Team Member</h3>
+                                        <p class="text-sm text-neutral-600 english-text" 
+                                           data-en="Role Expertise" data-zh="角色專精">Role Expertise</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tier-card ml-20 group" data-tier="3" onclick="openModal(3)">
+                                <div class="flex items-center space-x-4">
+                                    <div class="tier-icon bg-purple-100 text-purple-600 group-hover:bg-purple-200 group-hover:scale-110 flex-shrink-0">
+                                        ⭐
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-lg font-bold text-neutral-900 mb-1 english-text group-hover:text-brand-red transition-colors" 
+                                            data-en="Core Team" data-zh="多技能貢獻者">Core Team</h3>
+                                        <p class="text-sm text-neutral-600 english-text" 
+                                           data-en="Multi-skilled" data-zh="多技能">Multi-skilled</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tier-card ml-20 group" data-tier="4" onclick="openModal(4)">
+                                <div class="flex items-center space-x-4">
+                                    <div class="tier-icon bg-red-100 text-red-600 group-hover:bg-red-200 group-hover:scale-110 flex-shrink-0">
+                                        👑
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-lg font-bold text-neutral-900 mb-1 english-text group-hover:text-brand-red transition-colors" 
+                                            data-en="Organizer" data-zh="領導團隊">Organizer</h3>
+                                        <p class="text-sm text-neutral-600 english-text" 
+                                           data-en="Leadership" data-zh="領導">Leadership</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Simulation Controls -->
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center space-x-4 bg-white rounded-brand-lg p-4 shadow-soft">
+                    <span class="text-sm font-medium text-neutral-700 english-text" 
+                          data-en="Simulate Progress:" data-zh="模擬進度：">Simulate Progress:</span>
+                    <button onclick="setProgress(0)" class="px-3 py-1 text-xs bg-neutral-100 hover:bg-neutral-200 rounded-brand transition-colors english-text" 
+                            data-en="Start" data-zh="開始">Start</button>
+                    <button onclick="setProgress(25)" class="px-3 py-1 text-xs bg-green-100 hover:bg-green-200 rounded-brand transition-colors english-text" 
+                            data-en="Helper" data-zh="學習者">Helper</button>
+                    <button onclick="setProgress(50)" class="px-3 py-1 text-xs bg-blue-100 hover:bg-blue-200 rounded-brand transition-colors english-text" 
+                            data-en="Team Member" data-zh="角色專家">Team Member</button>
+                    <button onclick="setProgress(75)" class="px-3 py-1 text-xs bg-purple-100 hover:bg-purple-200 rounded-brand transition-colors english-text" 
+                            data-en="Core Team" data-zh="多技能貢獻者">Core Team</button>
+                    <button onclick="setProgress(100)" class="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 rounded-brand transition-colors english-text" 
+                            data-en="Organizer" data-zh="領導團隊">Organizer</button>
+                </div>
+            </div>
+
+            <!-- Language Toggle -->
+            <div class="fixed top-4 right-4 z-50">
+                <button onclick="toggleLanguage()" class="flex items-center space-x-2 px-3 py-2 rounded-brand bg-white shadow-soft hover:shadow-brand transition-all duration-300">
+                    <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 919-9m-9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 919-9"></path>
+                    </svg>
+                    <span class="text-sm font-medium text-neutral-700" id="lang-toggle">中文</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="p-6 lg:p-8">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div id="modal-icon" class="tier-icon bg-green-100 text-green-600">🌱</div>
+                        <div>
+                            <h3 id="modal-title" class="text-2xl font-bold text-neutral-900 english-text">Helper</h3>
+                            <p id="modal-subtitle" class="text-neutral-600 english-text">Entry Level</p>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" class="p-2 hover:bg-neutral-100 rounded-brand transition-colors">
+                        <svg class="w-6 h-6 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="space-y-8">
+                    <!-- Description -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" 
+                            data-en="Overview" data-zh="概述">Overview</h4>
+                        <p id="modal-description" class="text-neutral-600 leading-relaxed english-text">
+                            Start your journey with us as a Helper. Learn the basics, contribute to events, and discover your interests within our community.
+                        </p>
+                    </div>
+
+                    <!-- Benefits -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4 english-text" 
+                            data-en="Benefits & Rewards" data-zh="福利與獎勵">Benefits & Rewards</h4>
+                        <div id="modal-benefits" class="space-y-3">
+                            <!-- Benefits will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4 english-text" 
+                            data-en="Requirements" data-zh="要求">Requirements</h4>
+                        <div id="modal-requirements" class="space-y-3">
+                            <!-- Requirements will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="bg-gradient-to-r from-brand-red to-red-600 rounded-brand-xl p-6 text-white">
+                        <h4 class="text-lg font-semibold mb-3 english-text" 
+                            data-en="Ready to Progress?" data-zh="準備好進步了嗎？">Ready to Progress?</h4>
+                        <p id="modal-next-steps" class="text-red-100 mb-4 english-text">
+                            Take the next step in your journey with our community.
+                        </p>
+                        <button class="bg-white text-brand-red px-6 py-2 rounded-brand font-semibold hover:bg-neutral-100 transition-colors english-text" 
+                                data-en="Get Started" data-zh="開始">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isEnglish = true;
+        let currentProgress = 0;
+
+        const tierData = {
+            1: {
+                icon: '🌱',
+                bgColor: 'bg-green-100',
+                textColor: 'text-green-600',
+                titleEn: 'Helper',
+                titleZh: '學習者',
+                subtitleEn: 'Entry Level',
+                subtitleZh: '入門級',
+                descriptionEn: 'Start your journey with us as a Helper. Learn the basics, contribute to events, and discover your interests within our community.',
+                descriptionZh: '作為學習者開始您的旅程。學習基礎知識，為活動做出貢獻，並在我們的社群中發現您的興趣。',
+                benefitsEn: [
+                    'Access to all community events',
+                    'Basic training and mentorship',
+                    'Transportation allowance',
+                    'Community networking opportunities',
+                    'Certificate of participation'
+                ],
+                benefitsZh: [
+                    '參與所有社群活動',
+                    '基礎培訓和指導',
+                    '交通津貼',
+                    '社群網絡機會',
+                    '參與證書'
+                ],
+                requirementsEn: [
+                    'Enthusiasm to learn and contribute',
+                    'Attend orientation session',
+                    'Commit to at least 2 events per month',
+                    'Basic English or Chinese communication'
+                ],
+                requirementsZh: [
+                    '學習和貢獻的熱忱',
+                    '參加新人說明會',
+                    '每月至少參與2場活動',
+                    '基本英文或中文溝通能力'
+                ],
+                nextStepsEn: 'Join our next orientation session and start making connections in Taiwan\'s digital nomad community.',
+                nextStepsZh: '參加我們的下一次新人說明會，開始在台灣數位遊牧社群中建立聯繫。'
+            },
+            2: {
+                icon: '🎯',
+                bgColor: 'bg-blue-100',
+                textColor: 'text-blue-600',
+                titleEn: 'Team Member',
+                titleZh: '角色專家',
+                subtitleEn: 'Role Expertise',
+                subtitleZh: '角色專精',
+                descriptionEn: 'Develop expertise in a specific role and take on more responsibilities. Lead initiatives and mentor new helpers.',
+                descriptionZh: '在特定角色中發展專業知識並承擔更多責任。領導倡議並指導新的學習者。',
+                benefitsEn: [
+                    'Role-specific training and certification',
+                    'Performance-based bonuses',
+                    'Leadership development opportunities',
+                    'Priority access to workshops',
+                    'Mentorship program participation'
+                ],
+                benefitsZh: [
+                    '角色專業培訓和認證',
+                    '績效獎金',
+                    '領導力發展機會',
+                    '優先參與工作坊',
+                    '參與指導計劃'
+                ],
+                requirementsEn: [
+                    '3+ months as Helper with good performance',
+                    'Complete role-specific training',
+                    'Demonstrate leadership potential',
+                    'Mentor at least 1 new helper'
+                ],
+                requirementsZh: [
+                    '擔任學習者3個月以上且表現良好',
+                    '完成角色專業培訓',
+                    '展現領導潛力',
+                    '指導至少1名新學習者'
+                ],
+                nextStepsEn: 'Apply for role-specific training and start building your expertise in your chosen area.',
+                nextStepsZh: '申請角色專業培訓，開始在您選擇的領域建立專業知識。'
+            },
+            3: {
+                icon: '⭐',
+                bgColor: 'bg-purple-100',
+                textColor: 'text-purple-600',
+                titleEn: 'Core Team',
+                titleZh: '多技能貢獻者',
+                subtitleEn: 'Multi-skilled Contributors',
+                subtitleZh: '多技能',
+                descriptionEn: 'Master multiple skills and contribute across different areas. Help shape community strategy and drive major initiatives.',
+                descriptionZh: '掌握多項技能並在不同領域做出貢獻。幫助制定社群策略並推動重大倡議。',
+                benefitsEn: [
+                    'Cross-functional training opportunities',
+                    'Profit sharing participation',
+                    'Strategic planning involvement',
+                    'Conference and event speaking opportunities',
+                    'Professional development budget'
+                ],
+                benefitsZh: [
+                    '跨職能培訓機會',
+                    '利潤分享參與',
+                    '策略規劃參與',
+                    '會議和活動演講機會',
+                    '專業發展預算'
+                ],
+                requirementsEn: [
+                    '6+ months as Team Member with excellence',
+                    'Proven multi-skill competency',
+                    'Lead successful major project',
+                    'Strong community impact demonstration'
+                ],
+                requirementsZh: [
+                    '擔任角色專家6個月以上且表現優異',
+                    '證明多技能能力',
+                    '領導成功的重大項目',
+                    '展現強大的社群影響力'
+                ],
+                nextStepsEn: 'Showcase your multi-skill capabilities and apply for Core Team advancement.',
+                nextStepsZh: '展示您的多技能能力並申請晉升為多技能貢獻者。'
+            },
+            4: {
+                icon: '👑',
+                bgColor: 'bg-red-100',
+                textColor: 'text-red-600',
+                titleEn: 'Organizer',
+                titleZh: '領導團隊',
+                subtitleEn: 'Leadership Team',
+                subtitleZh: '領導',
+                descriptionEn: 'Lead the community vision and strategy. Make key decisions, represent the organization, and drive long-term growth.',
+                descriptionZh: '領導社群願景和策略。做出關鍵決策，代表組織，並推動長期成長。',
+                benefitsEn: [
+                    'Equity participation in organization',
+                    'Executive decision-making authority',
+                    'International conference representation',
+                    'Strategic partnership negotiations',
+                    'Full professional development support'
+                ],
+                benefitsZh: [
+                    '組織股權參與',
+                    '執行決策權',
+                    '國際會議代表',
+                    '策略夥伴關係談判',
+                    '全面專業發展支持'
+                ],
+                requirementsEn: [
+                    '1+ year as Core Team with outstanding results',
+                    'Proven leadership and vision',
+                    'Significant community growth contribution',
+                    'Strategic thinking and execution skills'
+                ],
+                requirementsZh: [
+                    '擔任多技能貢獻者1年以上且成果卓越',
+                    '證明領導力和願景',
+                    '對社群成長有重大貢獻',
+                    '策略思維和執行技能'
+                ],
+                nextStepsEn: 'Demonstrate exceptional leadership and apply for the ultimate leadership position.',
+                nextStepsZh: '展現卓越領導力並申請最高領導職位。'
+            }
+        };
+
+        function openModal(tier) {
+            const modal = document.getElementById('modal');
+            const data = tierData[tier];
+            
+            // Update modal content
+            document.getElementById('modal-icon').className = `tier-icon ${data.bgColor} ${data.textColor}`;
+            document.getElementById('modal-icon').textContent = data.icon;
+            
+            updateModalContent(data);
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateModalContent(data) {
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const description = document.getElementById('modal-description');
+            const benefits = document.getElementById('modal-benefits');
+            const requirements = document.getElementById('modal-requirements');
+            const nextSteps = document.getElementById('modal-next-steps');
+
+            title.textContent = isEnglish ? data.titleEn : data.titleZh;
+            subtitle.textContent = isEnglish ? data.subtitleEn : data.subtitleZh;
+            description.textContent = isEnglish ? data.descriptionEn : data.descriptionZh;
+            nextSteps.textContent = isEnglish ? data.nextStepsEn : data.nextStepsZh;
+
+            // Update benefits
+            benefits.innerHTML = '';
+            const benefitsList = isEnglish ? data.benefitsEn : data.benefitsZh;
+            benefitsList.forEach(benefit => {
+                const item = document.createElement('div');
+                item.className = 'benefit-item';
+                item.innerHTML = `
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-neutral-700 ${isEnglish ? 'english-text' : 'chinese-text'}">${benefit}</span>
+                `;
+                benefits.appendChild(item);
+            });
+
+            // Update requirements
+            requirements.innerHTML = '';
+            const requirementsList = isEnglish ? data.requirementsEn : data.requirementsZh;
+            requirementsList.forEach(requirement => {
+                const item = document.createElement('div');
+                item.className = 'requirement-item';
+                item.innerHTML = `
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-neutral-700 ${isEnglish ? 'english-text' : 'chinese-text'}">${requirement}</span>
+                `;
+                requirements.appendChild(item);
+            });
+        }
+
+        function setProgress(percentage) {
+            currentProgress = percentage;
+            const progressBar = document.getElementById('progress-bar');
+            const mobileProgressBar = document.getElementById('mobile-progress-bar');
+            
+            if (progressBar) {
+                progressBar.style.width = percentage + '%';
+            }
+            if (mobileProgressBar) {
+                mobileProgressBar.style.height = percentage + '%';
+            }
+
+            // Update tier card states
+            document.querySelectorAll('.tier-card').forEach((card, index) => {
+                const tierNumber = index + 1;
+                const tierThreshold = tierNumber * 25;
+                
+                if (percentage >= tierThreshold) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const langToggle = document.getElementById('lang-toggle');
+            
+            elements.forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.getAttribute('data-en');
+                    element.className = element.className.replace('chinese-text', 'english-text');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                    element.className = element.className.replace('english-text', 'chinese-text');
+                }
+            });
+            
+            langToggle.textContent = isEnglish ? '中文' : 'EN';
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+
+        // Initialize progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress to 25% on load
+            setTimeout(() => setProgress(25), 1000);
+            
+            // Close modal on backdrop click
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Close modal on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

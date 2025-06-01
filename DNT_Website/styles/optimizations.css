@@ -1,0 +1,452 @@
+/*
+ * Website Optimizations
+ * - Reduced spacing for better content density
+ * - Smooth animations and micro-interactions
+ * - Responsive design optimizations
+ * - Performance enhancements
+ */
+
+/* ========================================
+   SPACING OPTIMIZATIONS (減少空白區域)
+   ======================================== */
+
+/* Reduced section padding for better content density */
+.section-compact {
+    padding: 3rem 0 !important; /* Reduced from 5rem */
+}
+
+.section-compact-mobile {
+    padding: 2rem 0 !important; /* Mobile specific */
+}
+
+@media (min-width: 768px) {
+    .section-compact {
+        padding: 4rem 0 !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-compact {
+        padding: 5rem 0 !important;
+    }
+}
+
+/* Optimized container spacing */
+.container-optimized {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .container-optimized {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-optimized {
+        padding: 0 2rem;
+    }
+}
+
+/* Reduced grid gaps */
+.grid-compact {
+    gap: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+    .grid-compact {
+        gap: 2rem !important;
+    }
+}
+
+/* Compact card spacing */
+.card-compact {
+    padding: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+    .card-compact {
+        padding: 2rem !important;
+    }
+}
+
+/* ========================================
+   SMOOTH ANIMATIONS & MICRO-INTERACTIONS
+   ======================================== */
+
+/* Page load animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-count-up {
+    animation: countUp 0.8s ease-out forwards;
+}
+
+/* Stagger delays for sequential animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Scroll-triggered animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effects for cards and buttons */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+.hover-glow {
+    transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+/* Button micro-interactions */
+.btn-interactive {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-interactive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-interactive:hover::before {
+    left: 100%;
+}
+
+/* Loading states */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Parallax effects */
+.parallax-slow {
+    transform: translateY(var(--scroll-y, 0) * 0.5);
+}
+
+.parallax-medium {
+    transform: translateY(var(--scroll-y, 0) * 0.3);
+}
+
+.parallax-fast {
+    transform: translateY(var(--scroll-y, 0) * 0.1);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN OPTIMIZATIONS
+   ======================================== */
+
+/* Touch-friendly button sizes */
+.btn-touch {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Mobile-optimized typography */
+.text-mobile-optimized {
+    font-size: 16px !important;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .text-mobile-optimized {
+        font-size: 18px !important;
+    }
+}
+
+/* Responsive images */
+.img-responsive {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mobile navigation optimizations */
+.mobile-nav-optimized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+/* Form optimizations for mobile */
+.form-mobile-optimized input,
+.form-mobile-optimized select,
+.form-mobile-optimized textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    transition: border-color 0.3s ease;
+}
+
+.form-mobile-optimized input:focus,
+.form-mobile-optimized select:focus,
+.form-mobile-optimized textarea:focus {
+    border-color: #dc2626;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Lazy loading images */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Optimized animations for 60fps */
+.smooth-animation {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .parallax-slow,
+    .parallax-medium,
+    .parallax-fast {
+        transform: none !important;
+    }
+}
+
+/* ========================================
+   MOBILE-SPECIFIC OPTIMIZATIONS
+   ======================================== */
+
+/* Mobile breakpoints */
+@media (max-width: 767px) {
+    /* Compact spacing for mobile */
+    .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    .py-16 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    .py-12 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    
+    /* Mobile typography */
+    .text-4xl { font-size: 2rem !important; }
+    .text-3xl { font-size: 1.75rem !important; }
+    .text-2xl { font-size: 1.5rem !important; }
+    
+    /* Mobile grid adjustments */
+    .grid-cols-3 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+    .grid-cols-2 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+    
+    /* Mobile card adjustments */
+    .card-brand { padding: 1.5rem !important; }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .section-compact {
+        padding: 4rem 0 !important;
+    }
+    
+    .grid-compact {
+        gap: 2rem !important;
+    }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1440px) {
+    .container-optimized {
+        max-width: 1400px;
+    }
+    
+    .section-compact {
+        padding: 6rem 0 !important;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================================== */
+
+/* Focus indicators */
+.focus-visible {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .card-brand {
+        border: 2px solid #000;
+    }
+    
+    .btn-brand-primary {
+        border: 2px solid #000;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Quick spacing utilities */
+.space-y-compact > * + * {
+    margin-top: 1rem;
+}
+
+.space-y-compact-lg > * + * {
+    margin-top: 1.5rem;
+}
+
+/* Content density utilities */
+.content-dense {
+    line-height: 1.4;
+}
+
+.content-dense p {
+    margin-bottom: 0.75rem;
+}
+
+/* Performance utilities */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+} 

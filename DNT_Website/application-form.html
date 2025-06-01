@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form - DigitalNomadsTaiwan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles/brand.css" rel="stylesheet">
+    <link href="styles/accessibility-fixes.css" rel="stylesheet">
+    <link href="styles/optimizations.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': {
+                            50: '#FFF1F1',
+                            100: '#FFE3E3',
+                            200: '#FFD5D5',
+                            300: '#FFC7C7',
+                            400: '#FFABAB',
+                            500: '#FF8F8F',
+                            600: '#FF7373',
+                            700: '#D95C5C',
+                            800: '#B34545',
+                        },
+                        'brand-grey': {
+                            50: '#F9FAFB',
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#5B5B5B',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        },
+                    },
+                    fontFamily: {
+                        'english': ['Barlow', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'chinese': ['Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'brand-xs': '4px',
+                        'brand-sm': '8px',
+                        'brand': '16px',
+                        'brand-lg': '24px',
+                        'brand-xl': '32px',
+                    },
+                    boxShadow: {
+                        'brand-xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                        'brand-sm': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'brand-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'brand-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'brand-colored': '0 10px 25px -3px rgba(255, 115, 115, 0.1), 0 4px 6px -2px rgba(255, 115, 115, 0.05)',
+                    },
+                    animation: {
+                        'brand-fade-in': 'brand-fade-in 0.6s ease-out',
+                        'brand-slide-in': 'brand-slide-in 0.6s ease-out',
+                        'pulse-brand': 'pulse-brand 2s infinite',
+                    },
+                    keyframes: {
+                        'brand-fade-in': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'brand-slide-in': {
+                            '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        'pulse-brand': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 115, 115, 0.7)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(255, 115, 115, 0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-english antialiased bg-brand-grey-50 text-brand-grey-900">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-brand transition-all duration-300">
+        <div class="brand-container">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="preview.html" class="block">
+                        <img src="asset/Logo.png" alt="DigitalNomadsTaiwan" class="h-8 lg:h-10 w-auto transition-brand">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="preview.html" class="nav-link-brand" data-en="Home" data-zh="首頁">Home</a>
+                    <a href="preview.html#about-us" class="nav-link-brand" data-en="About Us" data-zh="關於我們">About Us</a>
+                    <a href="preview.html#event-highlight" class="nav-link-brand" data-en="Event" data-zh="活動">Event</a>
+                    <a href="team-roadmap.html" class="nav-link-brand" data-en="Road Map" data-zh="發展路線圖">Road Map</a>
+                    <a href="faq-section.html" class="nav-link-brand" data-en="Q&A" data-zh="問答">Q&A</a>
+                    <a href="join-us.html" class="nav-link-brand" data-en="Join Us" data-zh="加入我們">Join Us</a>
+                    <a href="preview.html#footer" class="nav-link-brand" data-en="Contact" data-zh="聯絡我們">Contact</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-2 px-3 py-2 rounded-brand-sm bg-brand-grey-100 hover:bg-brand-grey-200 transition-brand">
+                        <i class="fas fa-globe w-4 h-4 text-brand-grey-600"></i>
+                        <span class="text-sm font-medium text-brand-grey-700" id="lang-toggle">中文</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-brand-sm bg-brand-grey-100 hover:bg-brand-grey-200 transition-brand">
+                        <i id="menu-icon" class="fas fa-bars w-6 h-6 text-brand-grey-600"></i>
+                        <i id="close-icon" class="fas fa-times w-6 h-6 text-brand-grey-600 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-md border-t border-brand-grey-200 shadow-brand hidden">
+            <div class="brand-container py-6">
+                <nav class="flex flex-col space-y-4">
+                    <a href="preview.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Home" data-zh="首頁" onclick="closeMobileMenu()">Home</a>
+                    <a href="preview.html#about-us" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="About Us" data-zh="關於我們" onclick="closeMobileMenu()">About Us</a>
+                    <a href="preview.html#event-highlight" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Event" data-zh="活動" onclick="closeMobileMenu()">Event</a>
+                    <a href="team-roadmap.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Road Map" data-zh="發展路線圖" onclick="closeMobileMenu()">Road Map</a>
+                    <a href="faq-section.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Q&A" data-zh="問答" onclick="closeMobileMenu()">Q&A</a>
+                    <a href="join-us.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Join Us" data-zh="加入我們" onclick="closeMobileMenu()">Join Us</a>
+                    <a href="preview.html#footer" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Contact" data-zh="聯絡我們" onclick="closeMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 lg:pt-24">
+        <!-- Hero Section -->
+        <section class="relative bg-brand-gradient-soft py-16 lg:py-24">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 pattern-diagonal opacity-20"></div>
+            
+            <div class="relative brand-container brand-text-center">
+                <div class="animate-brand-fade-in">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6 leading-tight" 
+                        data-en="Join Our Community" 
+                        data-zh="加入我們的社群">
+                        Join Our Community
+                    </h1>
+
+                    <p class="text-lg text-brand-red-600 font-medium mb-8 max-w-2xl mx-auto" 
+                       data-en="Start your digital nomad journey with us. Complete the application form below to become part of our growing community." 
+                       data-zh="與我們一起開始您的數位遊牧之旅。填寫下方申請表格，成為我們不斷成長社群的一員。">
+                        Start your digital nomad journey with us. Complete the application form below to become part of our growing community.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form Section -->
+        <section class="brand-section bg-white">
+            <div class="brand-container max-w-4xl">
+                <!-- Progress Indicator -->
+                <div class="mb-12">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="step-indicator active" data-step="1">
+                                <span class="step-number">1</span>
+                                <span class="step-label" data-en="Personal Info" data-zh="個人資訊">Personal Info</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-indicator" data-step="2">
+                                <span class="step-number">2</span>
+                                <span class="step-label" data-en="Experience" data-zh="經驗">Experience</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-indicator" data-step="3">
+                                <span class="step-number">3</span>
+                                <span class="step-label" data-en="Preferences" data-zh="偏好">Preferences</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="step-indicator" data-step="4">
+                                <span class="step-number">4</span>
+                                <span class="step-label" data-en="Review" data-zh="審核">Review</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <!-- Form Container -->
+                <div class="card-brand">
+                    <form id="application-form" class="space-y-8">
+                        <!-- Step 1: Personal Information -->
+                        <div id="step-1" class="form-step active">
+                            <h2 class="text-2xl font-bold text-brand-grey-900 mb-6" 
+                                data-en="Personal Information" 
+                                data-zh="個人資訊">
+                                Personal Information
+                            </h2>
+
+                            <div class="brand-grid grid-cols-1 md:grid-cols-2">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label" data-en="First Name" data-zh="名字">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label" data-en="Last Name" data-zh="姓氏">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label" data-en="Email Address" data-zh="電子郵件">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone" class="form-label" data-en="Phone Number" data-zh="電話號碼">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nationality" class="form-label" data-en="Nationality" data-zh="國籍">Nationality</label>
+                                    <select id="nationality" name="nationality" class="form-select" required>
+                                        <option value="" data-en="Select your nationality" data-zh="選擇您的國籍">Select your nationality</option>
+                                        <option value="taiwan" data-en="Taiwan" data-zh="台灣">Taiwan</option>
+                                        <option value="usa" data-en="United States" data-zh="美國">United States</option>
+                                        <option value="japan" data-en="Japan" data-zh="日本">Japan</option>
+                                        <option value="korea" data-en="South Korea" data-zh="韓國">South Korea</option>
+                                        <option value="other" data-en="Other" data-zh="其他">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="currentLocation" class="form-label" data-en="Current Location" data-zh="目前位置">Current Location</label>
+                                    <input type="text" id="currentLocation" name="currentLocation" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bio" class="form-label" data-en="Brief Bio" data-zh="簡短自我介紹">Brief Bio</label>
+                                <textarea id="bio" name="bio" rows="4" class="form-textarea" 
+                                          placeholder="Tell us about yourself..." 
+                                          data-placeholder-en="Tell us about yourself..." 
+                                          data-placeholder-zh="告訴我們關於您的情況..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Experience -->
+                        <div id="step-2" class="form-step hidden">
+                            <h2 class="text-2xl font-bold text-brand-grey-900 mb-6" 
+                                data-en="Professional Experience" 
+                                data-zh="專業經驗">
+                                Professional Experience
+                            </h2>
+
+                            <div class="space-y-6">
+                                <div class="form-group">
+                                    <label for="profession" class="form-label" data-en="Current Profession" data-zh="目前職業">Current Profession</label>
+                                    <input type="text" id="profession" name="profession" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experience" class="form-label" data-en="Years of Experience" data-zh="工作年資">Years of Experience</label>
+                                    <select id="experience" name="experience" class="form-select" required>
+                                        <option value="" data-en="Select experience level" data-zh="選擇經驗程度">Select experience level</option>
+                                        <option value="0-1" data-en="0-1 years" data-zh="0-1年">0-1 years</option>
+                                        <option value="2-5" data-en="2-5 years" data-zh="2-5年">2-5 years</option>
+                                        <option value="6-10" data-en="6-10 years" data-zh="6-10年">6-10 years</option>
+                                        <option value="10+" data-en="10+ years" data-zh="10年以上">10+ years</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Skills" data-zh="技能">Skills</label>
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="web-development" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Web Development" data-zh="網頁開發">Web Development</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="design" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Design" data-zh="設計">Design</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="marketing" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Marketing" data-zh="行銷">Marketing</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="writing" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Writing" data-zh="寫作">Writing</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="consulting" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Consulting" data-zh="顧問">Consulting</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="skills" value="other" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Other" data-zh="其他">Other</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Languages" data-zh="語言能力">Languages</label>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center space-x-4">
+                                            <span class="w-20 text-sm font-medium text-brand-grey-700" data-en="English" data-zh="英文">English</span>
+                                            <div class="flex space-x-2">
+                                                <label class="radio-label">
+                                                    <input type="radio" name="english-level" value="basic" class="radio-input">
+                                                    <span class="radio-text" data-en="Basic" data-zh="基礎">Basic</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="english-level" value="intermediate" class="radio-input">
+                                                    <span class="radio-text" data-en="Intermediate" data-zh="中級">Intermediate</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="english-level" value="advanced" class="radio-input">
+                                                    <span class="radio-text" data-en="Advanced" data-zh="高級">Advanced</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="english-level" value="native" class="radio-input">
+                                                    <span class="radio-text" data-en="Native" data-zh="母語">Native</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <span class="w-20 text-sm font-medium text-brand-grey-700" data-en="Chinese" data-zh="中文">Chinese</span>
+                                            <div class="flex space-x-2">
+                                                <label class="radio-label">
+                                                    <input type="radio" name="chinese-level" value="basic" class="radio-input">
+                                                    <span class="radio-text" data-en="Basic" data-zh="基礎">Basic</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="chinese-level" value="intermediate" class="radio-input">
+                                                    <span class="radio-text" data-en="Intermediate" data-zh="中級">Intermediate</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="chinese-level" value="advanced" class="radio-input">
+                                                    <span class="radio-text" data-en="Advanced" data-zh="高級">Advanced</span>
+                                                </label>
+                                                <label class="radio-label">
+                                                    <input type="radio" name="chinese-level" value="native" class="radio-input">
+                                                    <span class="radio-text" data-en="Native" data-zh="母語">Native</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Preferences -->
+                        <div id="step-3" class="form-step hidden">
+                            <h2 class="text-2xl font-bold text-brand-grey-900 mb-6" 
+                                data-en="Community Preferences" 
+                                data-zh="社群偏好">
+                                Community Preferences
+                            </h2>
+
+                            <div class="space-y-6">
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Interests" data-zh="興趣">Interests</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="networking" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Networking Events" data-zh="網絡活動">Networking Events</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="workshops" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Workshops" data-zh="工作坊">Workshops</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="coworking" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Co-working Sessions" data-zh="共同工作">Co-working Sessions</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="cultural" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Cultural Activities" data-zh="文化活動">Cultural Activities</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="mentorship" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Mentorship" data-zh="導師制度">Mentorship</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="travel" class="checkbox-input">
+                                            <span class="checkbox-text" data-en="Travel Groups" data-zh="旅行團體">Travel Groups</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="availability" class="form-label" data-en="Availability" data-zh="可參與時間">Availability</label>
+                                    <select id="availability" name="availability" class="form-select" required>
+                                        <option value="" data-en="Select your availability" data-zh="選擇您的可參與時間">Select your availability</option>
+                                        <option value="weekdays" data-en="Weekdays" data-zh="平日">Weekdays</option>
+                                        <option value="weekends" data-en="Weekends" data-zh="週末">Weekends</option>
+                                        <option value="both" data-en="Both" data-zh="都可以">Both</option>
+                                        <option value="flexible" data-en="Flexible" data-zh="彈性">Flexible</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="motivation" class="form-label" data-en="Why do you want to join?" data-zh="為什麼想加入我們？">Why do you want to join?</label>
+                                    <textarea id="motivation" name="motivation" rows="4" class="form-textarea" 
+                                              placeholder="Tell us your motivation..." 
+                                              data-placeholder-en="Tell us your motivation..." 
+                                              data-placeholder-zh="告訴我們您的動機..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Review -->
+                        <div id="step-4" class="form-step hidden">
+                            <h2 class="text-2xl font-bold text-brand-grey-900 mb-6" 
+                                data-en="Review Your Application" 
+                                data-zh="審核您的申請">
+                                Review Your Application
+                            </h2>
+
+                            <div id="review-content" class="space-y-6">
+                                <!-- Review content will be populated by JavaScript -->
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms" name="terms" class="checkbox-input" required>
+                                    <span class="checkbox-text" data-en="I agree to the terms and conditions" data-zh="我同意條款和條件">I agree to the terms and conditions</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="flex justify-between items-center pt-8 border-t border-brand-grey-200">
+                            <button type="button" id="prev-btn" class="btn-brand-secondary hidden" onclick="previousStep()">
+                                <i class="fas fa-arrow-left mr-2"></i>
+                                <span data-en="Previous" data-zh="上一步">Previous</span>
+                            </button>
+                            
+                            <div class="flex space-x-4 ml-auto">
+                                <button type="button" id="next-btn" class="btn-brand-primary" onclick="nextStep()">
+                                    <span data-en="Next" data-zh="下一步">Next</span>
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                                
+                                <button type="submit" id="submit-btn" class="btn-brand-primary hidden">
+                                    <span data-en="Submit Application" data-zh="提交申請">Submit Application</span>
+                                    <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        let isLanguageChinese = false;
+
+        // Language Toggle
+        function toggleLanguage() {
+            isLanguageChinese = !isLanguageChinese;
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const langToggle = document.getElementById('lang-toggle');
+            
+            elements.forEach(element => {
+                if (isLanguageChinese) {
+                    element.textContent = element.getAttribute('data-zh');
+                    element.classList.add('font-chinese');
+                    element.classList.remove('font-english');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                    element.classList.add('font-english');
+                    element.classList.remove('font-chinese');
+                }
+            });
+
+            // Update placeholders
+            const placeholderElements = document.querySelectorAll('[data-placeholder-en][data-placeholder-zh]');
+            placeholderElements.forEach(element => {
+                if (isLanguageChinese) {
+                    element.placeholder = element.getAttribute('data-placeholder-zh');
+                } else {
+                    element.placeholder = element.getAttribute('data-placeholder-en');
+                }
+            });
+
+            langToggle.textContent = isLanguageChinese ? 'EN' : '中文';
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+
+        // Form Step Navigation
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                if (validateCurrentStep()) {
+                    hideStep(currentStep);
+                    currentStep++;
+                    showStep(currentStep);
+                    updateProgress();
+                    updateButtons();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                hideStep(currentStep);
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+                updateButtons();
+            }
+        }
+
+        function showStep(step) {
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            document.getElementById(`step-${step}`).classList.add('active');
+            
+            // Update step indicators
+            const indicators = document.querySelectorAll('.step-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index + 1 === step) {
+                    indicator.classList.add('active');
+                } else if (index + 1 < step) {
+                    indicator.classList.add('completed');
+                    indicator.classList.remove('active');
+                } else {
+                    indicator.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function hideStep(step) {
+            document.getElementById(`step-${step}`).classList.add('hidden');
+            document.getElementById(`step-${step}`).classList.remove('active');
+        }
+
+        function updateProgress() {
+            const progressFill = document.querySelector('.progress-fill');
+            const percentage = (currentStep / totalSteps) * 100;
+            progressFill.style.width = `${percentage}%`;
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+                populateReview();
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById(`step-${currentStep}`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    field.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function populateReview() {
+            const reviewContent = document.getElementById('review-content');
+            const formData = new FormData(document.getElementById('application-form'));
+            
+            let reviewHTML = '';
+            
+            // Personal Information
+            reviewHTML += `
+                <div class="review-section">
+                    <h3 class="text-lg font-semibold text-brand-grey-900 mb-3" data-en="Personal Information" data-zh="個人資訊">Personal Information</h3>
+                    <div class="space-y-2 text-sm text-brand-grey-600">
+                        <p><strong data-en="Name:" data-zh="姓名：">Name:</strong> ${formData.get('firstName')} ${formData.get('lastName')}</p>
+                        <p><strong data-en="Email:" data-zh="電子郵件：">Email:</strong> ${formData.get('email')}</p>
+                        <p><strong data-en="Phone:" data-zh="電話：">Phone:</strong> ${formData.get('phone')}</p>
+                        <p><strong data-en="Nationality:" data-zh="國籍：">Nationality:</strong> ${formData.get('nationality')}</p>
+                        <p><strong data-en="Location:" data-zh="位置：">Location:</strong> ${formData.get('currentLocation')}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Professional Experience
+            reviewHTML += `
+                <div class="review-section">
+                    <h3 class="text-lg font-semibold text-brand-grey-900 mb-3" data-en="Professional Experience" data-zh="專業經驗">Professional Experience</h3>
+                    <div class="space-y-2 text-sm text-brand-grey-600">
+                        <p><strong data-en="Profession:" data-zh="職業：">Profession:</strong> ${formData.get('profession')}</p>
+                        <p><strong data-en="Experience:" data-zh="經驗：">Experience:</strong> ${formData.get('experience')}</p>
+                    </div>
+                </div>
+            `;
+            
+            reviewContent.innerHTML = reviewHTML;
+            
+            // Update language if needed
+            if (isLanguageChinese) {
+                toggleLanguage();
+            }
+        }
+
+        // Form Submission
+        document.getElementById('application-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            alert(isLanguageChinese ? '申請已成功提交！我們會盡快與您聯繫。' : 'Application submitted successfully! We will contact you soon.');
+            
+            // Reset form
+            this.reset();
+            currentStep = 1;
+            showStep(1);
+            updateProgress();
+            updateButtons();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showStep(1);
+            updateProgress();
+            updateButtons();
+        });
+    </script>
+
+    <!-- Performance and Animation Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/seo-optimization.js"></script>
+</body>
+</html> 

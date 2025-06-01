@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "home": "首頁",
+    "positions": "職位",
+    "about": "關於我們",
+    "apply": "申請",
+    "contact": "聯絡我們"
+  },
+  "brand": {
+    "name": "台灣數位遊牧",
+    "tagline": "橋接台灣與世界的遊牧社群"
+  },
+  "hero": {
+    "headline": "加入我們的旅程",
+    "subtitle": "連結全球數位遊牧者與台灣充滿活力的科技生態系",
+    "tagline": "橋接台灣與世界的遊牧社群",
+    "description": "在台灣蓬勃發展的數位環境中發現令人興奮的機會。與創新公司建立聯繫，體驗豐富文化，在亞洲中心建立您的職業生涯。",
+    "cta": {
+      "explore": "探索機會",
+      "learnMore": "了解更多"
+    }
+  },
+  "stats": {
+    "title": "我們不斷成長的社群",
+    "subtitle": "加入數千名在台灣充滿活力的科技生態系統中找到歸屬的數位遊牧者",
+    "participants": "參與人次",
+    "nationalities": "國籍",
+    "international": "國際參與者",
+    "events": "活動場次"
+  },
+  "positions": {
+    "title": "加入我們的團隊",
+    "subtitle": "發現令人興奮的機會，成為台灣數位遊牧社群的一份子，透過有意義的活動和連結幫助橋接文化。",
+    "searchPlaceholder": "搜尋職位...",
+    "responsibilities": "主要職責",
+    "compensation": "薪酬待遇",
+    "applyNow": "立即申請",
+    "noResults": "未找到職位",
+    "tryDifferentSearch": "請嘗試調整您的搜尋或篩選條件",
+    "ctaTitle": "沒有看到完美的職位？",
+    "ctaDescription": "我們一直在尋找有熱忱的人才加入我們的使命。請聯繫我們，讓我們討論您如何為我們的社群做出貢獻。",
+    "contactUs": "聯絡我們",
+    "filters": {
+      "all": "所有職位",
+      "priority": "優先職位",
+      "creative": "創意類",
+      "support": "支援類"
+    },
+    "communityOrganizer": {
+      "responsibilities": [
+        "主導社群聚會的活動規劃與執行",
+        "協調場地、講者和贊助商",
+        "建立與本地及國際夥伴的關係"
+      ],
+      "compensation": "交通費 + 利潤分享"
+    },
+    "marketingSales": {
+      "responsibilities": [
+        "制定社群成長的行銷策略",
+        "管理社群媒體和內容創作",
+        "推動合作夥伴關係和贊助機會"
+      ],
+      "compensation": "交通費 + 績效獎金"
+    },
+    "bilingualHost": {
+      "responsibilities": [
+        "主持雙語活動並促進交流",
+        "橋接國際與本地參與者的溝通",
+        "創造引人入勝且包容的活動體驗"
+      ],
+      "compensation": "交通費 + 活動獎金"
+    },
+    "receptionLead": {
+      "responsibilities": [
+        "歡迎並為活動參與者辦理報到",
+        "為參與者提供資訊和協助",
+        "與活動團隊協調確保順利運作"
+      ],
+      "compensation": "交通費 + 團隊獎金"
+    },
+    "photographer": {
+      "responsibilities": [
+        "在活動期間拍攝高品質照片",
+        "編輯並交付用於行銷的照片",
+        "記錄社群時刻和交流活動"
+      ],
+      "compensation": "交通費 + 創意獎金"
+    },
+    "videoProducer": {
+      "responsibilities": [
+        "創作引人入勝的短影片內容",
+        "拍攝和編輯活動精華與見證",
+        "為社群媒體平台開發影片內容"
+      ],
+      "compensation": "交通費 + 內容獎金"
+    },
+    "fbManager": {
+      "responsibilities": [
+        "協調活動的餐飲安排",
+        "管理供應商關係和餐飲物流",
+        "確保滿足飲食需求和偏好"
+      ],
+      "compensation": "交通費 + 營運獎金"
+    },
+    "eventAssistant": {
+      "responsibilities": [
+        "支援活動佈置和撤場工作",
+        "協助報到和參與者管理",
+        "幫助協調物流和現場營運"
+      ],
+      "compensation": "交通費 + 參與獎金"
+    }
+  },
+  "footer": {
+    "quickLinks": "快速連結",
+    "followUs": "關注我們",
+    "socialPrompt": "與我們的社群保持聯繫，獲取台灣機會的最新資訊。",
+    "contact": {
+      "email": "hello@digitalnomadstaiwan.com",
+      "phone": "+886 2 1234 5678",
+      "address": "台北，台灣"
+    },
+    "copyright": "© 2024 台灣數位遊牧。版權所有。",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  },
+  "language": {
+    "switch": "切換語言"
+  },
+  "features": {
+    "title": "為什麼選擇台灣？",
+    "subtitle": "在亞洲中心發現科技、文化與機會的完美融合",
+    "techHub": {
+      "title": "科技創新中心",
+      "description": "接觸尖端科技生態系統，擁有世界級基礎設施和推動數位轉型的創新新創公司。"
+    },
+    "culture": {
+      "title": "豐富文化遺產",
+      "description": "體驗正宗亞洲文化與現代便利設施，多元社群和完美的工作生活平衡。"
+    },
+    "location": {
+      "title": "戰略門戶",
+      "description": "探索亞太市場的完美位置，擁有優秀的連接性和商業友善環境。"
+    }
+  },
+  "cta": {
+    "title": "準備開始您的台灣之旅？",
+    "description": "加入我們的數位遊牧社群，在台灣充滿活力的科技場景中發現您的下一個職業機會。",
+    "button": "立即開始"
+  }
+} 

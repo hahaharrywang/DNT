@@ -1,0 +1,820 @@
+/*
+ * DigitalNomadsTaiwan Brand CSS
+ * Corporate Identity System (CIS)
+ * Single Source of Truth for Brand Visual Elements
+ */
+
+/* ========================================
+   CSS CUSTOM PROPERTIES (CSS VARIABLES)
+   ======================================== */
+
+:root {
+  /* ===== BRAND COLORS (色彩規劃) ===== */
+  
+  /* Primary Brand Colors */
+  --brand-primary-red: #FF7373;
+  --brand-primary-grey: #5B5B5B;
+  
+  /* Auxiliary Blue Color System */
+  --brand-blue-50: #EBF4FF;
+  --brand-blue-100: #BEE3F8;
+  --brand-blue-200: #90CDF4;
+  --brand-blue-300: #63B3ED;
+  --brand-blue-400: #4299E1;
+  --brand-blue-500: #739fe8;
+  --brand-blue-600: #3182CE;
+  --brand-blue-700: #2C5282;
+  --brand-blue-800: #2A4365;
+  --brand-blue-900: #1A365D;
+  
+  /* Red Color Palette */
+  --brand-red-50: #FFF1F1;
+  --brand-red-100: #FFE3E3;
+  --brand-red-200: #FFD5D5;
+  --brand-red-300: #FFC7C7;
+  --brand-red-400: #FFABAB;
+  --brand-red-500: #FF8F8F;
+  --brand-red-600: #FF7373;
+  --brand-red-700: #D95C5C;
+  --brand-red-800: #B34545;
+  --brand-red-900: #4A1A1A;
+  
+  /* Neutral Colors - Enhanced for better contrast */
+  --brand-white: #FFFFFF;
+  --brand-black: #1A202C;
+  --brand-grey-50: #F7FAFC;
+  --brand-grey-100: #EDF2F7;
+  --brand-grey-200: #E2E8F0;
+  --brand-grey-300: #CBD5E0;
+  --brand-grey-400: #A0AEC0;
+  --brand-grey-500: #718096;
+  --brand-grey-600: #4A5568;
+  --brand-grey-700: #2D3748;
+  --brand-grey-800: #1A202C;
+  --brand-grey-900: #171923;
+  
+  /* Semantic Colors - Improved contrast */
+  --brand-success: #38A169;
+  --brand-warning: #D69E2E;
+  --brand-error: #E53E3E;
+  --brand-info: #3182CE;
+  
+  /* Enhanced Background Colors for better readability */
+  --brand-bg-primary: #FFFFFF;
+  --brand-bg-secondary: #F7FAFC;
+  --brand-bg-accent: #EBF4FF;
+  --brand-bg-dark: #1A202C;
+  
+  /* Enhanced Text Colors for better contrast */
+  --brand-text-primary: #1A202C;
+  --brand-text-secondary: #4A5568;
+  --brand-text-muted: #718096;
+  --brand-text-inverse: #FFFFFF;
+  
+  /* ===== TYPOGRAPHY SYSTEM (字體規範) ===== */
+  
+  /* Font Families */
+  --font-english: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-chinese: 'Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* ===== VISUAL TONE (視覺風格) ===== */
+  
+  /* Approachable (可親近的) - Rounded Corners */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Modern (現代的) - Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-brand: 0 10px 25px -3px rgba(255, 115, 115, 0.1), 0 4px 6px -2px rgba(255, 115, 115, 0.05);
+  
+  /* Lively (活潑的) - Spacing */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* ========================================
+   BRAND COLOR UTILITIES
+   ======================================== */
+
+/* Background Colors */
+.bg-brand-red { background-color: var(--brand-primary-red); }
+.bg-brand-grey { background-color: var(--brand-primary-grey); }
+.bg-brand-white { background-color: var(--brand-white); }
+.bg-brand-black { background-color: var(--brand-black); }
+
+.bg-brand-red-50 { background-color: var(--brand-red-50); }
+.bg-brand-red-100 { background-color: var(--brand-red-100); }
+.bg-brand-red-200 { background-color: var(--brand-red-200); }
+.bg-brand-red-300 { background-color: var(--brand-red-300); }
+.bg-brand-red-400 { background-color: var(--brand-red-400); }
+.bg-brand-red-500 { background-color: var(--brand-red-500); }
+.bg-brand-red-600 { background-color: var(--brand-red-600); }
+.bg-brand-red-700 { background-color: var(--brand-red-700); }
+.bg-brand-red-800 { background-color: var(--brand-red-800); }
+
+/* Blue color backgrounds */
+.bg-brand-blue { background-color: var(--brand-blue-500); }
+.bg-brand-blue-50 { background-color: var(--brand-blue-50); }
+.bg-brand-blue-100 { background-color: var(--brand-blue-100); }
+.bg-brand-blue-200 { background-color: var(--brand-blue-200); }
+.bg-brand-blue-300 { background-color: var(--brand-blue-300); }
+.bg-brand-blue-400 { background-color: var(--brand-blue-400); }
+.bg-brand-blue-500 { background-color: var(--brand-blue-500); }
+.bg-brand-blue-600 { background-color: var(--brand-blue-600); }
+.bg-brand-blue-700 { background-color: var(--brand-blue-700); }
+.bg-brand-blue-800 { background-color: var(--brand-blue-800); }
+.bg-brand-blue-900 { background-color: var(--brand-blue-900); }
+
+/* Enhanced semantic backgrounds */
+.bg-brand-primary { background-color: var(--brand-bg-primary); }
+.bg-brand-secondary { background-color: var(--brand-bg-secondary); }
+.bg-brand-accent { background-color: var(--brand-bg-accent); }
+
+/* Text Colors */
+.text-brand-red { color: var(--brand-primary-red); }
+.text-brand-grey { color: var(--brand-primary-grey); }
+.text-brand-white { color: var(--brand-white); }
+.text-brand-black { color: var(--brand-black); }
+
+.text-brand-red-50 { color: var(--brand-red-50); }
+.text-brand-red-100 { color: var(--brand-red-100); }
+.text-brand-red-200 { color: var(--brand-red-200); }
+.text-brand-red-300 { color: var(--brand-red-300); }
+.text-brand-red-400 { color: var(--brand-red-400); }
+.text-brand-red-500 { color: var(--brand-red-500); }
+.text-brand-red-600 { color: var(--brand-red-600); }
+.text-brand-red-700 { color: var(--brand-red-700); }
+.text-brand-red-800 { color: var(--brand-red-800); }
+.text-brand-red-900 { color: var(--brand-red-900); }
+
+/* Blue text colors */
+.text-brand-blue { color: var(--brand-blue-500); }
+.text-brand-blue-50 { color: var(--brand-blue-50); }
+.text-brand-blue-100 { color: var(--brand-blue-100); }
+.text-brand-blue-200 { color: var(--brand-blue-200); }
+.text-brand-blue-300 { color: var(--brand-blue-300); }
+.text-brand-blue-400 { color: var(--brand-blue-400); }
+.text-brand-blue-500 { color: var(--brand-blue-500); }
+.text-brand-blue-600 { color: var(--brand-blue-600); }
+.text-brand-blue-700 { color: var(--brand-blue-700); }
+.text-brand-blue-800 { color: var(--brand-blue-800); }
+.text-brand-blue-900 { color: var(--brand-blue-900); }
+
+/* Enhanced semantic text colors for better readability */
+.text-brand-primary { color: var(--brand-text-primary); }
+.text-brand-secondary { color: var(--brand-text-secondary); }
+.text-brand-muted { color: var(--brand-text-muted); }
+.text-brand-inverse { color: var(--brand-text-inverse); }
+
+/* Border Colors */
+.border-brand-red { border-color: var(--brand-primary-red); }
+.border-brand-grey { border-color: var(--brand-primary-grey); }
+.border-brand-white { border-color: var(--brand-white); }
+.border-brand-black { border-color: var(--brand-black); }
+
+/* Blue border colors */
+.border-brand-blue { border-color: var(--brand-blue-500); }
+.border-brand-blue-200 { border-color: var(--brand-blue-200); }
+.border-brand-blue-300 { border-color: var(--brand-blue-300); }
+.border-brand-blue-400 { border-color: var(--brand-blue-400); }
+.border-brand-blue-500 { border-color: var(--brand-blue-500); }
+.border-brand-blue-600 { border-color: var(--brand-blue-600); }
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
+
+/* Font Families */
+.font-english { font-family: var(--font-english); }
+.font-chinese { font-family: var(--font-chinese); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Font Weights */
+.font-light { font-weight: var(--font-weight-light); }
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Font Sizes */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+.text-6xl { font-size: var(--font-size-6xl); }
+
+/* Line Heights */
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
+
+/* ========================================
+   VISUAL TONE UTILITIES
+   ======================================== */
+
+/* Approachable - Rounded Corners */
+.rounded-brand-xs { border-radius: var(--radius-xs); }
+.rounded-brand-sm { border-radius: var(--radius-sm); }
+.rounded-brand { border-radius: var(--radius-md); }
+.rounded-brand-lg { border-radius: var(--radius-lg); }
+.rounded-brand-xl { border-radius: var(--radius-xl); }
+.rounded-brand-full { border-radius: var(--radius-full); }
+
+/* Modern - Shadows */
+.shadow-brand-xs { box-shadow: var(--shadow-xs); }
+.shadow-brand-sm { box-shadow: var(--shadow-sm); }
+.shadow-brand { box-shadow: var(--shadow-md); }
+.shadow-brand-lg { box-shadow: var(--shadow-lg); }
+.shadow-brand-xl { box-shadow: var(--shadow-xl); }
+.shadow-brand-colored { box-shadow: var(--shadow-brand); }
+
+/* Lively - Spacing */
+.space-brand-xs { gap: var(--spacing-xs); }
+.space-brand-sm { gap: var(--spacing-sm); }
+.space-brand { gap: var(--spacing-md); }
+.space-brand-lg { gap: var(--spacing-lg); }
+.space-brand-xl { gap: var(--spacing-xl); }
+.space-brand-2xl { gap: var(--spacing-2xl); }
+
+/* Transitions */
+.transition-brand-fast { transition: all var(--transition-fast); }
+.transition-brand { transition: all var(--transition-normal); }
+.transition-brand-slow { transition: all var(--transition-slow); }
+
+/* ========================================
+   BRAND COMPONENT CLASSES
+   ======================================== */
+
+/* Primary Button */
+.btn-brand-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-english);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+  color: var(--brand-white);
+  background-color: var(--brand-primary-red);
+  border: 2px solid var(--brand-primary-red);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 44px; /* Improved accessibility */
+}
+
+.btn-brand-primary:hover {
+  background-color: var(--brand-red-600);
+  border-color: var(--brand-red-600);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  color: var(--brand-white);
+}
+
+.btn-brand-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Secondary Button */
+.btn-brand-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-english);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+  color: var(--brand-primary-red);
+  background-color: transparent;
+  border: 2px solid var(--brand-primary-red);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 44px; /* Improved accessibility */
+}
+
+.btn-brand-secondary:hover {
+  background-color: var(--brand-primary-red);
+  color: var(--brand-white);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* New Blue Button Variants */
+.btn-brand-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-english);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+  color: var(--brand-white);
+  background-color: var(--brand-blue-500);
+  border: 2px solid var(--brand-blue-500);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.btn-brand-blue:hover {
+  background-color: var(--brand-blue-600);
+  border-color: var(--brand-blue-600);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  color: var(--brand-white);
+}
+
+.btn-brand-blue-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-english);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+  color: var(--brand-blue-600);
+  background-color: transparent;
+  border: 2px solid var(--brand-blue-500);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.btn-brand-blue-outline:hover {
+  background-color: var(--brand-blue-500);
+  color: var(--brand-white);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Brand Card */
+.card-brand {
+  background-color: var(--brand-white);
+  border: 1px solid var(--brand-grey-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.card-brand:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--brand-grey-300);
+}
+
+.card-brand-blue {
+  background-color: var(--brand-blue-50);
+  border: 1px solid var(--brand-blue-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.card-brand-blue:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--brand-blue-300);
+  background-color: var(--brand-blue-100);
+}
+
+/* Brand Input */
+.input-brand {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-english);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--brand-text-primary);
+  background-color: var(--brand-white);
+  border: 2px solid var(--brand-grey-300);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  min-height: 44px; /* Improved accessibility */
+}
+
+.input-brand:focus {
+  outline: none;
+  border-color: var(--brand-blue-500);
+  box-shadow: 0 0 0 3px rgba(115, 159, 232, 0.1);
+  background-color: var(--brand-white);
+}
+
+.input-brand::placeholder {
+  color: var(--brand-text-muted);
+}
+
+/* Brand Navigation Link */
+.nav-link-brand {
+  position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--brand-primary-grey);
+  font-family: var(--font-english);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.nav-link-brand::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-primary-red);
+  transition: width var(--transition-normal);
+}
+
+.nav-link-brand:hover {
+  color: var(--brand-primary-red);
+}
+
+.nav-link-brand:hover::before {
+  width: 100%;
+}
+
+/* ========================================
+   BRAND PATTERN ELEMENTS (輔助圖形)
+   ======================================== */
+
+/* Linear Wave Pattern */
+.pattern-wave {
+  background-image: linear-gradient(
+    45deg,
+    var(--brand-red-100) 25%,
+    transparent 25%,
+    transparent 75%,
+    var(--brand-red-100) 75%
+  );
+  background-size: 20px 20px;
+}
+
+/* Diagonal Stripes */
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--brand-red-50),
+    var(--brand-red-50) 10px,
+    var(--brand-red-100) 10px,
+    var(--brand-red-100) 20px
+  );
+}
+
+/* Geometric Dots */
+.pattern-dots {
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    var(--brand-red-300) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+}
+
+/* Brand Gradient Backgrounds */
+.bg-brand-gradient-primary {
+  background: linear-gradient(135deg, var(--brand-red-400) 0%, var(--brand-red-600) 100%);
+}
+
+.bg-brand-gradient-soft {
+  background: linear-gradient(135deg, var(--brand-red-50) 0%, var(--brand-red-100) 100%);
+}
+
+.bg-brand-gradient-vibrant {
+  background: linear-gradient(135deg, var(--brand-red-500) 0%, var(--brand-red-700) 50%, var(--brand-red-800) 100%);
+}
+
+/* New Blue Gradients */
+.bg-brand-gradient-blue {
+  background: linear-gradient(135deg, var(--brand-blue-400) 0%, var(--brand-blue-600) 100%);
+}
+
+.bg-brand-gradient-blue-soft {
+  background: linear-gradient(135deg, var(--brand-blue-50) 0%, var(--brand-blue-100) 100%);
+}
+
+.bg-brand-gradient-mixed {
+  background: linear-gradient(135deg, var(--brand-blue-500) 0%, var(--brand-red-500) 100%);
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Mobile-first responsive breakpoints */
+@media (min-width: 640px) {
+  .sm\:text-brand-lg { font-size: var(--font-size-lg); }
+  .sm\:rounded-brand-lg { border-radius: var(--radius-lg); }
+}
+
+@media (min-width: 768px) {
+  .md\:text-brand-xl { font-size: var(--font-size-xl); }
+  .md\:rounded-brand-xl { border-radius: var(--radius-xl); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-brand-2xl { font-size: var(--font-size-2xl); }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-brand-3xl { font-size: var(--font-size-3xl); }
+}
+
+/* ========================================
+   ACCESSIBILITY & PRINT STYLES
+   ======================================== */
+
+/* High contrast mode support - Enhanced */
+@media (prefers-contrast: high) {
+  :root {
+    --brand-primary-red: #CC0000;
+    --brand-primary-grey: #000000;
+    --brand-blue-500: #0066CC;
+    --brand-text-primary: #000000;
+    --brand-text-secondary: #333333;
+  }
+  
+  .btn-brand-primary,
+  .btn-brand-blue {
+    border-width: 3px;
+  }
+  
+  .input-brand:focus {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .transition-brand-fast,
+  .transition-brand,
+  .transition-brand-slow {
+    transition: none;
+  }
+  
+  .btn-brand-primary:hover,
+  .btn-brand-secondary:hover,
+  .card-brand:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .btn-brand-primary,
+  .btn-brand-secondary {
+    background-color: transparent !important;
+    color: var(--brand-black) !important;
+    border: 2px solid var(--brand-black) !important;
+    box-shadow: none !important;
+  }
+  
+  .card-brand {
+    box-shadow: none !important;
+    border: 1px solid var(--brand-black) !important;
+  }
+  
+  .pattern-wave,
+  .pattern-diagonal,
+  .pattern-dots {
+    background-image: none !important;
+  }
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-white: #1A202C;
+    --brand-black: #FFFFFF;
+    --brand-grey-50: #374151;
+    --brand-grey-100: #4B5563;
+    --brand-grey-200: #6B7280;
+    --brand-grey-300: #9CA3AF;
+    --brand-bg-primary: #1A202C;
+    --brand-bg-secondary: #2D3748;
+    --brand-bg-accent: #2A4365;
+    --brand-text-primary: #FFFFFF;
+    --brand-text-secondary: #E2E8F0;
+    --brand-text-muted: #A0AEC0;
+  }
+  
+  .card-brand {
+    background-color: var(--brand-grey-800);
+    border-color: var(--brand-grey-700);
+  }
+  
+  .card-brand-blue {
+    background-color: var(--brand-blue-900);
+    border-color: var(--brand-blue-700);
+  }
+  
+  .input-brand {
+    background-color: var(--brand-grey-800);
+    border-color: var(--brand-grey-600);
+    color: var(--brand-white);
+  }
+  
+  .input-brand:focus {
+    border-color: var(--brand-blue-400);
+    background-color: var(--brand-grey-700);
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Brand-specific utility classes */
+.brand-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.brand-section {
+  padding: var(--spacing-4xl) 0;
+}
+
+.brand-grid {
+  display: grid;
+  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.brand-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text-center {
+  text-align: center;
+}
+
+/* Animation utilities */
+@keyframes brand-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brand-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-brand-fade-in {
+  animation: brand-fade-in 0.6s ease-out;
+}
+
+.animate-brand-slide-in {
+  animation: brand-slide-in 0.6s ease-out;
+}
+
+/* Focus styles for accessibility */
+.focus-brand:focus {
+  outline: 2px solid var(--brand-primary-red);
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Enhanced focus styles for better accessibility */
+.focus-brand:focus,
+.btn-brand-primary:focus,
+.btn-brand-secondary:focus,
+.btn-brand-blue:focus,
+.btn-brand-blue-outline:focus,
+.input-brand:focus {
+  outline: 3px solid var(--brand-blue-400);
+  outline-offset: 2px;
+}
+
+/* Improved text contrast utilities */
+.text-high-contrast {
+  color: var(--brand-black);
+  text-shadow: none;
+}
+
+.text-medium-contrast {
+  color: var(--brand-grey-700);
+}
+
+.text-low-contrast {
+  color: var(--brand-grey-500);
+}
+
+/* Background contrast helpers */
+.bg-high-contrast {
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+}
+
+.bg-medium-contrast {
+  background-color: var(--brand-grey-50);
+  color: var(--brand-grey-800);
+} 

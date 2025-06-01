@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  /* Language-specific typography */
+  .chinese-text {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    font-feature-settings: normal;
+  }
+  
+  .english-text {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+  }
+  
+  /* Smooth transitions for language switching */
+  * {
+    transition: font-family 0.3s ease;
+  }
+}
+
+@layer components {
+  /* Brand Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 
+           bg-brand-red hover:bg-red-700 text-white font-semibold 
+           rounded-brand shadow-soft hover:shadow-brand 
+           transition-all duration-300 transform hover:scale-105 
+           focus:outline-none focus:ring-4 focus:ring-red-200 
+           active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 
+           bg-white hover:bg-neutral-50 text-brand-red font-semibold 
+           border-2 border-brand-red hover:border-red-700 
+           rounded-brand shadow-soft hover:shadow-brand 
+           transition-all duration-300 transform hover:scale-105 
+           focus:outline-none focus:ring-4 focus:ring-red-200 
+           active:scale-95;
+  }
+  
+  .btn-white {
+    @apply inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 
+           bg-white hover:bg-neutral-50 text-brand-red font-semibold 
+           rounded-brand shadow-soft hover:shadow-brand 
+           transition-all duration-300 transform hover:scale-105 
+           focus:outline-none focus:ring-4 focus:ring-white/20 
+           active:scale-95;
+  }
+  
+  /* Brand Cards */
+  .card-brand {
+    @apply bg-white rounded-brand-lg p-6 shadow-soft hover:shadow-brand 
+           transition-all duration-300 border border-neutral-100 
+           hover:border-neutral-200;
+  }
+  
+  /* Navigation Links */
+  .nav-link-brand {
+    @apply relative px-4 py-2 text-neutral-600 hover:text-brand-red 
+           font-medium transition-all duration-300 
+           before:absolute before:bottom-0 before:left-0 before:w-0 
+           before:h-0.5 before:bg-brand-red before:transition-all 
+           before:duration-300 hover:before:w-full;
+  }
+  
+  .nav-link-brand.active {
+    @apply text-brand-red before:w-full;
+  }
+  
+  /* Language Switcher */
+  .language-switcher {
+    @apply flex items-center space-x-2 px-3 py-2 rounded-brand 
+           bg-neutral-100 hover:bg-neutral-200 transition-all duration-300;
+  }
+  
+  /* Wave Patterns */
+  .wave-bg {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 115, 115, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(115, 159, 232, 0.1) 0%, transparent 50%);
+  }
+  
+  .wave-pattern {
+    @apply bg-wave-pattern;
+  }
+  
+  /* Geometric Elements */
+  .geometric-shape {
+    @apply rounded-brand-xl;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+  
+  .diagonal-section {
+    @apply relative;
+  }
+  
+  .diagonal-section::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-brand opacity-5 transform -skew-y-2;
+  }
+  
+  /* Typography Components */
+  .heading-brand-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-800 leading-tight;
+  }
+  
+  .heading-brand-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 leading-tight;
+  }
+  
+  .heading-brand-md {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-800 leading-tight;
+  }
+  
+  .heading-brand-sm {
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-800 leading-tight;
+  }
+  
+  .text-brand-lg {
+    @apply text-lg md:text-xl text-neutral-600 leading-relaxed;
+  }
+  
+  .text-brand-md {
+    @apply text-base md:text-lg text-neutral-600 leading-relaxed;
+  }
+  
+  /* Animation Classes */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .stagger-animation {
+    animation-delay: var(--stagger-delay, 0ms);
+  }
+  
+  /* Mobile Menu Animations */
+  .mobile-menu-enter {
+    @apply opacity-0 transform -translate-y-2 scale-95;
+  }
+  
+  .mobile-menu-enter-active {
+    @apply opacity-100 transform translate-y-0 scale-100 transition-all duration-300 ease-out;
+  }
+  
+  .mobile-menu-exit {
+    @apply opacity-100 transform translate-y-0 scale-100;
+  }
+  
+  .mobile-menu-exit-active {
+    @apply opacity-0 transform -translate-y-2 scale-95 transition-all duration-200 ease-in;
+  }
+  
+  /* Language Transition */
+  .language-transition {
+    @apply transition-all duration-500 ease-in-out;
+  }
+  
+  /* Brand Gradients */
+  .gradient-brand {
+    @apply bg-gradient-brand;
+  }
+  
+  .gradient-red {
+    @apply bg-gradient-red;
+  }
+  
+  .gradient-blue {
+    @apply bg-gradient-blue;
+  }
+  
+  /* Responsive Text Sizing for Chinese */
+  .chinese-responsive {
+    @apply text-base sm:text-lg;
+    line-height: 1.7;
+  }
+  
+  .chinese-responsive-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+    line-height: 1.6;
+  }
+  
+  .chinese-responsive-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+    line-height: 1.4;
+  }
+  
+  /* Accessibility */
+  .focus-brand {
+    @apply focus:outline-none focus:ring-4 focus:ring-red-200;
+  }
+  
+  /* Loading States */
+  .loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+@layer utilities {
+  /* Border Radius */
+  .rounded-brand {
+    border-radius: 12px;
+  }
+  
+  .rounded-brand-lg {
+    border-radius: 16px;
+  }
+  
+  .rounded-brand-xl {
+    border-radius: 20px;
+  }
+
+  /* Shadows */
+  .shadow-soft {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-brand {
+    box-shadow: 0 10px 25px -3px rgba(220, 38, 38, 0.1), 
+                0 4px 6px -2px rgba(220, 38, 38, 0.05);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.1), 
+                0 10px 10px -5px rgba(220, 38, 38, 0.04);
+  }
+
+  /* Animations */
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Gradients */
+  .gradient-brand {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  }
+  
+  .gradient-brand-soft {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FFFFFF 100%);
+  }
+
+  /* Text Gradients */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Backdrop Blur */
+  .backdrop-blur-brand {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Scrollbar Styling */
+  .scrollbar-brand {
+    scrollbar-width: thin;
+    scrollbar-color: #DC2626 #F5F5F5;
+  }
+  
+  .scrollbar-brand::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollbar-brand::-webkit-scrollbar-track {
+    background: #F5F5F5;
+    border-radius: 4px;
+  }
+  
+  .scrollbar-brand::-webkit-scrollbar-thumb {
+    background: #DC2626;
+    border-radius: 4px;
+  }
+  
+  .scrollbar-brand::-webkit-scrollbar-thumb:hover {
+    background: #B91C1C;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-brand {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+}
+
+/* Responsive Typography Improvements */
+@media (max-width: 640px) {
+  .chinese-text {
+    font-size: 0.95em;
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chinese-text {
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-black;
+  }
+  
+  .nav-link-brand {
+    @apply border-b-2 border-transparent hover:border-black;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-blob {
+    animation: none;
+  }
+} 

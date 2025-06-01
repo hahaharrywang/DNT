@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalNomadsTaiwan - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles/brand.css" rel="stylesheet">
+    <link href="styles/accessibility-fixes.css" rel="stylesheet">
+    <link href="styles/optimizations.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': {
+                            50: '#FFF1F1',
+                            100: '#FFE3E3',
+                            200: '#FFD5D5',
+                            300: '#FFC7C7',
+                            400: '#FFABAB',
+                            500: '#FF8F8F',
+                            600: '#FF7373',
+                            700: '#D95C5C',
+                            800: '#B34545',
+                        },
+                        'brand-grey': {
+                            50: '#F9FAFB',
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#5B5B5B',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        },
+                    },
+                    fontFamily: {
+                        'english': ['Barlow', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'chinese': ['Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'brand-xs': '4px',
+                        'brand-sm': '8px',
+                        'brand': '16px',
+                        'brand-lg': '24px',
+                        'brand-xl': '32px',
+                    },
+                    boxShadow: {
+                        'brand-xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                        'brand-sm': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'brand-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'brand-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'brand-colored': '0 10px 25px -3px rgba(255, 115, 115, 0.1), 0 4px 6px -2px rgba(255, 115, 115, 0.05)',
+                    },
+                    animation: {
+                        'brand-fade-in': 'brand-fade-in 0.6s ease-out',
+                        'brand-slide-in': 'brand-slide-in 0.6s ease-out',
+                        'pulse-brand': 'pulse-brand 2s infinite',
+                    },
+                    keyframes: {
+                        'brand-fade-in': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'brand-slide-in': {
+                            '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        'pulse-brand': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 115, 115, 0.7)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(255, 115, 115, 0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-english antialiased bg-white text-brand-grey-900">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-brand transition-all duration-300">
+        <div class="brand-container">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="block">
+                        <img src="asset/Logo.png" alt="DigitalNomadsTaiwan" class="h-8 lg:h-10 w-auto transition-brand">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#hero" class="nav-link-brand" data-en="Home" data-zh="首頁">Home</a>
+                    <a href="#about-us" class="nav-link-brand" data-en="About Us" data-zh="關於我們">About Us</a>
+                    <a href="#event-highlight" class="nav-link-brand" data-en="Event" data-zh="活動">Event</a>
+                    <a href="#roadmap" class="nav-link-brand" data-en="Road Map" data-zh="發展路線圖">Road Map</a>
+                    <a href="faq-section.html" class="nav-link-brand" data-en="Q&A" data-zh="問答">Q&A</a>
+                    <a href="join-us.html" class="nav-link-brand" data-en="Join Us" data-zh="加入我們">Join Us</a>
+                    <a href="#footer" class="nav-link-brand" data-en="Contact" data-zh="聯絡我們">Contact</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-2 px-3 py-2 rounded-brand-sm bg-brand-grey-100 hover:bg-brand-grey-200 transition-brand">
+                        <i class="fas fa-globe w-4 h-4 text-brand-grey-600"></i>
+                        <span class="text-sm font-medium text-brand-grey-700" id="lang-toggle">中文</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-brand-sm bg-brand-grey-100 hover:bg-brand-grey-200 transition-brand">
+                        <i id="menu-icon" class="fas fa-bars w-6 h-6 text-brand-grey-600"></i>
+                        <i id="close-icon" class="fas fa-times w-6 h-6 text-brand-grey-600 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-md border-t border-brand-grey-200 shadow-brand hidden">
+            <div class="brand-container py-6">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#hero" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Home" data-zh="首頁" onclick="closeMobileMenu()">Home</a>
+                    <a href="#about-us" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="About Us" data-zh="關於我們" onclick="closeMobileMenu()">About Us</a>
+                    <a href="#event-highlight" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Event" data-zh="活動" onclick="closeMobileMenu()">Event</a>
+                    <a href="#roadmap" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Road Map" data-zh="發展路線圖" onclick="closeMobileMenu()">Road Map</a>
+                    <a href="faq-section.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Q&A" data-zh="問答" onclick="closeMobileMenu()">Q&A</a>
+                    <a href="join-us.html" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Join Us" data-zh="加入我們" onclick="closeMobileMenu()">Join Us</a>
+                    <a href="#footer" class="text-left py-3 px-4 rounded-brand hover:bg-brand-red-50 hover:text-brand-red-600 transition-brand text-brand-grey-600" data-en="Contact" data-zh="聯絡我們" onclick="closeMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen brand-flex-center overflow-hidden bg-brand-gradient-soft pt-20">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 pattern-dots opacity-30"></div>
+        
+        <div class="relative brand-container brand-text-center">
+            <div class="animate-brand-fade-in">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-grey-900 mb-6 leading-tight" 
+                    data-en="DigitalNomadsTaiwan" 
+                    data-zh="DigitalNomadsTaiwan">
+                    DigitalNomadsTaiwan
+                </h1>
+
+                <p class="text-lg sm:text-xl text-brand-red-600 font-medium mb-8 max-w-3xl mx-auto" 
+                   data-en="We Bridge Taiwan with Global Digital Nomad Community" 
+                   data-zh="橋接台灣與世界的遊牧社群">
+                    We Bridge Taiwan with Global Digital Nomad Community
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="join-us.html" class="btn-brand-primary">
+                        <span data-en="Join Our Community" data-zh="加入我們的社群">Join Our Community</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#about-us" class="btn-brand-secondary">
+                        <span data-en="Learn More" data-zh="了解更多">Learn More</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="brand-section bg-white">
+        <div class="brand-container">
+            <!-- Section Header -->
+            <div class="brand-text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6" 
+                    data-en="About Us" 
+                    data-zh="關於我們">
+                    About Us
+                </h2>
+                <p class="text-lg text-brand-grey-600 max-w-4xl mx-auto leading-relaxed" 
+                   data-en="We are Taiwan's premier digital nomad community, bridging local culture with global remote work opportunities. Our mission is to empower individuals to embrace location independence while fostering meaningful connections and professional growth." 
+                   data-zh="我們是台灣首屈一指的數位遊牧社群，連接本地文化與全球遠端工作機會。我們的使命是賦能個人擁抱地點獨立，同時促進有意義的連結和專業成長。">
+                    We are Taiwan's premier digital nomad community, bridging local culture with global remote work opportunities. Our mission is to empower individuals to embrace location independence while fostering meaningful connections and professional growth.
+                </p>
+            </div>
+
+            <!-- Mission & Vision Grid -->
+            <div class="brand-grid mb-16">
+                <!-- Mission -->
+                <div class="card-brand group">
+                    <div class="w-16 h-16 bg-brand-gradient-primary rounded-brand brand-flex-center mb-6 group-hover:shadow-brand-colored transition-brand">
+                        <i class="fas fa-rocket text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-red-600 mb-4" 
+                        data-en="Our Mission" 
+                        data-zh="我們的使命">
+                        Our Mission
+                    </h3>
+                    <p class="text-brand-grey-600 leading-relaxed" 
+                       data-en="To create a thriving ecosystem where digital nomads can connect, collaborate, and contribute to Taiwan's vibrant tech landscape while exploring the beauty of our island." 
+                       data-zh="創造一個蓬勃發展的生態系統，讓數位遊牧者能夠連結、合作，並為台灣充滿活力的科技景觀做出貢獻，同時探索我們島嶼的美麗。">
+                        To create a thriving ecosystem where digital nomads can connect, collaborate, and contribute to Taiwan's vibrant tech landscape while exploring the beauty of our island.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="card-brand group">
+                    <div class="w-16 h-16 bg-brand-gradient-primary rounded-brand brand-flex-center mb-6 group-hover:shadow-brand-colored transition-brand">
+                        <i class="fas fa-eye text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-red-600 mb-4" 
+                        data-en="Our Vision" 
+                        data-zh="我們的願景">
+                        Our Vision
+                    </h3>
+                    <p class="text-brand-grey-600 leading-relaxed" 
+                       data-en="To ensure everyone who joins our community activities—whether international digital nomads new to Taiwan or professionals seeking to expand their global perspective—can build meaningful cross-cultural connections and leave with enriched insights, broader networks, and life-changing inspiration." 
+                       data-zh="讓踏入我們社群活動的人，無論是初來台灣的國際數位遊牧者，還是想要擴展國際視野的專業人士，都能在這裡建立有意義的跨文化連結，並在離開時帶著更豐富的視野、更廣闊的人脈網絡、甚至是啟發人生的靈感。">
+                        To ensure everyone who joins our community activities—whether international digital nomads new to Taiwan or professionals seeking to expand their global perspective—can build meaningful cross-cultural connections and leave with enriched insights, broader networks, and life-changing inspiration.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="brand-grid">
+                <div class="card-brand brand-text-center">
+                    <div class="w-12 h-12 bg-brand-red-100 rounded-brand-full brand-flex-center mx-auto mb-4">
+                        <i class="fas fa-users text-brand-red-600"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-brand-grey-900 mb-2" data-en="Community" data-zh="社群">Community</h4>
+                    <p class="text-brand-grey-600" data-en="Connect with like-minded professionals" data-zh="與志同道合的專業人士連結">Connect with like-minded professionals</p>
+                </div>
+
+                <div class="card-brand brand-text-center">
+                    <div class="w-12 h-12 bg-brand-red-100 rounded-brand-full brand-flex-center mx-auto mb-4">
+                        <i class="fas fa-map-marked-alt text-brand-red-600"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-brand-grey-900 mb-2" data-en="Local Insights" data-zh="在地洞察">Local Insights</h4>
+                    <p class="text-brand-grey-600" data-en="Discover Taiwan's hidden gems" data-zh="發現台灣的隱藏寶石">Discover Taiwan's hidden gems</p>
+                </div>
+
+                <div class="card-brand brand-text-center">
+                    <div class="w-12 h-12 bg-brand-red-100 rounded-brand-full brand-flex-center mx-auto mb-4">
+                        <i class="fas fa-laptop-code text-brand-red-600"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-brand-grey-900 mb-2" data-en="Remote Work" data-zh="遠端工作">Remote Work</h4>
+                    <p class="text-brand-grey-600" data-en="Best practices and resources" data-zh="最佳實踐和資源">Best practices and resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Impact Section (Previously Our Growing Community) -->
+    <section id="our-impact" class="relative py-20 lg:py-32 bg-gradient-to-br from-red-50 via-white to-blue-50 overflow-hidden">
+        <!-- Background Wave Patterns -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <svg class="absolute top-10 left-10 w-32 h-32 text-brand-red" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20 Z" />
+                </svg>
+                <svg class="absolute top-40 right-20 w-24 h-24 text-blue-400" viewBox="0 0 100 100" fill="currentColor">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <svg class="absolute bottom-20 left-1/4 w-28 h-28 text-purple-400" viewBox="0 0 100 100" fill="currentColor">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" />
+                </svg>
+                <svg class="absolute bottom-40 right-10 w-20 h-20 text-green-400" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50,10 L90,90 L10,90 Z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text" 
+                    data-en="Our Impact" 
+                    data-zh="我們的影響力">
+                    Our Impact
+                </h2>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Participants -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-red-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-red-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-red-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="900">900</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Participants" 
+                                data-zh="參與人次">
+                                Participants
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Nationalities -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-blue-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-blue-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-blue-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="60">60</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Nationalities" 
+                                data-zh="國籍">
+                                Nationalities
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- International Members -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-purple-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-purple-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-purple-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="46">46</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">%</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="International Members" 
+                                data-zh="國際參與者">
+                                International Members
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Events Hosted -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-green-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-green-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-green-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-green-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="25">25</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Events Hosted" 
+                                data-zh="活動場次">
+                                Events Hosted
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlight Section (Previously Our Community in Action) -->
+    <section id="event-highlight" class="py-20 lg:py-32 bg-gradient-to-br from-neutral-50 to-blue-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6" 
+                    data-en="Event Highlight" 
+                    data-zh="活動精彩回顧">
+                    Event Highlight
+                </h2>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+                <button onclick="switchCategory('meetups')" 
+                        class="category-btn active px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base" 
+                        data-category="meetups"
+                        data-en="Monthly Meetups" 
+                        data-zh="月度聚會">
+                    Monthly Meetups
+                </button>
+                <button onclick="switchCategory('cowork')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base" 
+                        data-category="cowork"
+                        data-en="One-Day Colleague" 
+                        data-zh="一日同事">
+                    One-Day Colleague
+                </button>
+                <button onclick="switchCategory('lectures')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base" 
+                        data-category="lectures"
+                        data-en="Professional Lectures" 
+                        data-zh="專業講座">
+                    Professional Lectures
+                </button>
+                <button onclick="switchCategory('adventures')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base" 
+                        data-category="adventures"
+                        data-en="Adventure Activities" 
+                        data-zh="探險活動">
+                    Adventure Activities
+                </button>
+            </div>
+
+            <!-- Enhanced Photo Carousel Container -->
+            <div class="relative">
+                <!-- Loading Skeleton -->
+                <div id="carousel-loading" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64"></div>
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64"></div>
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64 hidden lg:block"></div>
+                    </div>
+                </div>
+
+                <!-- Carousel Content -->
+                <div id="carousel-content" class="relative">
+                    <!-- Desktop View (3 columns) -->
+                    <div class="hidden lg:block">
+                        <div class="grid grid-cols-3 gap-6" id="desktop-carousel">
+                            <!-- Photos will be dynamically inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Tablet View (2 columns) -->
+                    <div class="hidden sm:block lg:hidden">
+                        <div class="relative overflow-hidden rounded-brand-xl">
+                            <div class="grid grid-cols-2 gap-4" id="tablet-carousel">
+                                <!-- Photos will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <!-- Tablet Navigation -->
+                        <div class="flex justify-center items-center mt-6 space-x-4">
+                            <button onclick="previousTabletSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="flex space-x-2" id="tablet-indicators">
+                                <!-- Indicators will be dynamically inserted here -->
+                            </div>
+                            <button onclick="nextTabletSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile View (1 column) -->
+                    <div class="sm:hidden">
+                        <div class="relative overflow-hidden rounded-brand-xl" id="mobile-carousel">
+                            <div class="flex transition-transform duration-500 ease-in-out" id="mobile-slides">
+                                <!-- Mobile slides will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <!-- Mobile Navigation -->
+                        <div class="flex justify-center items-center mt-6 space-x-4">
+                            <button onclick="previousSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="flex space-x-2" id="mobile-indicators">
+                                <!-- Indicators will be dynamically inserted here -->
+                            </div>
+                            <button onclick="nextSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Photos Button -->
+                <div class="text-center mt-12">
+                    <button onclick="openPhotoGallery()" 
+                            class="btn-primary px-6 sm:px-8 py-3 sm:py-4 bg-brand-red text-white rounded-full font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
+                            data-en="View All Photos" 
+                            data-zh="查看所有照片">
+                        View All Photos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Roadmap Section -->
+    <section id="development-roadmap" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="english-text">Development Roadmap</span>
+                    <span class="chinese-text hidden">發展路線圖</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span class="english-text">Our strategic milestones towards building the premier digital nomad community</span>
+                    <span class="chinese-text hidden">我們建立頂級數位遊牧社群的戰略里程碑</span>
+                </p>
+            </div>
+
+            <!-- Roadmap Timeline -->
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-200 h-full hidden lg:block"></div>
+                
+                <!-- Phase 1: 2024 至今 - 擴大聲量階段 -->
+                <div class="relative mb-16 lg:mb-24 fade-in">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                        <div class="lg:text-right lg:pr-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="flex items-center mb-4 lg:justify-end">
+                                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-xl mr-4 lg:mr-0 lg:ml-4 lg:order-2">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div class="lg:order-1">
+                                        <h3 class="text-2xl font-bold text-red-600 mb-2">
+                                            <span class="english-text">2024 - Present</span>
+                                            <span class="chinese-text hidden">2024 至今</span>
+                                        </h3>
+                                        <span class="text-sm font-medium text-gray-500">
+                                            <span class="english-text">Voice Amplification Phase</span>
+                                            <span class="chinese-text hidden">擴大聲量階段</span>
+                                        </span>
+                                        <div class="text-red-500 text-xs font-semibold px-2 py-1 bg-red-100 rounded-full mt-2 inline-block">
+                                            <span class="english-text">YOU ARE HERE</span>
+                                            <span class="chinese-text hidden">目前階段</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    <span class="english-text">Building international networks and expanding media exposure to establish our presence in the digital nomad community.</span>
+                                    <span class="chinese-text hidden">建立國際網絡並擴大媒體曝光，在數位遊牧社群中建立我們的存在感。</span>
+                                </p>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span class="english-text">Established partnerships with 15+ international communities</span>
+                                        <span class="chinese-text hidden">與15+國際社群建立合作關係</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span class="english-text">Featured in major tech and lifestyle publications</span>
+                                        <span class="chinese-text hidden">在主要科技和生活方式出版物中獲得報導</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span class="english-text">Built core team of 12 passionate professionals</span>
+                                        <span class="chinese-text hidden">建立了12名充滿熱情的專業人士核心團隊</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hidden lg:block"></div>
+                    </div>
+                    <!-- Timeline Dot -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full border-4 border-white shadow-lg hidden lg:block animate-pulse"></div>
+                </div>
+
+                <!-- Phase 2: 2025 Q3 - 深度成長階段 -->
+                <div class="relative mb-16 lg:mb-24 fade-in">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                        <div class="hidden lg:block"></div>
+                        <div class="lg:pl-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-xl mr-4">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-blue-600 mb-2">
+                                            <span class="english-text">2025 Q3</span>
+                                            <span class="chinese-text hidden">2025 第三季</span>
+                                        </h3>
+                                        <span class="text-sm font-medium text-gray-500">
+                                            <span class="english-text">Deep Growth Phase</span>
+                                            <span class="chinese-text hidden">深度成長階段</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    <span class="english-text">Launch comprehensive growth programs and establish paid course systems with expert instructors.</span>
+                                    <span class="chinese-text hidden">推出綜合成長計劃並建立由專家講師授課的付費課程體系。</span>
+                                </p>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                        <span class="english-text">Launch premium mentorship programs</span>
+                                        <span class="chinese-text hidden">推出高級導師計劃</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                        <span class="english-text">Establish paid course systems with expert instructors</span>
+                                        <span class="chinese-text hidden">建立由專家講師授課的付費課程體系</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                        <span class="english-text">Create specialized workshops for skill development</span>
+                                        <span class="chinese-text hidden">創建技能發展專業工作坊</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Timeline Dot -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg hidden lg:block"></div>
+                </div>
+
+                <!-- Phase 3: 2026 Q1 - 擴展階段 -->
+                <div class="relative fade-in">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                        <div class="lg:text-right lg:pr-8">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="flex items-center mb-4 lg:justify-end">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl mr-4 lg:mr-0 lg:ml-4 lg:order-2">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="lg:order-1">
+                                        <h3 class="text-2xl font-bold text-green-600 mb-2">
+                                            <span class="english-text">2026 Q1</span>
+                                            <span class="chinese-text hidden">2026 第一季</span>
+                                        </h3>
+                                        <span class="text-sm font-medium text-gray-500">
+                                            <span class="english-text">Expansion Phase</span>
+                                            <span class="chinese-text hidden">擴展階段</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    <span class="english-text">Scale operations and establish Taiwan as the premier digital nomad hub in Asia.</span>
+                                    <span class="chinese-text hidden">擴大營運規模，將台灣建立為亞洲首屈一指的數位遊牧中心。</span>
+                                </p>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                                        <span class="english-text">Launch co-working spaces in major cities</span>
+                                        <span class="chinese-text hidden">在主要城市推出共同工作空間</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                                        <span class="english-text">Form international partnerships</span>
+                                        <span class="chinese-text hidden">建立國際合作夥伴關係</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                                        <span class="english-text">Collaborate with government initiatives</span>
+                                        <span class="chinese-text hidden">與政府倡議合作</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hidden lg:block"></div>
+                    </div>
+                    <!-- Timeline Dot -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-lg hidden lg:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-brand-grey-900 text-white py-16 lg:py-20">
+        <div class="brand-container">
+            <div class="brand-grid mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <img src="asset/Logo.png" alt="DigitalNomadsTaiwan" class="h-10 mb-6">
+                    <p class="text-brand-grey-300 mb-6 max-w-md" 
+                       data-en="Bridging Taiwan with the global digital nomad community through meaningful connections and professional growth opportunities." 
+                       data-zh="透過有意義的連結和專業成長機會，橋接台灣與全球數位遊牧社群。">
+                        Bridging Taiwan with the global digital nomad community through meaningful connections and professional growth opportunities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-brand-grey-800 rounded-brand-full brand-flex-center hover:bg-brand-red-600 transition-brand">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brand-grey-800 rounded-brand-full brand-flex-center hover:bg-brand-red-600 transition-brand">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brand-grey-800 rounded-brand-full brand-flex-center hover:bg-brand-red-600 transition-brand">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brand-grey-800 rounded-brand-full brand-flex-center hover:bg-brand-red-600 transition-brand">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" data-en="Quick Links" data-zh="快速連結">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about-us" class="text-brand-grey-300 hover:text-white transition-brand" data-en="About Us" data-zh="關於我們">About Us</a></li>
+                        <li><a href="#event-highlight" class="text-brand-grey-300 hover:text-white transition-brand" data-en="Events" data-zh="活動">Events</a></li>
+                        <li><a href="#roadmap" class="text-brand-grey-300 hover:text-white transition-brand" data-en="Roadmap" data-zh="發展路線圖">Roadmap</a></li>
+                        <li><a href="faq-section.html" class="text-brand-grey-300 hover:text-white transition-brand" data-en="Q&A" data-zh="問答">Q&A</a></li>
+                        <li><a href="join-us.html" class="text-brand-grey-300 hover:text-white transition-brand" data-en="Join Us" data-zh="加入我們">Join Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6" data-en="Contact" data-zh="聯絡我們">Contact</h4>
+                    <ul class="space-y-3 text-brand-grey-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope w-5 h-5 mr-3 text-brand-red-600"></i>
+                            <span>hello@digitalnomadstaiwan.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone w-5 h-5 mr-3 text-brand-red-600"></i>
+                            <span>+886 2 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt w-5 h-5 mr-3 text-brand-red-600"></i>
+                            <span data-en="Taipei, Taiwan" data-zh="台灣台北">Taipei, Taiwan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-brand-grey-800 pt-8 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-brand-grey-400 text-sm mb-4 sm:mb-0" 
+                   data-en="© 2024 DigitalNomadsTaiwan. All rights reserved." 
+                   data-zh="© 2024 DigitalNomadsTaiwan. 版權所有。">
+                    © 2024 DigitalNomadsTaiwan. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-brand-grey-400 hover:text-white transition-brand" data-en="Privacy Policy" data-zh="隱私政策">Privacy Policy</a>
+                    <a href="#" class="text-brand-grey-400 hover:text-white transition-brand" data-en="Terms of Service" data-zh="服務條款">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Photo Gallery Modal -->
+    <div id="photo-gallery-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h3 class="text-2xl font-bold text-gray-900 english-text" data-en="Photo Gallery" data-zh="照片畫廊">Photo Gallery</h3>
+                <button onclick="closePhotoGallery()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[70vh]">
+                <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Photos will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-2xl z-10 hover:text-gray-300">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="bg-white rounded-lg overflow-hidden">
+                <img id="lightbox-image" src="" alt="" class="w-full h-auto max-h-[60vh] object-cover">
+                <div class="p-6">
+                    <h3 id="lightbox-title" class="text-2xl font-bold text-gray-900 mb-2"></h3>
+                    <p id="lightbox-description" class="text-gray-600 mb-4"></p>
+                    <div class="flex justify-between items-center">
+                        <span id="lightbox-date" class="text-sm text-gray-500"></span>
+                        <button onclick="sharePhoto()" class="bg-brand-red hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
+                            <i class="fas fa-share-alt mr-2"></i>
+                            <span class="english-text" data-en="Share" data-zh="分享">Share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Toggle & Core JavaScript -->
+    <script>
+        // Language and state variables
+        let isEnglish = true;
+        let currentCategory = 'meetups';
+        let currentSlideIndex = 0;
+        let autoPlayInterval;
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const langToggle = document.getElementById('lang-toggle');
+            
+            elements.forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                }
+            });
+            
+            // Handle english-text and chinese-text span elements
+            const englishTexts = document.querySelectorAll('.english-text');
+            const chineseTexts = document.querySelectorAll('.chinese-text');
+            
+            if (isEnglish) {
+                englishTexts.forEach(element => {
+                    element.classList.remove('hidden');
+                });
+                chineseTexts.forEach(element => {
+                    element.classList.add('hidden');
+                });
+            } else {
+                englishTexts.forEach(element => {
+                    element.classList.add('hidden');
+                });
+                chineseTexts.forEach(element => {
+                    element.classList.remove('hidden');
+                });
+            }
+            
+            if (langToggle) {
+                langToggle.textContent = isEnglish ? '中文' : 'EN';
+            }
+            
+            // Re-render carousel with new language
+            renderCarousel();
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Initialize positions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize photo carousel
+            renderCarousel();
+            startAutoPlay();
+            
+            // Observe all counter elements
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+            
+            // Add CSS for filter buttons and photo carousel
+            const style = document.createElement('style');
+            style.textContent = `
+                .filter-btn {
+                    background-color: white;
+                    color: #374151;
+                    border-color: #d1d5db;
+                }
+                .filter-btn.active {
+                    background-color: #dc2626;
+                    color: white;
+                    border-color: #dc2626;
+                }
+                .category-btn {
+                    background-color: white;
+                    color: #374151;
+                    border: 1px solid #d1d5db;
+                }
+                .category-btn.active {
+                    background-color: #FF7373;
+                    color: white;
+                    border-color: #FF7373;
+                }
+                .line-clamp-3 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                .hover\\:scale-102:hover {
+                    transform: scale(1.02);
+                }
+                .shadow-soft {
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                }
+                .shadow-brand {
+                    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                }
+                .rounded-brand-xl {
+                    border-radius: 1rem;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Close photo modals when clicking outside
+            document.getElementById('photo-gallery-modal').addEventListener('click', function(e) {
+                if (e.target === this) closePhotoGallery();
+            });
+            
+            document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+                if (e.target === this) closeLightbox();
+            });
+            
+            // Close modals with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closePhotoGallery();
+                    closeLightbox();
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Pause carousel on hover
+            const carouselContainer = document.getElementById('carousel-content');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 20);
+                    
+                    counterObserver.unobserve(counter);
+                }
+            });
+        });
+
+        // Photo Carousel Data
+        const eventPhotos = {
+            meetups: [
+                {
+                    id: 1,
+                    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop',
+                    title: { en: 'Monthly Networking Meetup', zh: '月度網路聚會' },
+                    description: { en: 'Community members sharing experiences and building connections', zh: '社群成員分享經驗並建立聯繫' },
+                    date: '2024-01-15',
+                    location: { en: 'Taipei Co-working Space', zh: '台北共同工作空間' },
+                    participants: 25
+                },
+                {
+                    id: 2,
+                    src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop',
+                    title: { en: 'Ice Breaker Session', zh: '破冰活動' },
+                    description: { en: 'New members introduction and group activities', zh: '新成員介紹和團體活動' },
+                    date: '2024-01-22',
+                    location: { en: 'Xinyi District Cafe', zh: '信義區咖啡廳' },
+                    participants: 18
+                },
+                {
+                    id: 3,
+                    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop',
+                    title: { en: 'Lightning Talks Evening', zh: '閃電演講之夜' },
+                    description: { en: 'Quick presentations on digital nomad topics', zh: '數位遊牧主題快速演講' },
+                    date: '2024-02-05',
+                    location: { en: 'Daan District Hub', zh: '大安區中心' },
+                    participants: 32
+                }
+            ],
+            cowork: [
+                {
+                    id: 4,
+                    src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+                    title: { en: 'Collaborative Work Session', zh: '協作工作會議' },
+                    description: { en: 'Professional collaboration and productivity session', zh: '專業協作和生產力會議' },
+                    date: '2024-01-18',
+                    location: { en: 'Modern Co-working Space', zh: '現代共同工作空間' },
+                    participants: 15
+                },
+                {
+                    id: 5,
+                    src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop',
+                    title: { en: 'Workspace Networking', zh: '工作空間網路' },
+                    description: { en: 'Building professional connections while working', zh: '在工作中建立專業聯繫' },
+                    date: '2024-02-01',
+                    location: { en: 'Tech Hub Taipei', zh: '台北科技中心' },
+                    participants: 22
+                },
+                {
+                    id: 6,
+                    src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop',
+                    title: { en: 'Focus & Flow Session', zh: '專注與流動會議' },
+                    description: { en: 'Deep work session with productivity techniques', zh: '使用生產力技巧的深度工作會議' },
+                    date: '2024-02-12',
+                    location: { en: 'Quiet Work Cafe', zh: '安靜工作咖啡廳' },
+                    participants: 12
+                }
+            ],
+            lectures: [
+                {
+                    id: 7,
+                    src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
+                    title: { en: 'Career Growth Workshop', zh: '職業成長工作坊' },
+                    description: { en: 'Expert-led session on career development strategies', zh: '專家主導的職業發展策略會議' },
+                    date: '2024-01-25',
+                    location: { en: 'Business Center Taipei', zh: '台北商業中心' },
+                    participants: 45
+                },
+                {
+                    id: 8,
+                    src: 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=800&h=600&fit=crop',
+                    title: { en: 'Digital Nomad Lifestyle', zh: '數位遊牧生活方式' },
+                    description: { en: 'Sharing experiences and best practices', zh: '分享經驗和最佳實踐' },
+                    date: '2024-02-08',
+                    location: { en: 'Innovation Hub', zh: '創新中心' },
+                    participants: 38
+                },
+                {
+                    id: 9,
+                    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
+                    title: { en: 'Growth Mindset Seminar', zh: '成長心態研討會' },
+                    description: { en: 'Developing resilience and adaptability', zh: '培養韌性和適應性' },
+                    date: '2024-02-15',
+                    location: { en: 'Learning Center', zh: '學習中心' },
+                    participants: 28
+                }
+            ],
+            adventures: [
+                {
+                    id: 10,
+                    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+                    title: { en: 'Maokong Tea Adventure', zh: '貓空茶葉探險' },
+                    description: { en: 'Cultural tour of traditional tea houses', zh: '傳統茶館文化之旅' },
+                    date: '2024-01-28',
+                    location: { en: 'Maokong Teahouse', zh: '貓空茶館' },
+                    participants: 20
+                },
+                {
+                    id: 11,
+                    src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+                    title: { en: 'Ultimate Frisbee Game', zh: '極限飛盤比賽' },
+                    description: { en: 'Social sports and team building activity', zh: '社交運動和團隊建設活動' },
+                    date: '2024-02-03',
+                    location: { en: 'Daan Park', zh: '大安森林公園' },
+                    participants: 16
+                },
+                {
+                    id: 12,
+                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+                    title: { en: 'Temple Cultural Tour', zh: '寺廟文化之旅' },
+                    description: { en: 'Exploring Taiwan\'s spiritual heritage', zh: '探索台灣的精神遺產' },
+                    date: '2024-02-10',
+                    location: { en: 'Longshan Temple', zh: '龍山寺' },
+                    participants: 24
+                }
+            ]
+        };
+
+        // Photo Carousel Functions
+        function switchCategory(category) {
+            currentCategory = category;
+            currentSlideIndex = 0;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-red', 'text-white');
+                btn.classList.add('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
+            });
+            
+            const activeBtn = document.querySelector(`[data-category="${category}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-brand-red', 'text-white');
+                activeBtn.classList.remove('bg-white', 'text-neutral-700', 'border-neutral-200');
+            }
+            
+            renderCarousel();
+            startAutoPlay();
+        }
+
+        function renderCarousel() {
+            const photos = eventPhotos[currentCategory];
+            const lang = isEnglish ? 'en' : 'zh';
+            
+            // Desktop carousel (3 columns)
+            const desktopCarousel = document.getElementById('desktop-carousel');
+            if (desktopCarousel) {
+                desktopCarousel.innerHTML = photos.map(photo => createPhotoCard(photo, lang)).join('');
+            }
+            
+            // Tablet carousel (2 columns with pagination)
+            const tabletCarousel = document.getElementById('tablet-carousel');
+            if (tabletCarousel) {
+                updateTabletCarousel();
+            }
+            
+            // Mobile carousel (1 column with slides)
+            const mobileSlides = document.getElementById('mobile-slides');
+            if (mobileSlides) {
+                mobileSlides.innerHTML = photos.map(photo => createMobileSlide(photo, lang)).join('');
+                mobileSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+                
+                // Mobile indicators
+                const indicators = document.getElementById('mobile-indicators');
+                if (indicators) {
+                    indicators.innerHTML = photos.map((_, index) => 
+                        `<button onclick="goToSlide(${index})" class="w-3 h-3 rounded-full transition-all duration-300 ${
+                            index === currentSlideIndex ? 'bg-brand-red' : 'bg-neutral-300'
+                        }"></button>`
+                    ).join('');
+                }
+            }
+        }
+
+        function createPhotoCard(photo, lang) {
+            return `
+                <div class="relative group cursor-pointer overflow-hidden rounded-brand-xl shadow-soft hover:shadow-brand transition-all duration-300 transform hover:scale-105"
+                     onclick="openLightbox(${photo.id})">
+                    <div class="aspect-w-4 aspect-h-3">
+                        <img src="${photo.src}" 
+                             alt="${photo.title[lang]}" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                             loading="lazy">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h4 class="font-semibold text-lg mb-1">${photo.title[lang]}</h4>
+                        <p class="text-sm opacity-90 line-clamp-2">${photo.description[lang]}</p>
+                        <div class="flex justify-between items-center mt-2 text-xs">
+                            <span>${new Date(photo.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW')}</span>
+                            <span>${photo.participants} ${lang === 'en' ? 'participants' : '參與者'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createMobileSlide(photo, lang) {
+            return `
+                <div class="w-full flex-shrink-0 relative" onclick="openLightbox(${photo.id})">
+                    <img src="${photo.src}" 
+                         alt="${photo.title[lang]}" 
+                         class="w-full h-64 object-cover"
+                         loading="lazy">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
+                        <h4 class="font-semibold text-lg mb-1">${photo.title[lang]}</h4>
+                        <p class="text-sm opacity-90">${photo.description[lang]}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function previousSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : photos.length - 1;
+            updateMobileCarousel();
+        }
+
+        function nextSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex < photos.length - 1 ? currentSlideIndex + 1 : 0;
+            updateMobileCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateMobileCarousel();
+        }
+
+        function updateMobileCarousel() {
+            const mobileSlides = document.getElementById('mobile-slides');
+            mobileSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('#mobile-indicators button');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlideIndex) {
+                    indicator.classList.add('bg-brand-red');
+                    indicator.classList.remove('bg-neutral-300');
+                } else {
+                    indicator.classList.remove('bg-brand-red');
+                    indicator.classList.add('bg-neutral-300');
+                }
+            });
+        }
+
+        // Tablet carousel functions
+        function previousTabletSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : Math.ceil(photos.length / 2) - 1;
+            updateTabletCarousel();
+        }
+
+        function nextTabletSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex < Math.ceil(photos.length / 2) - 1 ? currentSlideIndex + 1 : 0;
+            updateTabletCarousel();
+        }
+
+        function updateTabletCarousel() {
+            const photos = eventPhotos[currentCategory];
+            const lang = isEnglish ? 'en' : 'zh';
+            const tabletCarousel = document.getElementById('tablet-carousel');
+            
+            if (tabletCarousel) {
+                const startIndex = currentSlideIndex * 2;
+                const endIndex = Math.min(startIndex + 2, photos.length);
+                const visiblePhotos = photos.slice(startIndex, endIndex);
+                
+                tabletCarousel.innerHTML = visiblePhotos.map(photo => createPhotoCard(photo, lang)).join('');
+                
+                // Update tablet indicators
+                const indicators = document.getElementById('tablet-indicators');
+                if (indicators) {
+                    const totalSlides = Math.ceil(photos.length / 2);
+                    indicators.innerHTML = Array.from({length: totalSlides}, (_, index) => 
+                        `<button onclick="goToTabletSlide(${index})" class="w-3 h-3 rounded-full transition-all duration-300 ${
+                            index === currentSlideIndex ? 'bg-brand-red' : 'bg-neutral-300'
+                        }"></button>`
+                    ).join('');
+                }
+            }
+        }
+
+        function goToTabletSlide(index) {
+            currentSlideIndex = index;
+            updateTabletCarousel();
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Lightbox Functions
+        function openLightbox(photoId) {
+            const allPhotos = Object.values(eventPhotos).flat();
+            const photo = allPhotos.find(p => p.id === photoId);
+            if (!photo) return;
+            
+            const lang = isEnglish ? 'en' : 'zh';
+            const modal = document.getElementById('lightbox-modal');
+            
+            document.getElementById('lightbox-image').src = photo.src;
+            document.getElementById('lightbox-image').alt = photo.title[lang];
+            document.getElementById('lightbox-title').textContent = photo.title[lang];
+            document.getElementById('lightbox-description').textContent = photo.description[lang];
+            document.getElementById('lightbox-date').textContent = new Date(photo.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            startAutoPlay();
+        }
+
+        function sharePhoto() {
+            const title = document.getElementById('lightbox-title').textContent;
+            const url = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `Check out this photo from DigitalNomadsTaiwan: ${title}`,
+                    url: url
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const text = `Check out this photo from DigitalNomadsTaiwan: ${title} ${url}`;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(isEnglish ? 'Link copied to clipboard!' : '連結已複製到剪貼板！');
+                });
+            }
+        }
+
+        // Photo Gallery Functions
+        function openPhotoGallery() {
+            const modal = document.getElementById('photo-gallery-modal');
+            const grid = document.getElementById('gallery-grid');
+            const lang = isEnglish ? 'en' : 'zh';
+            
+            const allPhotos = Object.values(eventPhotos).flat();
+            grid.innerHTML = allPhotos.map(photo => `
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                     onclick="openLightbox(${photo.id})">
+                    <img src="${photo.src}" 
+                         alt="${photo.title[lang]}" 
+                         class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                        </svg>
+                    </div>
+                </div>
+            `).join('');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay();
+        }
+
+        function closePhotoGallery() {
+            const modal = document.getElementById('photo-gallery-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            startAutoPlay();
+        }
+
+        // Progress bar functionality
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                progressFill.style.width = scrollPercent + '%';
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize roadmap functionality
+        function initializeRoadmap() {
+            // Add scroll event listeners for roadmap
+            window.addEventListener('scroll', () => {
+                updateProgressBar();
+                handleScrollAnimations();
+            });
+
+            // Initialize animations on load
+            handleScrollAnimations();
+            
+            // Add click event listeners to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const expandableContent = this.querySelector('.expandable-content');
+                    const chevron = this.querySelector('.fa-chevron-down');
+                    
+                    if (expandableContent) {
+                        if (expandableContent.classList.contains('expanded')) {
+                            expandableContent.classList.remove('expanded');
+                            if (chevron) {
+                                chevron.style.transform = 'rotate(0deg)';
+                                chevron.style.transition = 'transform 0.3s ease';
+                            }
+                        } else {
+                            expandableContent.classList.add('expanded');
+                            if (chevron) {
+                                chevron.style.transform = 'rotate(180deg)';
+                                chevron.style.transition = 'transform 0.3s ease';
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        // Add CSS for roadmap animations
+        function addRoadmapStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                /* Timeline Styles */
+                .timeline {
+                    position: relative;
+                }
+                
+                .timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    bottom: 0;
+                    width: 4px;
+                    background: linear-gradient(to bottom, #DC2626, #3B82F6, #10B981);
+                    transform: translateX(-50%);
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline::before {
+                        left: 30px;
+                    }
+                }
+                
+                .timeline-item {
+                    position: relative;
+                    margin-bottom: 4rem;
+                }
+                
+                .timeline-marker {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10;
+                    transition: all 0.3s ease;
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline-marker {
+                        left: 30px;
+                    }
+                }
+                
+                .timeline-content {
+                    width: 45%;
+                    padding: 2rem;
+                    background: white;
+                    border-radius: 1rem;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+                
+                .timeline-content:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                }
+                
+                .timeline-item:nth-child(odd) .timeline-content {
+                    margin-left: auto;
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline-content {
+                        width: calc(100% - 80px);
+                        margin-left: 80px !important;
+                    }
+                }
+                
+                /* Expandable Content */
+                .expandable-content {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease;
+                }
+                
+                .expandable-content.expanded {
+                    max-height: 500px;
+                }
+                
+                /* You Are Here Marker */
+                .current-marker {
+                    animation: pulse 2s infinite;
+                }
+                
+                @keyframes pulse {
+                    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+                }
+                
+                /* Fade In Animation */
+                .fade-in {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 0.8s ease;
+                }
+                
+                .fade-in.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Phase Icons */
+                .phase-icon {
+                    font-size: 2rem;
+                    margin-bottom: 1rem;
+                }
+                
+                #progressFill {
+                    transition: width 0.3s ease;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Smooth scrolling function
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const headerHeight = 80; // Account for fixed header
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Close mobile menu function
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            if (mobileMenu && menuIcon && closeIcon) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // Initialize navigation functionality
+        function initializeNavigation() {
+            // Add click event listeners to all navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    smoothScrollTo(targetId);
+                    
+                    // Close mobile menu if it's open
+                    closeMobileMenu();
+                });
+            });
+        }
+    </script>
+
+    <!-- Initialize roadmap functionality -->
+    <script>
+        // Initialize roadmap when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            addRoadmapStyles();
+            initializeRoadmap();
+            initializeNavigation();
+        });
+    </script>
+
+    <!-- Performance and Animation Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/seo-optimization.js"></script>
+</body>
+</html> 

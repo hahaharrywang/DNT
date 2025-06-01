@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalNomadsTaiwan - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#DC2626',
+                        'brand-blue': '#2563EB',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'chinese': ['Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'brand': '12px',
+                        'brand-lg': '16px',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'brand': '0 10px 25px -3px rgba(220, 38, 38, 0.1), 0 4px 6px -2px rgba(220, 38, 38, 0.05)',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'pulse-brand': 'pulse-brand 2s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'pulse-brand': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.7)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(220, 38, 38, 0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .english-text { font-family: 'Inter', system-ui, sans-serif; }
+        .chinese-text { font-family: 'Noto Sans TC', 'PingFang TC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-brand shadow-soft hover:shadow-brand transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-200 active:scale-95;
+        }
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 bg-white hover:bg-neutral-50 text-brand-red font-semibold border-2 border-brand-red hover:border-red-700 rounded-brand shadow-soft hover:shadow-brand transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-200 active:scale-95;
+        }
+        .nav-link {
+            @apply relative px-4 py-2 text-neutral-600 hover:text-brand-red font-medium transition-all duration-300;
+        }
+        .nav-link::before {
+            content: '';
+            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300;
+        }
+        .nav-link:hover::before {
+            @apply w-full;
+        }
+        .card-feature {
+            @apply bg-white rounded-brand-lg p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 transform hover:-translate-y-2;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white text-neutral-900">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-soft transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="block">
+                        <img src="asset/Logo.png" alt="DigitalNomadsTaiwan" class="h-8 lg:h-10 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#hero" class="nav-link english-text" data-en="Home" data-zh="首頁">Home</a>
+                    <a href="#about-us" class="nav-link english-text" data-en="About Us" data-zh="關於我們">About Us</a>
+                    <a href="#event-highlight" class="nav-link english-text" data-en="Event" data-zh="活動">Event</a>
+                    <a href="#roadmap" class="nav-link english-text" data-en="Road Map" data-zh="發展路線圖">Road Map</a>
+                    <a href="#join-us" class="nav-link english-text" data-en="Join Us" data-zh="加入我們">Join Us</a>
+                    <a href="#footer" class="nav-link english-text" data-en="Contact" data-zh="聯絡我們">Contact</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-2 px-3 py-2 rounded-brand bg-neutral-100 hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105">
+                        <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 919-9m-9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-neutral-700" id="lang-toggle">中文</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-brand bg-neutral-100 hover:bg-neutral-200 transition-all duration-300">
+                        <svg id="menu-icon" class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 text-neutral-600 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200 shadow-soft hidden">
+            <div class="max-w-7xl mx-auto px-4 py-6">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#hero" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Home" data-zh="首頁" onclick="closeMobileMenu()">Home</a>
+                    <a href="#about-us" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="About Us" data-zh="關於我們" onclick="closeMobileMenu()">About Us</a>
+                    <a href="#event-highlight" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Event" data-zh="活動" onclick="closeMobileMenu()">Event</a>
+                    <a href="#roadmap" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Road Map" data-zh="發展路線圖" onclick="closeMobileMenu()">Road Map</a>
+                    <a href="#join-us" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Join Us" data-zh="加入我們" onclick="closeMobileMenu()">Join Us</a>
+                    <a href="#footer" class="text-left py-3 px-4 rounded-brand hover:bg-red-50 hover:text-brand-red transition-all duration-300 text-neutral-600 english-text" data-en="Contact" data-zh="聯絡我們" onclick="closeMobileMenu()">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-50 via-white to-neutral-50 pt-20">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-brand-red rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-40 right-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-40 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in-up">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-4 leading-tight english-text" 
+                    data-en="DigitalNomadsTaiwan" 
+                    data-zh="DigitalNomadsTaiwan">
+                    DigitalNomadsTaiwan
+                </h1>
+
+                <p class="text-base sm:text-lg text-brand-red font-medium mb-8 english-text" 
+                   data-en="We Bridge Taiwan with Global Digital Nomad Community" 
+                   data-zh="橋接台灣與世界的遊牧社群">
+                    We Bridge Taiwan with Global Digital Nomad Community
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text" 
+                    data-en="About Us" 
+                    data-zh="關於我們">
+                    About Us
+                </h2>
+                <p class="text-lg sm:text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed english-text" 
+                   data-en="We are Taiwan's premier digital nomad community, bridging local culture with global remote work opportunities. Our mission is to empower individuals to embrace location independence while fostering meaningful connections and professional growth." 
+                   data-zh="我們是台灣首屈一指的數位遊牧社群，連接本地文化與全球遠端工作機會。我們的使命是賦能個人擁抱地點獨立，同時促進有意義的連結和專業成長。">
+                    We are Taiwan's premier digital nomad community, bridging local culture with global remote work opportunities. Our mission is to empower individuals to embrace location independence while fostering meaningful connections and professional growth.
+                </p>
+            </div>
+
+            <!-- Mission & Vision Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
+                <!-- Mission -->
+                <div class="group">
+                    <div class="relative bg-gradient-to-br from-red-50 to-red-100 rounded-brand-xl p-8 lg:p-10 shadow-soft hover:shadow-brand transition-all duration-500 border border-red-100 hover:border-red-200 overflow-hidden transform hover:scale-102">
+                        <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                            <div class="w-full h-full bg-red-200 rounded-full transform translate-x-12 -translate-y-12 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-red-500 rounded-brand flex items-center justify-center mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-red-600 mb-4 english-text" 
+                                data-en="Our Mission" 
+                                data-zh="我們的使命">
+                                Our Mission
+                            </h3>
+                            <p class="text-neutral-700 leading-relaxed english-text" 
+                               data-en="To create a supportive ecosystem where digital nomads can thrive professionally while experiencing the rich culture and opportunities Taiwan has to offer. We facilitate connections, provide resources, and build bridges between local and international communities." 
+                               data-zh="創建一個支持性生態系統，讓數位遊牧者在體驗台灣豐富文化和機會的同時，能夠在專業上蓬勃發展。我們促進連結、提供資源，並在本地和國際社群之間建立橋樑。">
+                                To create a supportive ecosystem where digital nomads can thrive professionally while experiencing the rich culture and opportunities Taiwan has to offer. We facilitate connections, provide resources, and build bridges between local and international communities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision -->
+                <div class="group">
+                    <div class="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-brand-xl p-8 lg:p-10 shadow-soft hover:shadow-brand transition-all duration-500 border border-blue-100 hover:border-blue-200 overflow-hidden transform hover:scale-102">
+                        <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                            <div class="w-full h-full bg-blue-200 rounded-full transform translate-x-12 -translate-y-12 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-blue-500 rounded-brand flex items-center justify-center mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4 english-text" 
+                                data-en="Our Vision" 
+                                data-zh="我們的願景">
+                                Our Vision
+                            </h3>
+                            <p class="text-neutral-700 leading-relaxed english-text" 
+                               data-en="To establish Taiwan as the premier destination for digital nomads in Asia-Pacific, recognized for its innovative community, comprehensive support systems, and unique blend of traditional culture with cutting-edge technology." 
+                               data-zh="將台灣建立為亞太地區數位遊牧者的首選目的地，以其創新社群、全面支持系統，以及傳統文化與尖端技術的獨特融合而聞名。">
+                                To establish Taiwan as the premier destination for digital nomads in Asia-Pacific, recognized for its innovative community, comprehensive support systems, and unique blend of traditional culture with cutting-edge technology.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="text-center mb-12">
+                <h3 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-8 english-text" 
+                    data-en="Our Core Values" 
+                    data-zh="我們的核心價值">
+                    Our Core Values
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Community -->
+                <div class="group text-center">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-105">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-50 rounded-brand flex items-center justify-center mx-auto mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" 
+                            data-en="Community" 
+                            data-zh="社群">
+                            Community
+                        </h4>
+                        <p class="text-sm text-neutral-600 english-text" 
+                           data-en="Building meaningful connections and fostering collaboration" 
+                           data-zh="建立有意義的連結並促進合作">
+                            Building meaningful connections and fostering collaboration
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Innovation -->
+                <div class="group text-center">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-105">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-green-50 rounded-brand flex items-center justify-center mx-auto mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" 
+                            data-en="Innovation" 
+                            data-zh="創新">
+                            Innovation
+                        </h4>
+                        <p class="text-sm text-neutral-600 english-text" 
+                           data-en="Embracing new ideas and cutting-edge solutions" 
+                           data-zh="擁抱新想法和尖端解決方案">
+                            Embracing new ideas and cutting-edge solutions
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Growth -->
+                <div class="group text-center">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-105">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-50 rounded-brand flex items-center justify-center mx-auto mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" 
+                            data-en="Growth" 
+                            data-zh="成長">
+                            Growth
+                        </h4>
+                        <p class="text-sm text-neutral-600 english-text" 
+                           data-en="Continuous learning and professional development" 
+                           data-zh="持續學習和專業發展">
+                            Continuous learning and professional development
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Inclusivity -->
+                <div class="group text-center">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-105">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-orange-50 rounded-brand flex items-center justify-center mx-auto mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                            <svg class="w-6 h-6 lg:w-8 lg:h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" 
+                            data-en="Inclusivity" 
+                            data-zh="包容性">
+                            Inclusivity
+                        </h4>
+                        <p class="text-sm text-neutral-600 english-text" 
+                           data-en="Welcoming diverse backgrounds and perspectives" 
+                           data-zh="歡迎不同背景和觀點">
+                            Welcoming diverse backgrounds and perspectives
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Impact Section (Previously Our Growing Community) -->
+    <section id="our-impact" class="relative py-20 lg:py-32 bg-gradient-to-br from-red-50 via-white to-blue-50 overflow-hidden">
+        <!-- Background Wave Patterns -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <svg class="absolute top-10 left-10 w-32 h-32 text-brand-red" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20 Z" />
+                </svg>
+                <svg class="absolute top-40 right-20 w-24 h-24 text-blue-400" viewBox="0 0 100 100" fill="currentColor">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <svg class="absolute bottom-20 left-1/4 w-28 h-28 text-purple-400" viewBox="0 0 100 100" fill="currentColor">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" />
+                </svg>
+                <svg class="absolute bottom-40 right-10 w-20 h-20 text-green-400" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50,10 L90,90 L10,90 Z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text" 
+                    data-en="Our Impact" 
+                    data-zh="我們的影響力">
+                    Our Impact
+                </h2>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Participants -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-red-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-red-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-red-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="900">900</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Participants" 
+                                data-zh="參與人次">
+                                Participants
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Nationalities -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-blue-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-blue-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-blue-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-blue-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="60">60</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Nationalities" 
+                                data-zh="國籍">
+                                Nationalities
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- International Members -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-purple-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-purple-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-purple-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-purple-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="46">46</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">%</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="International Members" 
+                                data-zh="國際參與者">
+                                International Members
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Events Hosted -->
+                <div class="group">
+                    <div class="relative bg-white rounded-brand-xl p-6 lg:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-neutral-200 overflow-hidden transform hover:scale-102 hover:-translate-y-1">
+                        <div class="absolute inset-0 opacity-5 bg-green-50 rounded-brand-xl"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
+                            <div class="w-full h-full bg-green-50 rounded-full transform translate-x-6 -translate-y-6 group-hover:scale-110 transition-transform duration-500"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-green-50 rounded-brand flex items-center justify-center mb-4 lg:mb-6 group-hover:shadow-lg transition-all duration-300">
+                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-green-500 mb-2 lg:mb-3">
+                                <span class="font-bold text-3xl lg:text-4xl xl:text-5xl counter" data-target="25">25</span><span class="font-bold text-3xl lg:text-4xl xl:text-5xl">+</span>
+                            </div>
+                            <h3 class="text-base lg:text-lg font-semibold text-neutral-700 group-hover:text-neutral-900 transition-colors duration-300 english-text" 
+                                data-en="Events Hosted" 
+                                data-zh="活動場次">
+                                Events Hosted
+                            </h3>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-50 opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-brand-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlight Section (Previously Our Community in Action) -->
+    <section id="event-highlight" class="py-20 lg:py-32 bg-gradient-to-br from-neutral-50 to-blue-50 relative overflow-hidden">
+        <!-- Wave Pattern Divider -->
+        <div class="absolute top-0 left-0 w-full h-20 bg-white">
+            <svg class="absolute bottom-0 w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text" 
+                    data-en="Event Highlight" 
+                    data-zh="活動精彩回顧">
+                    Event Highlight
+                </h2>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+                <button onclick="switchCategory('meetups')" 
+                        class="category-btn active px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base english-text" 
+                        data-category="meetups"
+                        data-en="Monthly Meetups" 
+                        data-zh="月度聚會">
+                    Monthly Meetups
+                </button>
+                <button onclick="switchCategory('cowork')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base english-text" 
+                        data-category="cowork"
+                        data-en="One-Day Colleague" 
+                        data-zh="一日同事">
+                    One-Day Colleague
+                </button>
+                <button onclick="switchCategory('lectures')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base english-text" 
+                        data-category="lectures"
+                        data-en="Professional Lectures" 
+                        data-zh="專業講座">
+                    Professional Lectures
+                </button>
+                <button onclick="switchCategory('adventures')" 
+                        class="category-btn px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base english-text" 
+                        data-category="adventures"
+                        data-en="Adventure Activities" 
+                        data-zh="探險活動">
+                    Adventure Activities
+                </button>
+            </div>
+
+            <!-- Enhanced Photo Carousel Container -->
+            <div class="relative">
+                <!-- Loading Skeleton -->
+                <div id="carousel-loading" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64"></div>
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64"></div>
+                        <div class="bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 animate-pulse rounded-brand-xl h-48 sm:h-64 hidden lg:block"></div>
+                    </div>
+                </div>
+
+                <!-- Carousel Content -->
+                <div id="carousel-content" class="relative">
+                    <!-- Desktop View (3 columns) -->
+                    <div class="hidden lg:block">
+                        <div class="grid grid-cols-3 gap-6" id="desktop-carousel">
+                            <!-- Photos will be dynamically inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Tablet View (2 columns) -->
+                    <div class="hidden sm:block lg:hidden">
+                        <div class="relative overflow-hidden rounded-brand-xl">
+                            <div class="grid grid-cols-2 gap-4" id="tablet-carousel">
+                                <!-- Photos will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <!-- Tablet Navigation -->
+                        <div class="flex justify-center items-center mt-6 space-x-4">
+                            <button onclick="previousTabletSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="flex space-x-2" id="tablet-indicators">
+                                <!-- Indicators will be dynamically inserted here -->
+                            </div>
+                            <button onclick="nextTabletSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile View (1 column) -->
+                    <div class="sm:hidden">
+                        <div class="relative overflow-hidden rounded-brand-xl" id="mobile-carousel">
+                            <div class="flex transition-transform duration-500 ease-in-out" id="mobile-slides">
+                                <!-- Mobile slides will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <!-- Mobile Navigation -->
+                        <div class="flex justify-center items-center mt-6 space-x-4">
+                            <button onclick="previousSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="flex space-x-2" id="mobile-indicators">
+                                <!-- Indicators will be dynamically inserted here -->
+                            </div>
+                            <button onclick="nextSlide()" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Photos Button -->
+                <div class="text-center mt-12">
+                    <button onclick="openPhotoGallery()" 
+                            class="btn-primary px-6 sm:px-8 py-3 sm:py-4 bg-brand-red text-white rounded-full font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base english-text"
+                            data-en="View All Photos" 
+                            data-zh="查看所有照片">
+                        View All Photos
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave Pattern Divider Bottom -->
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-white">
+            <svg class="absolute top-0 w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Development Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="english-text">Development Roadmap</span>
+                    <span class="chinese-text hidden">發展路線圖</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span class="english-text">Our strategic milestones towards building the premier digital nomad community</span>
+                    <span class="chinese-text hidden">我們建立頂級數位遊牧社群的戰略里程碑</span>
+                </p>
+            </div>
+
+            <div class="timeline">
+                <!-- Phase 1: 2024 至今 - 擴大聲量階段 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker bg-red-500 text-white current-marker">
+                        <i class="fas fa-bullhorn text-2xl"></i>
+                    </div>
+                    <div class="timeline-content" onclick="toggleExpand(this)">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-red-600">
+                                    <span class="english-text">2024 - Present</span>
+                                    <span class="chinese-text hidden">2024 至今</span>
+                                </h3>
+                                <p class="text-lg text-gray-600">
+                                    <span class="english-text">Voice Amplification Phase</span>
+                                    <span class="chinese-text hidden">擴大聲量階段</span>
+                                </p>
+                            </div>
+                            <div class="text-red-500 text-sm font-semibold px-3 py-1 bg-red-100 rounded-full">
+                                <span class="english-text">YOU ARE HERE</span>
+                                <span class="chinese-text hidden">目前階段</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="text-center">
+                                <i class="fas fa-globe phase-icon text-red-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">International Network</span>
+                                    <span class="chinese-text hidden">國際鏈結建立</span>
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-broadcast-tower phase-icon text-red-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">Media Exposure</span>
+                                    <span class="chinese-text hidden">媒體曝光擴展</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable-content">
+                            <div class="border-t pt-4 mt-4">
+                                <h4 class="font-bold mb-3">
+                                    <span class="english-text">Key Achievements:</span>
+                                    <span class="chinese-text hidden">主要成就：</span>
+                                </h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Established partnerships with 15+ international digital nomad communities</span>
+                                        <span class="chinese-text hidden">與15+國際數位遊牧社群建立合作關係</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Featured in major tech and lifestyle publications</span>
+                                        <span class="chinese-text hidden">在主要科技和生活方式出版物中獲得報導</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Built core team of 12 passionate professionals</span>
+                                        <span class="chinese-text hidden">建立了12名充滿熱情的專業人士核心團隊</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Launched brand identity and community platform</span>
+                                        <span class="chinese-text hidden">推出品牌識別和社群平台</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                            <p class="text-sm text-gray-500">
+                                <span class="english-text">Click to expand</span>
+                                <span class="chinese-text hidden">點擊展開</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2: 2025 Q3 - 深度成長階段 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker bg-blue-500 text-white">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <div class="timeline-content" onclick="toggleExpand(this)">
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-bold text-blue-600">
+                                <span class="english-text">2025 Q3</span>
+                                <span class="chinese-text hidden">2025 第三季</span>
+                            </h3>
+                            <p class="text-lg text-gray-600">
+                                <span class="english-text">Deep Growth Phase</span>
+                                <span class="chinese-text hidden">深度成長階段</span>
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="text-center">
+                                <i class="fas fa-users-cog phase-icon text-blue-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">People-First Program</span>
+                                    <span class="chinese-text hidden">以人為本計畫</span>
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-graduation-cap phase-icon text-blue-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">Course System</span>
+                                    <span class="chinese-text hidden">課程體系建立</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable-content">
+                            <div class="border-t pt-4 mt-4">
+                                <h4 class="font-bold mb-3">
+                                    <span class="english-text">Planned Initiatives:</span>
+                                    <span class="chinese-text hidden">計劃倡議：</span>
+                                </h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Launch comprehensive growth program with personalized learning paths</span>
+                                        <span class="chinese-text hidden">推出包含個人化學習路徑的綜合成長計畫</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Establish paid course system with expert instructors</span>
+                                        <span class="chinese-text hidden">建立由專家講師授課的付費課程體系</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Implement mentorship program with 1-on-1 coaching</span>
+                                        <span class="chinese-text hidden">實施包含一對一指導的導師制度</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Develop premium membership community with exclusive benefits</span>
+                                        <span class="chinese-text hidden">開發具有專屬福利的會員制社群</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                            <p class="text-sm text-gray-500">
+                                <span class="english-text">Click to expand</span>
+                                <span class="chinese-text hidden">點擊展開</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3: 2026 Q1 - 教育平台階段 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker bg-green-500 text-white">
+                        <i class="fas fa-university text-2xl"></i>
+                    </div>
+                    <div class="timeline-content" onclick="toggleExpand(this)">
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-bold text-green-600">
+                                <span class="english-text">2026 Q1</span>
+                                <span class="chinese-text hidden">2026 第一季</span>
+                            </h3>
+                            <p class="text-lg text-gray-600">
+                                <span class="english-text">Education Platform Phase</span>
+                                <span class="chinese-text hidden">教育平台階段</span>
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="text-center">
+                                <i class="fas fa-laptop-code phase-icon text-green-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">OMO Academy</span>
+                                    <span class="chinese-text hidden">OMO數位學院</span>
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-certificate phase-icon text-green-500"></i>
+                                <p class="font-semibold">
+                                    <span class="english-text">Certification System</span>
+                                    <span class="chinese-text hidden">認證體系</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable-content">
+                            <div class="border-t pt-4 mt-4">
+                                <h4 class="font-bold mb-3">
+                                    <span class="english-text">Future Vision:</span>
+                                    <span class="chinese-text hidden">未來願景：</span>
+                                </h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Launch OMO Digital Nomad Academy with integrated online-offline learning</span>
+                                        <span class="chinese-text hidden">推出整合線上線下學習的OMO數位遊牧學院</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Establish Chinese-speaking digital nomad certification standards</span>
+                                        <span class="chinese-text hidden">建立華語圈數位遊牧認證標準</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Expand international partnership network across Asia-Pacific</span>
+                                        <span class="chinese-text hidden">擴展亞太地區國際合作夥伴網絡</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-green-500 mr-2 mt-1"></i>
+                                        <span class="english-text">Create comprehensive digital nomad ecosystem platform</span>
+                                        <span class="chinese-text hidden">創建綜合數位遊牧生態系統平台</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                            <p class="text-sm text-gray-500">
+                                <span class="english-text">Click to expand</span>
+                                <span class="chinese-text hidden">點擊展開</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join-us" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6" data-en="Join us" data-zh="加入我們">
+                    Join us
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-en="Discover opportunities, build connections, and grow with Taiwan's most dynamic digital nomad community. Whether you're looking to contribute your skills or explore new horizons, there's a place for you here." data-zh="發現機會、建立聯繫，與台灣最具活力的數位遊牧社群一起成長。無論您是想貢獻技能還是探索新視野，這裡都有您的位置。">
+                    Discover opportunities, build connections, and grow with Taiwan's most dynamic digital nomad community. Whether you're looking to contribute your skills or explore new horizons, there's a place for you here.
+                </p>
+            </div>
+
+            <!-- Your Growth Journey (Brief) -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6" data-en="Your Growth Journey" data-zh="您的成長之旅">
+                    Your Growth Journey
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed" data-en="Start as a Helper, grow into a Team Member, advance to Core Team, and eventually become an Organizer. Each step offers new opportunities to contribute, learn, and shape the future of digital nomadism in Taiwan." data-zh="從助手開始，成長為團隊成員，晉升為核心團隊，最終成為組織者。每一步都提供新的機會來貢獻、學習並塑造台灣數位遊牧的未來。">
+                    Start as a Helper, grow into a Team Member, advance to Core Team, and eventually become an Organizer. Each step offers new opportunities to contribute, learn, and shape the future of digital nomadism in Taiwan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Culture Section -->
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-red-50 via-white to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 english-text" 
+                    data-en="Our Culture" 
+                    data-zh="我們的文化">
+                    Our Culture
+                </h2>
+                <p class="text-lg sm:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed english-text" 
+                   data-en="Building bridges between Taiwan and the world through shared values" 
+                   data-zh="透過共同價值觀在台灣與世界之間建立橋樑">
+                    Building bridges between Taiwan and the world through shared values
+                </p>
+            </div>
+
+            <!-- Core Values -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                <!-- Value 1: 深度連結 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white rounded-brand-xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-red-200 transform hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-100 transition-all duration-300">
+                            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-600 mb-4 english-text" 
+                            data-en="Meaningful Connection" 
+                            data-zh="深度連結">
+                            Meaningful Connection
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed english-text" 
+                           data-en="Foster genuine relationships over superficial networking. Create safe spaces for vulnerability and growth." 
+                           data-zh="培養真誠關係而非表面社交。創造安全的脆弱與成長空間。">
+                            Foster genuine relationships over superficial networking. Create safe spaces for vulnerability and growth.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 2: 價值交換 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white rounded-brand-xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-blue-200 transform hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-100 transition-all duration-300">
+                            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600 mb-4 english-text" 
+                            data-en="Value Exchange" 
+                            data-zh="價值交換">
+                            Value Exchange
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed english-text" 
+                           data-en="Everyone brings unique value to the table. Create win-win scenarios for all participants." 
+                           data-zh="每個人都帶來獨特價值。為所有參與者創造雙贏局面。">
+                            Everyone brings unique value to the table. Create win-win scenarios for all participants.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 3: 可持續發展 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white rounded-brand-xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-green-200 transform hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-100 transition-all duration-300">
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-600 mb-4 english-text" 
+                            data-en="Sustainable Growth" 
+                            data-zh="可持續發展">
+                            Sustainable Growth
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed english-text" 
+                           data-en="Balance personal and community growth. Consider environmental and social impact in all decisions." 
+                           data-zh="平衡個人與社群成長。在所有決策中考慮環境與社會影響。">
+                            Balance personal and community growth. Consider environmental and social impact in all decisions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 4: 雙層價值 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white rounded-brand-xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-neutral-100 hover:border-purple-200 transform hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-100 transition-all duration-300">
+                            <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-600 mb-4 english-text" 
+                            data-en="Dual Value Creation" 
+                            data-zh="雙層價值">
+                            Dual Value Creation
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed english-text" 
+                           data-en="Create value for individuals and community. Bridge local and global perspectives." 
+                           data-zh="為個人與社群創造價值。連接本地與全球視角。">
+                            Create value for individuals and community. Bridge local and global perspectives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Position Modal -->
+    <div id="position-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-brand-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-neutral-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 id="modal-position-title" class="text-2xl font-bold text-neutral-900 mb-2"></h3>
+                        <div class="flex items-center space-x-4 text-sm text-neutral-600">
+                            <span id="modal-position-type"></span>
+                            <span id="modal-position-location"></span>
+                            <span id="modal-position-salary" class="text-brand-red font-semibold"></span>
+                        </div>
+                    </div>
+                    <button onclick="closePositionModal()" class="text-neutral-400 hover:text-neutral-600 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" data-en="About This Role" data-zh="關於此職位">About This Role</h4>
+                        <p id="modal-position-description" class="text-neutral-600 leading-relaxed"></p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" data-en="Key Responsibilities" data-zh="主要職責">Key Responsibilities</h4>
+                        <ul id="modal-position-responsibilities" class="space-y-2 text-neutral-600">
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" data-en="What We Offer" data-zh="我們提供">What We Offer</h4>
+                        <ul id="modal-position-benefits" class="space-y-2 text-neutral-600">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <button onclick="applyForPosition()" 
+                            class="flex-1 bg-brand-red hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-brand transition-all duration-300 transform hover:scale-105 english-text" 
+                            data-en="Apply Now" 
+                            data-zh="立即申請">
+                        Apply Now
+                    </button>
+                    <button onclick="closePositionModal()" 
+                            class="flex-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold py-3 px-6 rounded-brand transition-all duration-300 english-text" 
+                            data-en="Close" 
+                            data-zh="關閉">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tier Modal -->
+    <div id="tier-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-brand-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-neutral-200">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center space-x-4">
+                        <div id="modal-tier-icon" class="w-16 h-16 rounded-full flex items-center justify-center text-2xl"></div>
+                        <div>
+                            <h3 id="modal-tier-title" class="text-2xl font-bold text-neutral-900 mb-1"></h3>
+                            <p id="modal-tier-subtitle" class="text-neutral-600"></p>
+                        </div>
+                    </div>
+                    <button onclick="closeTierModal()" class="text-neutral-400 hover:text-neutral-600 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4 english-text" data-en="Benefits & Perks" data-zh="福利與津貼">Benefits & Perks</h4>
+                        <ul id="modal-tier-benefits" class="space-y-3">
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4 english-text" data-en="Requirements" data-zh="要求">Requirements</h4>
+                        <ul id="modal-tier-requirements" class="space-y-3">
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 bg-neutral-50 rounded-brand">
+                    <h4 class="text-lg font-semibold text-neutral-900 mb-3 english-text" data-en="Next Steps" data-zh="下一步">Next Steps</h4>
+                    <p id="modal-tier-next-steps" class="text-neutral-600 leading-relaxed"></p>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="closeTierModal()" 
+                            class="bg-brand-red hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-brand transition-all duration-300 transform hover:scale-105 english-text" 
+                            data-en="Got It!" 
+                            data-zh="了解了！">
+                        Got It!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-neutral-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Brand Section -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl lg:text-3xl font-semibold text-brand-red mb-4 english-text" 
+                        data-en="DigitalNomadsTaiwan" 
+                        data-zh="台灣數位遊牧">
+                        DigitalNomadsTaiwan
+                    </h3>
+                    <p class="text-neutral-300 mb-6 leading-relaxed max-w-md english-text" 
+                       data-en="We Bridge Taiwan with Global Digital Nomad Community" 
+                       data-zh="橋接台灣與世界的遊牧社群">
+                        We Bridge Taiwan with Global Digital Nomad Community
+                    </p>
+                    
+                    <!-- Contact Info -->
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3 text-neutral-300 hover:text-white transition-colors duration-300">
+                            <svg class="w-5 h-5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>hello@digitalnomadstaiwan.com</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3 text-neutral-300 hover:text-white transition-colors duration-300">
+                            <svg class="w-5 h-5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+886 2 1234 5678</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3 text-neutral-300 hover:text-white transition-colors duration-300">
+                            <svg class="w-5 h-5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="english-text" data-en="Taipei, Taiwan" data-zh="台北，台灣">Taipei, Taiwan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6 english-text" 
+                        data-en="Quick Links" 
+                        data-zh="快速連結">
+                        Quick Links
+                    </h4>
+                    <nav class="space-y-3">
+                        <a href="#" class="block text-neutral-300 hover:text-brand-red transition-all duration-300 english-text" data-en="Home" data-zh="首頁">Home</a>
+                        <a href="#" class="block text-neutral-300 hover:text-brand-red transition-all duration-300 english-text" data-en="Positions" data-zh="職位">Positions</a>
+                        <a href="#" class="block text-neutral-300 hover:text-brand-red transition-all duration-300 english-text" data-en="About" data-zh="關於我們">About</a>
+                        <a href="#join-us" class="block text-neutral-300 hover:text-brand-red transition-all duration-300 english-text" data-en="Join Us" data-zh="加入我們">Join Us</a>
+                        <a href="#footer" class="block text-neutral-300 hover:text-brand-red transition-all duration-300 english-text" data-en="Contact" data-zh="聯絡我們">Contact</a>
+                    </nav>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6 english-text" 
+                        data-en="Follow Us" 
+                        data-zh="關注我們">
+                        Follow Us
+                    </h4>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-brand flex items-center justify-center text-neutral-400 hover:text-white hover:bg-brand-red transition-all duration-300 transform hover:scale-110">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-brand flex items-center justify-center text-neutral-400 hover:text-white hover:bg-brand-red transition-all duration-300 transform hover:scale-110">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-brand flex items-center justify-center text-neutral-400 hover:text-white hover:bg-brand-red transition-all duration-300 transform hover:scale-110">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <p class="text-neutral-400 mt-6 text-sm leading-relaxed english-text" 
+                       data-en="Stay connected with our community and get the latest updates on opportunities in Taiwan." 
+                       data-zh="與我們的社群保持聯繫，獲取台灣機會的最新資訊。">
+                        Stay connected with our community and get the latest updates on opportunities in Taiwan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-neutral-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-neutral-400 text-sm english-text" 
+                       data-en="© 2024 DigitalNomadsTaiwan. All rights reserved." 
+                       data-zh="© 2024 台灣數位遊牧。版權所有。">
+                        © 2024 DigitalNomadsTaiwan. All rights reserved.
+                    </p>
+                    
+                    <div class="flex items-center space-x-6">
+                        <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm english-text" 
+                           data-en="Privacy Policy" 
+                           data-zh="隱私政策">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm english-text" 
+                           data-en="Terms of Service" 
+                           data-zh="服務條款">
+                            Terms of Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Photo Gallery Modal -->
+    <div id="photo-gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-brand-xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b border-neutral-200">
+                <h3 class="text-2xl font-bold text-neutral-900 english-text" 
+                    data-en="Photo Gallery" 
+                    data-zh="照片畫廊">
+                    Photo Gallery
+                </h3>
+                <button onclick="closePhotoGallery()" class="w-8 h-8 bg-neutral-100 rounded-full flex items-center justify-center hover:bg-neutral-200 transition-colors">
+                    <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+                    <!-- Gallery photos will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-95 z-60 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-5xl w-full">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <img id="lightbox-image" src="" alt="" class="w-full h-auto max-h-[90vh] object-contain rounded-lg">
+            <div class="absolute bottom-4 left-4 right-4 bg-black bg-opacity-50 text-white p-4 rounded-lg">
+                <h4 id="lightbox-title" class="text-lg font-semibold mb-1"></h4>
+                <p id="lightbox-description" class="text-sm opacity-90"></p>
+                <div class="flex justify-between items-center mt-2">
+                    <span id="lightbox-date" class="text-xs opacity-75"></span>
+                    <div class="flex space-x-2">
+                        <button onclick="sharePhoto()" class="px-3 py-1 bg-brand-blue rounded-full text-xs hover:bg-blue-600 transition-colors english-text"
+                                data-en="Share" 
+                                data-zh="分享">
+                            Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+    <script>
+        let isEnglish = true;
+        let isJoinUsEnglish = true;
+
+        // Positions Data
+        const positions = [
+            {
+                id: 1,
+                title: { en: "Frontend Developer", zh: "前端開發工程師" },
+                category: "tech",
+                type: { en: "Full-time", zh: "全職" },
+                location: { en: "Taipei, Taiwan", zh: "台北，台灣" },
+                salary: { en: "NT$60,000 - 80,000", zh: "NT$60,000 - 80,000" },
+                description: { 
+                    en: "Join our dynamic team to build cutting-edge web applications that connect digital nomads across Taiwan.", 
+                    zh: "加入我們充滿活力的團隊，建立連接台灣數位遊牧者的尖端網路應用程式。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Develop responsive web applications using React and TypeScript",
+                        "Collaborate with designers to implement pixel-perfect UI/UX",
+                        "Optimize application performance and user experience",
+                        "Participate in code reviews and maintain high code quality"
+                    ],
+                    zh: [
+                        "使用 React 和 TypeScript 開發響應式網路應用程式",
+                        "與設計師合作實現像素完美的 UI/UX",
+                        "優化應用程式性能和用戶體驗",
+                        "參與代碼審查並維持高代碼品質"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Competitive salary with performance bonuses",
+                        "Flexible working hours and remote work options",
+                        "Professional development budget",
+                        "Health insurance and wellness programs"
+                    ],
+                    zh: [
+                        "具競爭力的薪資和績效獎金",
+                        "彈性工作時間和遠程工作選項",
+                        "專業發展預算",
+                        "健康保險和健康計劃"
+                    ]
+                },
+                priority: true
+            },
+            {
+                id: 2,
+                title: { en: "Community Manager", zh: "社群經理" },
+                category: "marketing",
+                type: { en: "Full-time", zh: "全職" },
+                location: { en: "Taipei, Taiwan", zh: "台北，台灣" },
+                salary: { en: "NT$45,000 - 65,000", zh: "NT$45,000 - 65,000" },
+                description: { 
+                    en: "Lead our vibrant community of digital nomads and create engaging experiences that foster connection and growth.", 
+                    zh: "領導我們充滿活力的數位遊牧社群，創造促進連結和成長的引人入勝體驗。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Manage and grow our online community across multiple platforms",
+                        "Organize events and networking opportunities",
+                        "Create engaging content for social media and newsletters",
+                        "Build relationships with community members and partners"
+                    ],
+                    zh: [
+                        "管理和發展我們在多個平台上的線上社群",
+                        "組織活動和網路機會",
+                        "為社交媒體和電子報創建引人入勝的內容",
+                        "與社群成員和合作夥伴建立關係"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Opportunity to shape Taiwan's digital nomad community",
+                        "Event planning and networking budget",
+                        "Flexible schedule for community events",
+                        "Professional growth in community management"
+                    ],
+                    zh: [
+                        "塑造台灣數位遊牧社群的機會",
+                        "活動規劃和網路預算",
+                        "社群活動的彈性時間安排",
+                        "社群管理的專業成長"
+                    ]
+                },
+                priority: false
+            },
+            {
+                id: 3,
+                title: { en: "Operations Coordinator", zh: "營運協調員" },
+                category: "operations",
+                type: { en: "Part-time", zh: "兼職" },
+                location: { en: "Remote", zh: "遠程" },
+                salary: { en: "NT$25,000 - 35,000", zh: "NT$25,000 - 35,000" },
+                description: { 
+                    en: "Support our daily operations and help streamline processes to enhance our community's experience.", 
+                    zh: "支持我們的日常營運並幫助簡化流程以提升我們社群的體驗。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Coordinate daily operations and administrative tasks",
+                        "Assist with event planning and logistics",
+                        "Maintain databases and documentation",
+                        "Support team communication and project management"
+                    ],
+                    zh: [
+                        "協調日常營運和行政任務",
+                        "協助活動規劃和物流",
+                        "維護資料庫和文件",
+                        "支持團隊溝通和專案管理"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Flexible part-time schedule",
+                        "Remote work opportunity",
+                        "Gain experience in startup operations",
+                        "Networking with international community"
+                    ],
+                    zh: [
+                        "彈性兼職時間安排",
+                        "遠程工作機會",
+                        "獲得新創營運經驗",
+                        "與國際社群建立網路"
+                    ]
+                },
+                priority: false
+            },
+            {
+                id: 4,
+                title: { en: "Content Creator", zh: "內容創作者" },
+                category: "marketing",
+                type: { en: "Freelance", zh: "自由工作者" },
+                location: { en: "Flexible", zh: "彈性" },
+                salary: { en: "NT$30,000 - 50,000", zh: "NT$30,000 - 50,000" },
+                description: { 
+                    en: "Create compelling content that showcases Taiwan's digital nomad lifestyle and opportunities.", 
+                    zh: "創作引人注目的內容，展示台灣的數位遊牧生活方式和機會。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Produce high-quality video and written content",
+                        "Document community events and success stories",
+                        "Manage content calendar and publishing schedule",
+                        "Collaborate with marketing team on campaigns"
+                    ],
+                    zh: [
+                        "製作高品質的影片和文字內容",
+                        "記錄社群活動和成功故事",
+                        "管理內容日曆和發布時程",
+                        "與行銷團隊合作進行活動"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Creative freedom and flexible schedule",
+                        "Equipment and software provided",
+                        "Portfolio building opportunities",
+                        "Travel opportunities within Taiwan"
+                    ],
+                    zh: [
+                        "創作自由和彈性時間安排",
+                        "提供設備和軟體",
+                        "作品集建立機會",
+                        "台灣境內旅行機會"
+                    ]
+                },
+                priority: true
+            },
+            {
+                id: 5,
+                title: { en: "Business Development", zh: "業務發展" },
+                category: "operations",
+                type: { en: "Full-time", zh: "全職" },
+                location: { en: "Taipei, Taiwan", zh: "台北，台灣" },
+                salary: { en: "NT$55,000 - 75,000", zh: "NT$55,000 - 75,000" },
+                description: { 
+                    en: "Drive growth through strategic partnerships and business development initiatives in Taiwan's tech ecosystem.", 
+                    zh: "通過戰略合作夥伴關係和台灣科技生態系統中的業務發展倡議推動成長。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Identify and develop strategic partnerships",
+                        "Research market opportunities and trends",
+                        "Negotiate contracts and agreements",
+                        "Support fundraising and investor relations"
+                    ],
+                    zh: [
+                        "識別和發展戰略合作夥伴關係",
+                        "研究市場機會和趨勢",
+                        "談判合約和協議",
+                        "支持募資和投資者關係"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Equity participation in company growth",
+                        "Networking with Taiwan's startup ecosystem",
+                        "International business development experience",
+                        "Performance-based bonuses"
+                    ],
+                    zh: [
+                        "參與公司成長的股權",
+                        "與台灣新創生態系統建立網路",
+                        "國際業務發展經驗",
+                        "基於績效的獎金"
+                    ]
+                },
+                priority: false
+            },
+            {
+                id: 6,
+                title: { en: "UX/UI Designer", zh: "UX/UI 設計師" },
+                category: "tech",
+                type: { en: "Full-time", zh: "全職" },
+                location: { en: "Taipei, Taiwan", zh: "台北，台灣" },
+                salary: { en: "NT$50,000 - 70,000", zh: "NT$50,000 - 70,000" },
+                description: { 
+                    en: "Design intuitive and beautiful user experiences that make digital nomadism in Taiwan accessible to everyone.", 
+                    zh: "設計直觀美麗的用戶體驗，讓台灣的數位遊牧對每個人都變得可及。" 
+                },
+                responsibilities: {
+                    en: [
+                        "Design user interfaces for web and mobile applications",
+                        "Conduct user research and usability testing",
+                        "Create wireframes, prototypes, and design systems",
+                        "Collaborate with developers to implement designs"
+                    ],
+                    zh: [
+                        "為網路和行動應用程式設計用戶介面",
+                        "進行用戶研究和可用性測試",
+                        "創建線框圖、原型和設計系統",
+                        "與開發人員合作實現設計"
+                    ]
+                },
+                benefits: {
+                    en: [
+                        "Latest design tools and software licenses",
+                        "Design conference and workshop budget",
+                        "Mentorship from senior designers",
+                        "Portfolio showcase opportunities"
+                    ],
+                    zh: [
+                        "最新的設計工具和軟體授權",
+                        "設計會議和工作坊預算",
+                        "資深設計師的指導",
+                        "作品集展示機會"
+                    ]
+                },
+                priority: true
+            }
+        ];
+
+        // Growth Journey Tier Data
+        const tierData = {
+            helper: {
+                icon: "🌱",
+                bgColor: "bg-blue-50",
+                title: { en: "Helper", zh: "學習者" },
+                subtitle: { en: "Entry Level - Start Your Journey", zh: "入門級 - 開始您的旅程" },
+                benefits: {
+                    en: [
+                        "Transportation allowance for events",
+                        "Access to community resources and networks",
+                        "Basic training and skill development workshops",
+                        "Mentorship from experienced team members",
+                        "Flexible volunteer schedule"
+                    ],
+                    zh: [
+                        "活動交通津貼",
+                        "獲得社群資源和網路",
+                        "基礎培訓和技能發展工作坊",
+                        "經驗豐富團隊成員的指導",
+                        "彈性志工時間安排"
+                    ]
+                },
+                requirements: {
+                    en: [
+                        "Commit to 4-8 hours per month",
+                        "Attend orientation session",
+                        "Basic English communication skills",
+                        "Enthusiasm for digital nomad community",
+                        "Reliable internet connection"
+                    ],
+                    zh: [
+                        "每月投入 4-8 小時",
+                        "參加新人說明會",
+                        "基本英語溝通能力",
+                        "對數位遊牧社群的熱忱",
+                        "穩定的網路連線"
+                    ]
+                },
+                nextSteps: {
+                    en: "Complete 3 months as Helper, demonstrate reliability, and show initiative in community activities to advance to Team Member level.",
+                    zh: "完成 3 個月的助手工作，展現可靠性，並在社群活動中表現主動性，以晉升到團隊成員級別。"
+                }
+            },
+            "team-member": {
+                icon: "⚡",
+                bgColor: "bg-purple-50",
+                title: { en: "Team Member", zh: "角色專家" },
+                subtitle: { en: "Role Expertise - Develop Your Skills", zh: "角色專業 - 發展您的技能" },
+                benefits: {
+                    en: [
+                        "Monthly stipend of NT$5,000-10,000",
+                        "Leadership development opportunities",
+                        "Access to premium tools and resources",
+                        "Priority event participation",
+                        "Professional networking events"
+                    ],
+                    zh: [
+                        "每月 NT$5,000-10,000 津貼",
+                        "領導力發展機會",
+                        "獲得優質工具和資源",
+                        "優先參與活動",
+                        "專業網路活動"
+                    ]
+                },
+                requirements: {
+                    en: [
+                        "Commit to 8-15 hours per month",
+                        "Complete Helper tier successfully",
+                        "Demonstrate expertise in specific area",
+                        "Lead at least one community initiative",
+                        "Maintain consistent performance"
+                    ],
+                    zh: [
+                        "每月投入 8-15 小時",
+                        "成功完成助手級別",
+                        "在特定領域展現專業知識",
+                        "領導至少一項社群倡議",
+                        "維持一致的表現"
+                    ]
+                },
+                nextSteps: {
+                    en: "Excel in your role for 6 months, take on cross-functional projects, and mentor new helpers to qualify for Core Team.",
+                    zh: "在您的角色中表現出色 6 個月，承擔跨職能專案，並指導新助手以符合核心團隊資格。"
+                }
+            },
+            "core-team": {
+                icon: "🚀",
+                bgColor: "bg-orange-50",
+                title: { en: "Core Team", zh: "多技能貢獻者" },
+                subtitle: { en: "Multi-skilled Contributor - Shape Our Direction", zh: "多技能貢獻者 - 塑造我們的方向" },
+                benefits: {
+                    en: [
+                        "Monthly compensation NT$15,000-25,000",
+                        "Equity participation opportunities",
+                        "Strategic planning involvement",
+                        "International conference attendance",
+                        "Advanced training programs"
+                    ],
+                    zh: [
+                        "每月薪酬 NT$15,000-25,000",
+                        "股權參與機會",
+                        "參與戰略規劃",
+                        "參加國際會議",
+                        "高級培訓計劃"
+                    ]
+                },
+                requirements: {
+                    en: [
+                        "Commit to 15-25 hours per month",
+                        "Proven track record as Team Member",
+                        "Multi-functional skill demonstration",
+                        "Strategic thinking capabilities",
+                        "Ability to manage complex projects"
+                    ],
+                    zh: [
+                        "每月投入 15-25 小時",
+                        "作為團隊成員的良好記錄",
+                        "多功能技能展示",
+                        "戰略思維能力",
+                        "管理複雜專案的能力"
+                    ]
+                },
+                nextSteps: {
+                    en: "Demonstrate exceptional leadership, drive significant impact for 12 months, and show vision for organizational growth to join the Organizer level.",
+                    zh: "展現卓越領導力，在 12 個月內推動重大影響，並展現組織成長願景以加入組織者級別。"
+                }
+            },
+            organizer: {
+                icon: "👑",
+                bgColor: "bg-red-50",
+                title: { en: "Organizer", zh: "領導團隊" },
+                subtitle: { en: "Leadership Team - Lead Our Mission", zh: "領導團隊 - 領導我們的使命" },
+                benefits: {
+                    en: [
+                        "Full compensation package NT$40,000+",
+                        "Significant equity participation",
+                        "Executive decision-making authority",
+                        "Global networking opportunities",
+                        "Personal development budget"
+                    ],
+                    zh: [
+                        "完整薪酬套餐 NT$40,000+",
+                        "重要股權參與",
+                        "執行決策權",
+                        "全球網路機會",
+                        "個人發展預算"
+                    ]
+                },
+                requirements: {
+                    en: [
+                        "Full-time commitment (30+ hours/month)",
+                        "Exceptional performance as Core Team member",
+                        "Proven leadership and vision",
+                        "Ability to drive organizational strategy",
+                        "Strong network and influence in community"
+                    ],
+                    zh: [
+                        "全職投入（每月 30+ 小時）",
+                        "作為核心團隊成員的卓越表現",
+                        "經證實的領導力和願景",
+                        "推動組織戰略的能力",
+                        "在社群中的強大網路和影響力"
+                    ]
+                },
+                nextSteps: {
+                    en: "As an Organizer, you'll help shape the future of digital nomadism in Taiwan and potentially expand to other regions or start your own ventures.",
+                    zh: "作為組織者，您將幫助塑造台灣數位遊牧的未來，並可能擴展到其他地區或開始自己的事業。"
+                }
+            }
+        };
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            const langToggle = document.getElementById('lang-toggle');
+            const brandName = document.getElementById('brand-name');
+            
+            elements.forEach(element => {
+                if (isEnglish) {
+                    element.textContent = element.getAttribute('data-en');
+                    element.className = element.className.replace('chinese-text', 'english-text');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                    element.className = element.className.replace('english-text', 'chinese-text');
+                }
+            });
+            
+            // Handle english-text and chinese-text span elements (for Road Map section)
+            const englishTexts = document.querySelectorAll('.english-text');
+            const chineseTexts = document.querySelectorAll('.chinese-text');
+            
+            if (isEnglish) {
+                englishTexts.forEach(element => {
+                    element.classList.remove('hidden');
+                });
+                chineseTexts.forEach(element => {
+                    element.classList.add('hidden');
+                });
+            } else {
+                englishTexts.forEach(element => {
+                    element.classList.add('hidden');
+                });
+                chineseTexts.forEach(element => {
+                    element.classList.remove('hidden');
+                });
+            }
+            
+            langToggle.textContent = isEnglish ? '中文' : 'EN';
+            
+            // Handle brand name (now using logo, but keep for compatibility)
+            if (brandName) {
+                brandName.textContent = isEnglish ? 'DigitalNomadsTaiwan' : '台灣數位遊牧';
+                brandName.className = isEnglish ? 'text-xl lg:text-2xl font-semibold text-brand-red english-text' : 'text-xl lg:text-2xl font-semibold text-brand-red chinese-text';
+            }
+        }
+
+        function toggleJoinUsLanguage() {
+            isJoinUsEnglish = !isJoinUsEnglish;
+            const joinLangToggle = document.getElementById('join-lang-toggle');
+            joinLangToggle.textContent = isJoinUsEnglish ? '中文' : 'EN';
+            
+            // Update Join Us section content
+            const joinUsElements = document.querySelectorAll('#join-us [data-en][data-zh]');
+            joinUsElements.forEach(element => {
+                if (isJoinUsEnglish) {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                }
+            });
+            
+            // Re-render positions with new language
+            renderPositions(positions);
+        }
+
+        function createPositionCard(position) {
+            const lang = isJoinUsEnglish ? 'en' : 'zh';
+            const priorityBadge = position.priority ? 
+                `<span class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                    ${isJoinUsEnglish ? 'Priority' : '優先'}
+                </span>` : '';
+            
+            return `
+                <div class="position-card bg-white rounded-brand-xl p-6 shadow-soft hover:shadow-brand border border-neutral-100 transition-all duration-300 transform hover:scale-102 cursor-pointer relative" 
+                     onclick="openPositionModal(${position.id})" 
+                     data-category="${position.category}">
+                    ${priorityBadge}
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-2">${position.title[lang]}</h3>
+                        <div class="flex items-center space-x-4 text-sm text-neutral-600 mb-3">
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m-8 0V6a2 2 0 00-2 2v6"></path>
+                                </svg>
+                                ${position.type[lang]}
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                </svg>
+                                ${position.location[lang]}
+                            </span>
+                        </div>
+                        <div class="text-brand-red font-semibold text-lg mb-3">${position.salary[lang]}</div>
+                    </div>
+                    
+                    <p class="text-neutral-600 leading-relaxed mb-4 line-clamp-3">${position.description[lang]}</p>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-neutral-500 capitalize">${position.category}</span>
+                        <button class="bg-brand-red hover:bg-red-600 text-white px-4 py-2 rounded-brand text-sm font-medium transition-all duration-300 transform hover:scale-105">
+                            ${isJoinUsEnglish ? 'Learn More' : '了解更多'}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPositions(positionsToRender) {
+            const grid = document.getElementById('positions-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = positionsToRender.map(position => createPositionCard(position)).join('');
+        }
+
+        function filterPositions() {
+            const searchTerm = document.getElementById('position-search').value.toLowerCase();
+            const lang = isJoinUsEnglish ? 'en' : 'zh';
+            
+            const filtered = positions.filter(position => {
+                const titleMatch = position.title[lang].toLowerCase().includes(searchTerm);
+                const categoryMatch = position.category.toLowerCase().includes(searchTerm);
+                const descriptionMatch = position.description[lang].toLowerCase().includes(searchTerm);
+                return titleMatch || categoryMatch || descriptionMatch;
+            });
+            
+            renderPositions(filtered);
+        }
+
+        function filterByCategory(category) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-red', 'text-white', 'border-brand-red');
+                btn.classList.add('bg-white', 'text-neutral-700', 'border-neutral-200');
+            });
+            
+            event.target.classList.add('active', 'bg-brand-red', 'text-white', 'border-brand-red');
+            event.target.classList.remove('bg-white', 'text-neutral-700', 'border-neutral-200');
+            
+            const filtered = category === 'all' ? positions : positions.filter(p => p.category === category);
+            renderPositions(filtered);
+        }
+
+        function openPositionModal(positionId) {
+            const position = positions.find(p => p.id === positionId);
+            if (!position) return;
+            
+            const lang = isJoinUsEnglish ? 'en' : 'zh';
+            const modal = document.getElementById('position-modal');
+            
+            document.getElementById('modal-position-title').textContent = position.title[lang];
+            document.getElementById('modal-position-type').textContent = position.type[lang];
+            document.getElementById('modal-position-location').textContent = position.location[lang];
+            document.getElementById('modal-position-salary').textContent = position.salary[lang];
+            document.getElementById('modal-position-description').textContent = position.description[lang];
+            
+            const responsibilitiesList = document.getElementById('modal-position-responsibilities');
+            responsibilitiesList.innerHTML = position.responsibilities[lang]
+                .map(item => `<li class="flex items-start"><span class="text-brand-red mr-2">•</span>${item}</li>`)
+                .join('');
+            
+            const benefitsList = document.getElementById('modal-position-benefits');
+            benefitsList.innerHTML = position.benefits[lang]
+                .map(item => `<li class="flex items-start"><span class="text-green-500 mr-2">✓</span>${item}</li>`)
+                .join('');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePositionModal() {
+            const modal = document.getElementById('position-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function applyForPosition() {
+            alert(isJoinUsEnglish ? 
+                'Thank you for your interest! Please send your resume to hello@digitalnomadstaiwan.com' : 
+                '感謝您的興趣！請將您的履歷發送至 hello@digitalnomadstaiwan.com'
+            );
+        }
+
+        function openTierModal(tierId) {
+            const tier = tierData[tierId];
+            if (!tier) return;
+            
+            const lang = isJoinUsEnglish ? 'en' : 'zh';
+            const modal = document.getElementById('tier-modal');
+            
+            document.getElementById('modal-tier-icon').innerHTML = tier.icon;
+            document.getElementById('modal-tier-icon').className = `w-16 h-16 ${tier.bgColor} rounded-full flex items-center justify-center text-2xl`;
+            document.getElementById('modal-tier-title').textContent = tier.title[lang];
+            document.getElementById('modal-tier-subtitle').textContent = tier.subtitle[lang];
+            
+            const benefitsList = document.getElementById('modal-tier-benefits');
+            benefitsList.innerHTML = tier.benefits[lang]
+                .map(item => `<li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>${item}</span></li>`)
+                .join('');
+            
+            const requirementsList = document.getElementById('modal-tier-requirements');
+            requirementsList.innerHTML = tier.requirements[lang]
+                .map(item => `<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>${item}</span></li>`)
+                .join('');
+            
+            document.getElementById('modal-tier-next-steps').textContent = tier.nextSteps[lang];
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTierModal() {
+            const modal = document.getElementById('tier-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function simulateProgress() {
+            const progressLine = document.getElementById('progress-line');
+            const tierCards = document.querySelectorAll('.tier-card');
+            
+            let currentProgress = 25;
+            const targetProgress = 100;
+            const increment = 25;
+            
+            const interval = setInterval(() => {
+                if (currentProgress <= targetProgress) {
+                    progressLine.style.width = currentProgress + '%';
+                    
+                    // Update tier card states
+                    tierCards.forEach((card, index) => {
+                        const tierIcon = card.querySelector('.tier-icon');
+                        if (index < currentProgress / 25) {
+                            tierIcon.classList.add('bg-gradient-to-br', 'from-green-400', 'to-green-600', 'text-white', 'shadow-lg');
+                            tierIcon.classList.remove('bg-blue-50', 'bg-purple-50', 'bg-orange-50', 'bg-red-50');
+                        }
+                    });
+                    
+                    currentProgress += increment;
+                } else {
+                    clearInterval(interval);
+                    
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        progressLine.style.width = '25%';
+                        tierCards.forEach(card => {
+                            const tierIcon = card.querySelector('.tier-icon');
+                            tierIcon.classList.remove('bg-gradient-to-br', 'from-green-400', 'to-green-600', 'text-white', 'shadow-lg');
+                            
+                            // Restore original background colors
+                            const tierType = card.getAttribute('data-tier');
+                            if (tierType === 'helper') tierIcon.classList.add('bg-blue-50');
+                            else if (tierType === 'team-member') tierIcon.classList.add('bg-purple-50');
+                            else if (tierType === 'core-team') tierIcon.classList.add('bg-orange-50');
+                            else if (tierType === 'organizer') tierIcon.classList.add('bg-red-50');
+                        });
+                    }, 3000);
+                }
+            }, 800);
+        }
+
+        function scrollToPositions() {
+            const positionsSection = document.querySelector('#join-us .mb-20.lg\\:mb-32');
+            if (positionsSection) {
+                positionsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Initialize positions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPositions(positions);
+            
+            // Initialize photo carousel
+            renderCarousel();
+            startAutoPlay();
+            
+            // Observe all counter elements
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+            
+            // Add CSS for filter buttons and photo carousel
+            const style = document.createElement('style');
+            style.textContent = `
+                .filter-btn {
+                    background-color: white;
+                    color: #374151;
+                    border-color: #d1d5db;
+                }
+                .filter-btn.active {
+                    background-color: #dc2626;
+                    color: white;
+                    border-color: #dc2626;
+                }
+                .category-btn {
+                    background-color: white;
+                    color: #374151;
+                    border: 1px solid #d1d5db;
+                }
+                .category-btn.active {
+                    background-color: #FF7373;
+                    color: white;
+                    border-color: #FF7373;
+                }
+                .line-clamp-3 {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                .hover\\:scale-102:hover {
+                    transform: scale(1.02);
+                }
+                .shadow-soft {
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                }
+                .shadow-brand {
+                    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                }
+                .rounded-brand-xl {
+                    border-radius: 1rem;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Close modals when clicking outside
+            document.getElementById('position-modal').addEventListener('click', function(e) {
+                if (e.target === this) closePositionModal();
+            });
+            
+            document.getElementById('tier-modal').addEventListener('click', function(e) {
+                if (e.target === this) closeTierModal();
+            });
+            
+            // Close photo modals when clicking outside
+            document.getElementById('photo-gallery-modal').addEventListener('click', function(e) {
+                if (e.target === this) closePhotoGallery();
+            });
+            
+            document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+                if (e.target === this) closeLightbox();
+            });
+            
+            // Close modals with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closePositionModal();
+                    closeTierModal();
+                    closePhotoGallery();
+                    closeLightbox();
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Pause carousel on hover
+            const carouselContainer = document.getElementById('carousel-content');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 20);
+                    
+                    counterObserver.unobserve(counter);
+                }
+            });
+        });
+
+        // Photo Carousel Data
+        const eventPhotos = {
+            meetups: [
+                {
+                    id: 1,
+                    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop',
+                    title: { en: 'Monthly Networking Meetup', zh: '月度網路聚會' },
+                    description: { en: 'Community members sharing experiences and building connections', zh: '社群成員分享經驗並建立聯繫' },
+                    date: '2024-01-15',
+                    location: { en: 'Taipei Co-working Space', zh: '台北共同工作空間' },
+                    participants: 25
+                },
+                {
+                    id: 2,
+                    src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop',
+                    title: { en: 'Ice Breaker Session', zh: '破冰活動' },
+                    description: { en: 'New members introduction and group activities', zh: '新成員介紹和團體活動' },
+                    date: '2024-01-22',
+                    location: { en: 'Xinyi District Cafe', zh: '信義區咖啡廳' },
+                    participants: 18
+                },
+                {
+                    id: 3,
+                    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop',
+                    title: { en: 'Lightning Talks Evening', zh: '閃電演講之夜' },
+                    description: { en: 'Quick presentations on digital nomad topics', zh: '數位遊牧主題快速演講' },
+                    date: '2024-02-05',
+                    location: { en: 'Daan District Hub', zh: '大安區中心' },
+                    participants: 32
+                }
+            ],
+            cowork: [
+                {
+                    id: 4,
+                    src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+                    title: { en: 'Collaborative Work Session', zh: '協作工作會議' },
+                    description: { en: 'Professional collaboration and productivity session', zh: '專業協作和生產力會議' },
+                    date: '2024-01-18',
+                    location: { en: 'Modern Co-working Space', zh: '現代共同工作空間' },
+                    participants: 15
+                },
+                {
+                    id: 5,
+                    src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop',
+                    title: { en: 'Workspace Networking', zh: '工作空間網路' },
+                    description: { en: 'Building professional connections while working', zh: '在工作中建立專業聯繫' },
+                    date: '2024-02-01',
+                    location: { en: 'Tech Hub Taipei', zh: '台北科技中心' },
+                    participants: 22
+                },
+                {
+                    id: 6,
+                    src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop',
+                    title: { en: 'Focus & Flow Session', zh: '專注與流動會議' },
+                    description: { en: 'Deep work session with productivity techniques', zh: '使用生產力技巧的深度工作會議' },
+                    date: '2024-02-12',
+                    location: { en: 'Quiet Work Cafe', zh: '安靜工作咖啡廳' },
+                    participants: 12
+                }
+            ],
+            lectures: [
+                {
+                    id: 7,
+                    src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
+                    title: { en: 'Career Growth Workshop', zh: '職業成長工作坊' },
+                    description: { en: 'Expert-led session on career development strategies', zh: '專家主導的職業發展策略會議' },
+                    date: '2024-01-25',
+                    location: { en: 'Business Center Taipei', zh: '台北商業中心' },
+                    participants: 45
+                },
+                {
+                    id: 8,
+                    src: 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=800&h=600&fit=crop',
+                    title: { en: 'Digital Nomad Lifestyle', zh: '數位遊牧生活方式' },
+                    description: { en: 'Sharing experiences and best practices', zh: '分享經驗和最佳實踐' },
+                    date: '2024-02-08',
+                    location: { en: 'Innovation Hub', zh: '創新中心' },
+                    participants: 38
+                },
+                {
+                    id: 9,
+                    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
+                    title: { en: 'Growth Mindset Seminar', zh: '成長心態研討會' },
+                    description: { en: 'Developing resilience and adaptability', zh: '培養韌性和適應性' },
+                    date: '2024-02-15',
+                    location: { en: 'Learning Center', zh: '學習中心' },
+                    participants: 28
+                }
+            ],
+            adventures: [
+                {
+                    id: 10,
+                    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+                    title: { en: 'Maokong Tea Adventure', zh: '貓空茶葉探險' },
+                    description: { en: 'Cultural tour of traditional tea houses', zh: '傳統茶館文化之旅' },
+                    date: '2024-01-28',
+                    location: { en: 'Maokong Teahouse', zh: '貓空茶館' },
+                    participants: 20
+                },
+                {
+                    id: 11,
+                    src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+                    title: { en: 'Ultimate Frisbee Game', zh: '極限飛盤比賽' },
+                    description: { en: 'Social sports and team building activity', zh: '社交運動和團隊建設活動' },
+                    date: '2024-02-03',
+                    location: { en: 'Daan Park', zh: '大安森林公園' },
+                    participants: 16
+                },
+                {
+                    id: 12,
+                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+                    title: { en: 'Temple Cultural Tour', zh: '寺廟文化之旅' },
+                    description: { en: 'Exploring Taiwan\'s spiritual heritage', zh: '探索台灣的精神遺產' },
+                    date: '2024-02-10',
+                    location: { en: 'Longshan Temple', zh: '龍山寺' },
+                    participants: 24
+                }
+            ]
+        };
+
+        let currentCategory = 'meetups';
+        let currentSlideIndex = 0;
+        let autoPlayInterval;
+
+        // Photo Carousel Functions
+        function switchCategory(category) {
+            currentCategory = category;
+            currentSlideIndex = 0;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-red', 'text-white');
+                btn.classList.add('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
+            });
+            
+            const activeBtn = document.querySelector(`[data-category="${category}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-brand-red', 'text-white');
+                activeBtn.classList.remove('bg-white', 'text-neutral-700', 'border-neutral-200');
+            }
+            
+            renderCarousel();
+            startAutoPlay();
+        }
+
+        function renderCarousel() {
+            const photos = eventPhotos[currentCategory];
+            const lang = isEnglish ? 'en' : 'zh';
+            
+            // Desktop carousel
+            const desktopCarousel = document.getElementById('desktop-carousel');
+            desktopCarousel.innerHTML = photos.map(photo => createPhotoCard(photo, lang)).join('');
+            
+            // Mobile carousel
+            const mobileSlides = document.getElementById('mobile-slides');
+            mobileSlides.innerHTML = photos.map(photo => createMobileSlide(photo, lang)).join('');
+            mobileSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            // Mobile indicators
+            const indicators = document.getElementById('mobile-indicators');
+            indicators.innerHTML = photos.map((_, index) => 
+                `<button onclick="goToSlide(${index})" class="w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlideIndex ? 'bg-brand-red' : 'bg-neutral-300'
+                }"></button>`
+            ).join('');
+        }
+
+        function createPhotoCard(photo, lang) {
+            return `
+                <div class="relative group cursor-pointer overflow-hidden rounded-brand-xl shadow-soft hover:shadow-brand transition-all duration-300 transform hover:scale-105"
+                     onclick="openLightbox(${photo.id})">
+                    <div class="aspect-w-4 aspect-h-3">
+                        <img src="${photo.src}" 
+                             alt="${photo.title[lang]}" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                             loading="lazy">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h4 class="font-semibold text-lg mb-1">${photo.title[lang]}</h4>
+                        <p class="text-sm opacity-90 line-clamp-2">${photo.description[lang]}</p>
+                        <div class="flex justify-between items-center mt-2 text-xs">
+                            <span>${new Date(photo.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW')}</span>
+                            <span>${photo.participants} ${lang === 'en' ? 'participants' : '參與者'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createMobileSlide(photo, lang) {
+            return `
+                <div class="w-full flex-shrink-0 relative" onclick="openLightbox(${photo.id})">
+                    <img src="${photo.src}" 
+                         alt="${photo.title[lang]}" 
+                         class="w-full h-64 object-cover"
+                         loading="lazy">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
+                        <h4 class="font-semibold text-lg mb-1">${photo.title[lang]}</h4>
+                        <p class="text-sm opacity-90">${photo.description[lang]}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function previousSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : photos.length - 1;
+            updateMobileCarousel();
+        }
+
+        function nextSlide() {
+            const photos = eventPhotos[currentCategory];
+            currentSlideIndex = currentSlideIndex < photos.length - 1 ? currentSlideIndex + 1 : 0;
+            updateMobileCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateMobileCarousel();
+        }
+
+        function updateMobileCarousel() {
+            const mobileSlides = document.getElementById('mobile-slides');
+            mobileSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('#mobile-indicators button');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlideIndex) {
+                    indicator.classList.add('bg-brand-red');
+                    indicator.classList.remove('bg-neutral-300');
+                } else {
+                    indicator.classList.remove('bg-brand-red');
+                    indicator.classList.add('bg-neutral-300');
+                }
+            });
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Lightbox Functions
+        function openLightbox(photoId) {
+            const allPhotos = Object.values(eventPhotos).flat();
+            const photo = allPhotos.find(p => p.id === photoId);
+            if (!photo) return;
+            
+            const lang = isEnglish ? 'en' : 'zh';
+            const modal = document.getElementById('lightbox-modal');
+            
+            document.getElementById('lightbox-image').src = photo.src;
+            document.getElementById('lightbox-image').alt = photo.title[lang];
+            document.getElementById('lightbox-title').textContent = photo.title[lang];
+            document.getElementById('lightbox-description').textContent = photo.description[lang];
+            document.getElementById('lightbox-date').textContent = new Date(photo.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            startAutoPlay();
+        }
+
+        function sharePhoto() {
+            const title = document.getElementById('lightbox-title').textContent;
+            const url = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `Check out this photo from DigitalNomadsTaiwan: ${title}`,
+                    url: url
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const text = `Check out this photo from DigitalNomadsTaiwan: ${title} ${url}`;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(isEnglish ? 'Link copied to clipboard!' : '連結已複製到剪貼板！');
+                });
+            }
+        }
+
+        // Photo Gallery Functions
+        function openPhotoGallery() {
+            const modal = document.getElementById('photo-gallery-modal');
+            const grid = document.getElementById('gallery-grid');
+            const lang = isEnglish ? 'en' : 'zh';
+            
+            const allPhotos = Object.values(eventPhotos).flat();
+            grid.innerHTML = allPhotos.map(photo => `
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                     onclick="openLightbox(${photo.id})">
+                    <img src="${photo.src}" 
+                         alt="${photo.title[lang]}" 
+                         class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                        </svg>
+                    </div>
+                </div>
+            `).join('');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay();
+        }
+
+        function closePhotoGallery() {
+            const modal = document.getElementById('photo-gallery-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            startAutoPlay();
+        }
+
+        // Development Roadmap Functions
+        function toggleExpand(element) {
+            const expandableContent = element.querySelector('.expandable-content');
+            const chevron = element.querySelector('.fa-chevron-down');
+            
+            if (expandableContent.classList.contains('expanded')) {
+                expandableContent.classList.remove('expanded');
+                chevron.style.transform = 'rotate(0deg)';
+            } else {
+                expandableContent.classList.add('expanded');
+                chevron.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Progress bar functionality
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                progressFill.style.width = scrollPercent + '%';
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize roadmap functionality
+        function initializeRoadmap() {
+            // Add scroll event listeners for roadmap
+            window.addEventListener('scroll', () => {
+                updateProgressBar();
+                handleScrollAnimations();
+            });
+
+            // Initialize animations on load
+            handleScrollAnimations();
+            
+            // Add click event listeners to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const expandableContent = this.querySelector('.expandable-content');
+                    if (expandableContent) {
+                        expandableContent.classList.toggle('expanded');
+                    }
+                });
+            });
+        }
+
+        // Add CSS for roadmap animations
+        function addRoadmapStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                /* Timeline Styles */
+                .timeline {
+                    position: relative;
+                }
+                
+                .timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    bottom: 0;
+                    width: 4px;
+                    background: linear-gradient(to bottom, #DC2626, #3B82F6, #10B981);
+                    transform: translateX(-50%);
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline::before {
+                        left: 30px;
+                    }
+                }
+                
+                .timeline-item {
+                    position: relative;
+                    margin-bottom: 4rem;
+                }
+                
+                .timeline-marker {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10;
+                    transition: all 0.3s ease;
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline-marker {
+                        left: 30px;
+                    }
+                }
+                
+                .timeline-content {
+                    width: 45%;
+                    padding: 2rem;
+                    background: white;
+                    border-radius: 1rem;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+                
+                .timeline-content:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                }
+                
+                .timeline-item:nth-child(odd) .timeline-content {
+                    margin-left: auto;
+                }
+                
+                @media (max-width: 768px) {
+                    .timeline-content {
+                        width: calc(100% - 80px);
+                        margin-left: 80px !important;
+                    }
+                }
+                
+                /* Expandable Content */
+                .expandable-content {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease;
+                }
+                
+                .expandable-content.expanded {
+                    max-height: 500px;
+                }
+                
+                /* You Are Here Marker */
+                .current-marker {
+                    animation: pulse 2s infinite;
+                }
+                
+                @keyframes pulse {
+                    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+                }
+                
+                /* Fade In Animation */
+                .fade-in {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 0.8s ease;
+                }
+                
+                .fade-in.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Phase Icons */
+                .phase-icon {
+                    font-size: 2rem;
+                    margin-bottom: 1rem;
+                }
+                
+                #progressFill {
+                    transition: width 0.3s ease;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Smooth scrolling function
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const headerHeight = 80; // Account for fixed header
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Close mobile menu function
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            if (mobileMenu && menuIcon && closeIcon) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // Initialize navigation functionality
+        function initializeNavigation() {
+            // Add click event listeners to all navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    smoothScrollTo(targetId);
+                    
+                    // Close mobile menu if it's open
+                    closeMobileMenu();
+                });
+            });
+        }
+    </script>
+
+    <!-- Initialize roadmap functionality -->
+    <script>
+        // Initialize roadmap when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            addRoadmapStyles();
+            initializeRoadmap();
+            initializeNavigation();
+        });
+    </script>
+</body>
+</html> 
